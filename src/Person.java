@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Person {
 
@@ -5,6 +6,7 @@ public class Person {
 	private String firstName;
 	private String lastName;
 	private Address address;
+	private ArrayList emails;
 	
 	
 
@@ -14,12 +16,13 @@ public class Person {
 	 * @param lastName
 	 * @param address
 	 */
-	public Person(String personCode, String firstName, String lastName, Address address) {
+	public Person(String personCode, String firstName, String lastName, Address address, ArrayList emails) {
 		super();
 		this.personCode = personCode;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
+		this.emails = emails;
 	}
 
 	/**
