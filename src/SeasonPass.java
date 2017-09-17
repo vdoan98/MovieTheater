@@ -1,5 +1,6 @@
 import org.joda.time.*;
 
+
 public class SeasonPass extends Product {
 	private String name;
 	private DateTime startDate;
@@ -7,7 +8,7 @@ public class SeasonPass extends Product {
 	private double cost;
 	
 	/**
-	 * @param productCode
+	 * @param productCodes
 	 * @param type
 	 * @param name
 	 * @param startDate
