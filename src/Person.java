@@ -80,6 +80,12 @@ public class Person {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-	
+	public void addEmail(String email) {
+		email.trim();
+		String[] emailList = email.split(",");
+		for (int i = 0; i < emailList.length; i++) {
+			this.emails.add(emailList[i]);
+		}
+	}
 	
 }
