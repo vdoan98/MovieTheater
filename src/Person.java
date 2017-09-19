@@ -16,13 +16,28 @@ public class Person {
 	 * @param lastName
 	 * @param address
 	 */
-	public Person(String personCode, String firstName, String lastName, Address address, ArrayList emails) {
+	public Person(String personCode, String firstName, String lastName, Address address, String emails) {
 		super();
 		this.personCode = personCode;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
-		this.emails = emails;
+		this.emails = this.addEmail(emails); //emails ArrayList get value from addEmail()
+	}
+	
+	/**
+	 * @param personCode
+	 * @param firstName
+	 * @param lastName
+	 * @param address
+	 */
+	public Person(String personCode, String firstName, String lastName, Address address) {
+		super();
+		this.personCode = personCode;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+		this.emails = new ArrayList<String>();
 	}
 
 	/**
@@ -80,12 +95,28 @@ public class Person {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-	public void addEmail(String email) {
+	
+	/**
+	 * @param email
+	 */
+	public ArrayList<String> addEmail(String email) {
+		//Initialize temporary string ArrayList. This will store each person's email list.
+		ArrayList <String> emails = new ArrayList<String>();
 		email.trim();
 		String[] emailList = email.split(",");
 		for (int i = 0; i < emailList.length; i++) {
-			this.emails.add(emailList[i]);
+			emails.add(emailList[i]);
 		}
+		return emails;
 	}
+
+	/**
+	 * @return the emails
+	 */
+	public ArrayList<String> getEmails() {
+		return getEmails();
+	}
+
+	
 	
 }
