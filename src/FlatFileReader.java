@@ -27,30 +27,18 @@ public class FlatFileReader {
 				// Creates an Address object
 				data[2].trim();
 				String addressArray[] = data[2].split(",");
-				Address address = new Address(addressArray[0], addressArray[1], 
-						addressArray[2], addressArray[3], 
+				Address address = new Address(addressArray[0], addressArray[1], addressArray[2], addressArray[3],
 						addressArray[4]);
-
 
 				// Creates a Person object
 				Person person = new Person(data[0], nameArray[0], nameArray[1], address, emails);
 
-//				if(data.length == 4) {
-//					String emailArray[] = data[3].split("\n");
-////					person.addEmail(emailArray[]);
-//					for(int i = 0; i < emailArray.length; i++) {
-//						System.out.println(emailArray[i]);
-//					}
-//				}
-
 				// Adds the Person object into Person ArrayList
 				personList.add(person);
-				if(data.length == 4) {
+				if (data.length == 4) {
 					personList.get(count).addEmail(data[3]);
 				}
 			}
-
-
 
 			sc.close();
 			return personList;
