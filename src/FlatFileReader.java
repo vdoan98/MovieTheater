@@ -1,6 +1,10 @@
 import java.io.*;
 import java.util.*;
 
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+
 public class FlatFileReader {
 	
 	ArrayList<Person> personList = new ArrayList<Person>();
@@ -103,10 +107,51 @@ public class FlatFileReader {
 	
 	public ArrayList<Product> readProducst() {
 		Scanner sc = null;
-		
+		String data[] ;
 		try {
+			sc = new Scanner(new File("data/Products.dat"));
+			sc.nextLine(); 
 			
-			
+			while (sc.hasNext()) {
+				String line = sc.nextLine(); // reads each line starting from 2nd line
+				line.trim();
+				data = line.split(";"); // splits the line and stores in a string array
+				
+				SeasonPass season;
+				MovieTicket ticket;
+				ParkingPass parking;
+				
+				String addressArray[];
+				DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy/MM/dd");
+				DateTimeFormatter formatTime = DateTimeFormat.forPattern("yyyy/MM/dd HH:mm:ss");
+				
+				switch(data[1].charAt(0)){
+				case 'S':
+					season = new SeasonPass(data[0], data[1].charAt(0), data[2], formatter.parseDateTime(data[3]),formatter.parseDateTime(data[4]), Double.parseDouble(data[5]));
+					productList.add(season);
+					break;
+				case 'M':
+					data[4].trim();
+					addressArray = data[2].split(",");
+					Address address = new Address(addressArray[0], addressArray[1], addressArray[2], addressArray[3],
+							addressArray[4]);
+					ticket = new MovieTicket(data[0], data[1].charAt(0), formatter.parseDateTime(data[2]), data[3], address, Integer.parseInt(data[5]), Double.parseDouble(data[6]));
+					productList.add(ticket);
+					break;
+				case 'P':
+
+					parking = new ParkingPass(data[0], data[1].charAt(0), Double.parseDouble(data[3]));
+					productList.add(parking);
+					break;
+				case 'R':
+					
+					break;
+				
+				}
+
+				
+			}
+
 			
 			
 			sc.close();
@@ -115,8 +160,8 @@ public class FlatFileReader {
 		}catch (FileNotFoundException e){
 			e.printStackTrace();
 			return null;
-		}catch (Exception e){
-			e.printStackTrace();
+		}catch (Exception le){
+			le.printStackTrace();
 			return null;
 		}
 		
