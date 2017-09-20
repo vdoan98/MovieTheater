@@ -105,7 +105,7 @@ public class FlatFileReader {
 	}
 	
 	
-	public ArrayList<Product> readProducst() {
+	public ArrayList<Product> readProducts() {
 		Scanner sc = null;
 		String data[] ;
 		try {

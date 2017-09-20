@@ -15,9 +15,10 @@ public class DataConverter {
 		 */
 		List<Person> personList = fr.readPersons();
 		List<Customer> customerList = fr.readCustomer();
+		List<Product> productList = fr.readProducts();
 		// Write Person ArrayList and Customer ArrayList into a Json file
 		JsonWriter jWriter = new JsonWriter();
-		jWriter.jsonConverter(personList, customerList);
+		jWriter.jsonConverter(personList, customerList, productList);
 		// // Write Person ArrayList into an XML file
 		// XMLWriter xmlWriter = new XMLWriter();
 		// xmlWriter.xmlConverter(personList);
