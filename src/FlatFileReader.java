@@ -4,7 +4,9 @@ import java.util.*;
 public class FlatFileReader {
 	
 	ArrayList<Person> personList = new ArrayList<Person>();
-
+	ArrayList<Customer> customerList = new ArrayList<Customer>();
+	ArrayList<Product> productList = new ArrayList<Product>();
+	
 	public ArrayList<Person> readPersons() {
 
 		Scanner sc = null;
@@ -60,9 +62,7 @@ public class FlatFileReader {
 	public ArrayList<Customer> readCustomer() {
 		Scanner sc = null;
 		// This Customer ArrayList stores the Customer objects
-		ArrayList<Customer> customerList = new ArrayList<Customer>();
 		String data[] ;
-		String email;
 		try {
 			sc = new Scanner(new File("data/Customers.dat"));
 			sc.nextLine(); // reads the number of records from the first line
@@ -98,6 +98,28 @@ public class FlatFileReader {
 			return null;
 		}
 	
+	}
+	
+	
+	public ArrayList<Product> readProducst() {
+		Scanner sc = null;
+		
+		try {
+			
+			
+			
+			
+			sc.close();
+			return productList;
+		
+		}catch (FileNotFoundException e){
+			e.printStackTrace();
+			return null;
+		}catch (Exception e){
+			e.printStackTrace();
+			return null;
+		}
+		
 	}
 	
 	
