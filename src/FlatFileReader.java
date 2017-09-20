@@ -120,7 +120,7 @@ public class FlatFileReader {
 				SeasonPass season;
 				MovieTicket ticket;
 				ParkingPass parking;
-				
+				Refreshment refresh;
 				String addressArray[];
 				DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy/MM/dd");
 				DateTimeFormatter formatTime = DateTimeFormat.forPattern("yyyy/MM/dd HH:mm:ss");
@@ -139,12 +139,12 @@ public class FlatFileReader {
 					productList.add(ticket);
 					break;
 				case 'P':
-
 					parking = new ParkingPass(data[0], data[1].charAt(0), Double.parseDouble(data[3]));
 					productList.add(parking);
 					break;
 				case 'R':
-					
+					refresh = new Refreshment(data[0], data[1].charAt(0), data[2], Double.parseDouble(data[3]));
+					productList.add(refresh);
 					break;
 				
 				}
