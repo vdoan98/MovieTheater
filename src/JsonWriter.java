@@ -10,25 +10,32 @@ import com.google.gson.GsonBuilder;
 
 public class JsonWriter {
 
-	public void jsonConverter(List<Person> persons) {
+	public void jsonConverter(List<Person> persons, List<Customer> customers) {
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		File jsonOutput = new File("data/Persons.json");
-
+		File jsonPersonsOutput = new File("data/Persons.json");
+		File jsonCustomersOutput = new File("data/Customers.json");
 		PrintWriter jsonPrintWriter = null;
 
 		try {
-			jsonPrintWriter = new PrintWriter(jsonOutput);
+			jsonPrintWriter = new PrintWriter(jsonPersonsOutput);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-
 		for (Person aPerson : persons) {
 			// Use toJson method to convert Person object into a String
 			String personOutput = gson.toJson(aPerson);
 			jsonPrintWriter.write(personOutput + "\n");
 		}
-
+		try {
+			jsonPrintWriter = new PrintWriter(jsonCustomersOutput);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		for (Customer aCustomer : customers) {
+			String customerOutput = gson.toJson(aCustomer);
+			jsonPrintWriter.write(customerOutput + "\n");
+		}
 		jsonPrintWriter.close();
 	}
 }
