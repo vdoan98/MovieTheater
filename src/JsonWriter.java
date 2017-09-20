@@ -12,7 +12,6 @@ public class JsonWriter {
 
 	public void jsonConverter(List<Person> persons) {
 
-		// Gson gson = new Gson();
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		File jsonOutput = new File("data/Persons.json");
 
