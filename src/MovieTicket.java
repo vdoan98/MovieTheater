@@ -1,10 +1,12 @@
+import org.joda.time.DateTime;
 
 public class MovieTicket extends Product {
 	private String movieName;
+	private DateTime time;
 	private Address address; //TODO:Address class
 	private int screenNo;
 	private double pricePerUnit;
-	/**
+	/** 
 	 * @param productCode
 	 * @param type
 	 * @param movieName
@@ -12,13 +14,26 @@ public class MovieTicket extends Product {
 	 * @param screenNo
 	 * @param pricePerUnit
 	 */
-	public MovieTicket(String productCode, char type, String movieName, Address address, int screenNo,
+	public MovieTicket(String productCode, char type, DateTime time, String movieName, Address address, int screenNo,
 			double pricePerUnit) {
 		super(productCode, type);
+		this.time = time;
 		this.movieName = movieName;
 		this.address = address;
 		this.screenNo = screenNo;
 		this.pricePerUnit = pricePerUnit;
+	}
+	/**
+	 * @return the time
+	 */
+	public DateTime getTime() {
+		return time;
+	}
+	/**
+	 * @param time the time to set
+	 */
+	public void setTime(DateTime time) {
+		this.time = time;
 	}
 	/**
 	 * @return the movieName
