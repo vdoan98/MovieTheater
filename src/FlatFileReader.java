@@ -50,11 +50,29 @@ public class FlatFileReader {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			return null;
-		} finally{
-			
+		} catch(Exception le){
+			le.printStackTrace();
+			return null;
+		}
+	}
+	public ArrayList<Customer> readCustomer() {
+		Scanner sc = null;
+		// This Customer ArrayList stores the Customer objects
+		ArrayList<Customer> customerList = new ArrayList<Customer>();
+		String data[] ;
+		String email;
+		try {
+			sc = new Scanner(new File("data/Customers.dat"));
+			sc.nextLine(); // reads the number of records from the first line
+		}catch(FileNotFoundException e){
+			e.printStackTrace();
+			return null;
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
 		}
 		
-		
+		return customerList;
 	}
 	
 }
