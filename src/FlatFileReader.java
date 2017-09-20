@@ -123,7 +123,7 @@ public class FlatFileReader {
 				Refreshment refresh;
 				String addressArray[];
 				DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy/MM/dd");
-				DateTimeFormatter formatTime = DateTimeFormat.forPattern("yyyy/MM/dd HH:mm:ss");
+				DateTimeFormatter formatTime = DateTimeFormat.forPattern("yyyy/MM/dd HH:mm");
 				
 				switch(data[1].charAt(0)){
 				case 'S':
@@ -148,11 +148,9 @@ public class FlatFileReader {
 					break;
 				
 				}
-
 				
 			}
 
-			
 			
 			sc.close();
 			return productList;
