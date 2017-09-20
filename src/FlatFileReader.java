@@ -2,12 +2,13 @@ import java.io.*;
 import java.util.*;
 
 public class FlatFileReader {
+	
+	ArrayList<Person> personList = new ArrayList<Person>();
 
 	public ArrayList<Person> readPersons() {
 
 		Scanner sc = null;
 		// This Person ArrayList stores the Person objects
-		ArrayList<Person> personList = new ArrayList<Person>();
 		String data[] ;
 		String email;
 
@@ -55,6 +56,7 @@ public class FlatFileReader {
 			return null;
 		}
 	}
+	
 	public ArrayList<Customer> readCustomer() {
 		Scanner sc = null;
 		// This Customer ArrayList stores the Customer objects
@@ -64,6 +66,30 @@ public class FlatFileReader {
 		try {
 			sc = new Scanner(new File("data/Customers.dat"));
 			sc.nextLine(); // reads the number of records from the first line
+			
+			while (sc.hasNext()) {
+				String line = sc.nextLine(); // reads each line starting from 2nd line
+				line.trim();
+				data = line.split(";"); // splits the line and stores in a string array
+				
+				int code = 0;
+				
+				for (int i = 0; i < personList.size(); i++){
+					if (data[2].compareTo(personList.get(i).getPersonCode())==0){
+						code = i;
+					}
+				}
+				
+
+				Customer customer = new Customer(data[0], data[1].charAt(0), personList.get(code), data[3], personList.get(code).getAddress());
+
+				// Adds the Person object into Person ArrayList
+				customerList.add(customer);
+			}
+
+			sc.close();
+			return customerList;
+			
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 			return null;
@@ -71,8 +97,8 @@ public class FlatFileReader {
 			e.printStackTrace();
 			return null;
 		}
-		
-		return customerList;
+	
 	}
+	
 	
 }
