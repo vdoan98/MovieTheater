@@ -104,3 +104,188 @@
     "pbbae@rhyta.com"
   ]
 }
+{
+  "personCode": "nf32a",
+  "firstName": "Troughton",
+  "lastName": "Patrick",
+  "address": {
+    "street": "3067 Twin Oaks Drive",
+    "city": "Jordan",
+    "state": "MI",
+    "zip": "49727",
+    "country": "USA"
+  },
+  "emails": [
+    "patrictroughton@dayrep.com",
+    "ptrought@unl.edu"
+  ]
+}
+{
+  "personCode": "321na",
+  "firstName": "Hertzog",
+  "lastName": "Michael",
+  "address": {
+    "street": "4906 Aaron Smith Drive",
+    "city": " Newville",
+    "state": " PA",
+    "zip": "17241",
+    "country": "USA"
+  },
+  "emails": [
+    "flobae@jourrapide.com"
+  ]
+}
+{
+  "personCode": "342dr",
+  "firstName": "Diederich",
+  "lastName": "Simone",
+  "address": {
+    "street": "1922 Cabell Avenue",
+    "city": " Alexandria",
+    "state": " VA",
+    "zip": " 22301",
+    "country": "USA"
+  },
+  "emails": [
+    "die@homestuck.com",
+    "dierich@unl.edu"
+  ]
+}
+{
+  "personCode": "6help",
+  "firstName": "Moretti",
+  "lastName": "Giulia",
+  "address": {
+    "street": "4150 Commerce Boulevard",
+    "city": "Plainview",
+    "state": " NE",
+    "zip": "68501",
+    "country": "USA"
+  },
+  "emails": [
+    "giuliamoretti@telewocm.us",
+    "moretea@gmail.com"
+  ]
+}
+{
+  "personCode": "321dr",
+  "firstName": "Udinesi",
+  "lastName": "Geraldino",
+  "address": {
+    "street": "4832 Andell Road",
+    "city": "Nashville",
+    "state": "TN",
+    "zip": "37201",
+    "country": "USA"
+  },
+  "emails": [
+    "drgerald@helpme.com"
+  ]
+}
+{
+  "personCode": "1svndr",
+  "firstName": "Gaertner",
+  "lastName": "Brigitte",
+  "address": {
+    "street": "3515 Sherwood Circle",
+    "city": " Lafayette",
+    "state": " LA",
+    "zip": "70506",
+    "country": "USA"
+  },
+  "emails": [
+    "pleasehelpme@yahoo.com",
+    "brigittega@gmail.com"
+  ]
+}
+{
+  "personCode": "12cmp",
+  "firstName": "Cole",
+  "lastName": "Uwe",
+  "address": {
+    "street": "4385 Stanley Avenue",
+    "city": " Levittown",
+    "state": " NY",
+    "zip": "11756",
+    "country": "USA"
+  },
+  "emails": [
+    "ew@gmail.com",
+    "uwecole@unl.edu",
+    "coleuwe@yahoo.com",
+    "ewuweew@bbc.gov"
+  ]
+}
+{
+  "personCode": "vantas",
+  "firstName": "Schneider",
+  "lastName": "Ana",
+  "address": {
+    "street": "3880 Moonlight Drive",
+    "city": " Pleasantville",
+    "state": " NJ",
+    "zip": "08232",
+    "country": "USA"
+  },
+  "emails": [
+    "anjaschneider@dayrep.com"
+  ]
+}
+{
+  "personCode": "8000",
+  "firstName": "Eichelberger",
+  "lastName": "Markus",
+  "address": {
+    "street": "814 Plainfield Avenue",
+    "city": " Fayette",
+    "state": " NY",
+    "zip": " 13065",
+    "country": "USA"
+  },
+  "emails": [
+    "markueichelberger@rhyta.com",
+    "areyoureadingthis@gmail.com"
+  ]
+}
+{
+  "personCode": "572bn",
+  "firstName": "Smith",
+  "lastName": "Matt",
+  "address": {
+    "street": "333 W 35th St",
+    "city": " Chicago",
+    "state": " IL",
+    "zip": "60616",
+    "country": "USA"
+  },
+  "emails": [
+    "msmith@who.com",
+    "thedoc@cse.unl.edu"
+  ]
+}
+{
+  "personCode": "bbchar",
+  "firstName": "Ebersbach",
+  "lastName": "Leah",
+  "address": {
+    "street": "4327 Elsie Drive",
+    "city": " Viborg",
+    "state": " SD",
+    "zip": " 57070",
+    "country": "USA"
+  },
+  "emails": []
+}
+{
+  "personCode": "har84",
+  "firstName": "Davison",
+  "lastName": "Peter",
+  "address": {
+    "street": "4832 Andell Road",
+    "city": "Nashville",
+    "state": "TN",
+    "zip": "37201",
+    "country": "USA"
+  },
+  "emails": []
+}

@@ -85,19 +85,17 @@
   <customerCode>C005</customerCode>
   <type>G</type>
   <contact>
-    <personCode>965</personCode>
-    <firstName>Terrell</firstName>
-    <lastName>Connie</lastName>
+    <personCode>bbchar</personCode>
+    <firstName>Ebersbach</firstName>
+    <lastName>Leah</lastName>
     <address>
-      <street>4729 Tenmile Road</street>
-      <city>Boston</city>
-      <state>MA</state>
-      <zip>02210</zip>
+      <street>4327 Elsie Drive</street>
+      <city> Viborg</city>
+      <state> SD</state>
+      <zip> 57070</zip>
       <country>USA</country>
     </address>
-    <emails>
-      <string>connietterrell@rhyta.com</string>
-    </emails>
+    <emails/>
   </contact>
   <name>Saturn Softwares</name>
   <address reference="../contact/address"/>
@@ -106,18 +104,19 @@
   <customerCode>C006</customerCode>
   <type>S</type>
   <contact>
-    <personCode>965</personCode>
-    <firstName>Terrell</firstName>
-    <lastName>Connie</lastName>
+    <personCode>342dr</personCode>
+    <firstName>Diederich</firstName>
+    <lastName>Simone</lastName>
     <address>
-      <street>4729 Tenmile Road</street>
-      <city>Boston</city>
-      <state>MA</state>
-      <zip>02210</zip>
+      <street>1922 Cabell Avenue</street>
+      <city> Alexandria</city>
+      <state> VA</state>
+      <zip> 22301</zip>
       <country>USA</country>
     </address>
     <emails>
-      <string>connietterrell@rhyta.com</string>
+      <string>die@homestuck.com</string>
+      <string>dierich@unl.edu</string>
     </emails>
   </contact>
   <name>Jane Doe</name>
@@ -127,18 +126,18 @@
   <customerCode>C007</customerCode>
   <type>S</type>
   <contact>
-    <personCode>965</personCode>
-    <firstName>Terrell</firstName>
-    <lastName>Connie</lastName>
+    <personCode>321dr</personCode>
+    <firstName>Udinesi</firstName>
+    <lastName>Geraldino</lastName>
     <address>
-      <street>4729 Tenmile Road</street>
-      <city>Boston</city>
-      <state>MA</state>
-      <zip>02210</zip>
+      <street>4832 Andell Road</street>
+      <city>Nashville</city>
+      <state>TN</state>
+      <zip>37201</zip>
       <country>USA</country>
     </address>
     <emails>
-      <string>connietterrell@rhyta.com</string>
+      <string>drgerald@helpme.com</string>
     </emails>
   </contact>
   <name>Jade Harley</name>

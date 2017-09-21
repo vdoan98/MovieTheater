@@ -98,4 +98,177 @@
     <string>patb@unl.edu</string>
     <string>pbbae@rhyta.com</string>
   </emails>
+</person><person>
+  <personCode>nf32a</personCode>
+  <firstName>Troughton</firstName>
+  <lastName>Patrick</lastName>
+  <address>
+    <street>3067 Twin Oaks Drive</street>
+    <city>Jordan</city>
+    <state>MI</state>
+    <zip>49727</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <string>patrictroughton@dayrep.com</string>
+    <string>ptrought@unl.edu</string>
+  </emails>
+</person><person>
+  <personCode>321na</personCode>
+  <firstName>Hertzog</firstName>
+  <lastName>Michael</lastName>
+  <address>
+    <street>4906 Aaron Smith Drive</street>
+    <city> Newville</city>
+    <state> PA</state>
+    <zip>17241</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <string>flobae@jourrapide.com</string>
+  </emails>
+</person><person>
+  <personCode>342dr</personCode>
+  <firstName>Diederich</firstName>
+  <lastName>Simone</lastName>
+  <address>
+    <street>1922 Cabell Avenue</street>
+    <city> Alexandria</city>
+    <state> VA</state>
+    <zip> 22301</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <string>die@homestuck.com</string>
+    <string>dierich@unl.edu</string>
+  </emails>
+</person><person>
+  <personCode>6help</personCode>
+  <firstName>Moretti</firstName>
+  <lastName>Giulia</lastName>
+  <address>
+    <street>4150 Commerce Boulevard</street>
+    <city>Plainview</city>
+    <state> NE</state>
+    <zip>68501</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <string>giuliamoretti@telewocm.us</string>
+    <string>moretea@gmail.com</string>
+  </emails>
+</person><person>
+  <personCode>321dr</personCode>
+  <firstName>Udinesi</firstName>
+  <lastName>Geraldino</lastName>
+  <address>
+    <street>4832 Andell Road</street>
+    <city>Nashville</city>
+    <state>TN</state>
+    <zip>37201</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <string>drgerald@helpme.com</string>
+  </emails>
+</person><person>
+  <personCode>1svndr</personCode>
+  <firstName>Gaertner</firstName>
+  <lastName>Brigitte</lastName>
+  <address>
+    <street>3515 Sherwood Circle</street>
+    <city> Lafayette</city>
+    <state> LA</state>
+    <zip>70506</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <string>pleasehelpme@yahoo.com</string>
+    <string>brigittega@gmail.com</string>
+  </emails>
+</person><person>
+  <personCode>12cmp</personCode>
+  <firstName>Cole</firstName>
+  <lastName>Uwe</lastName>
+  <address>
+    <street>4385 Stanley Avenue</street>
+    <city> Levittown</city>
+    <state> NY</state>
+    <zip>11756</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <string>ew@gmail.com</string>
+    <string>uwecole@unl.edu</string>
+    <string>coleuwe@yahoo.com</string>
+    <string>ewuweew@bbc.gov</string>
+  </emails>
+</person><person>
+  <personCode>vantas</personCode>
+  <firstName>Schneider</firstName>
+  <lastName>Ana</lastName>
+  <address>
+    <street>3880 Moonlight Drive</street>
+    <city> Pleasantville</city>
+    <state> NJ</state>
+    <zip>08232</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <string>anjaschneider@dayrep.com</string>
+  </emails>
+</person><person>
+  <personCode>8000</personCode>
+  <firstName>Eichelberger</firstName>
+  <lastName>Markus</lastName>
+  <address>
+    <street>814 Plainfield Avenue</street>
+    <city> Fayette</city>
+    <state> NY</state>
+    <zip> 13065</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <string>markueichelberger@rhyta.com</string>
+    <string>areyoureadingthis@gmail.com</string>
+  </emails>
+</person><person>
+  <personCode>572bn</personCode>
+  <firstName>Smith</firstName>
+  <lastName>Matt</lastName>
+  <address>
+    <street>333 W 35th St</street>
+    <city> Chicago</city>
+    <state> IL</state>
+    <zip>60616</zip>
+    <country>USA</country>
+  </address>
+  <emails>
+    <string>msmith@who.com</string>
+    <string>thedoc@cse.unl.edu</string>
+  </emails>
+</person><person>
+  <personCode>bbchar</personCode>
+  <firstName>Ebersbach</firstName>
+  <lastName>Leah</lastName>
+  <address>
+    <street>4327 Elsie Drive</street>
+    <city> Viborg</city>
+    <state> SD</state>
+    <zip> 57070</zip>
+    <country>USA</country>
+  </address>
+  <emails/>
+</person><person>
+  <personCode>har84</personCode>
+  <firstName>Davison</firstName>
+  <lastName>Peter</lastName>
+  <address>
+    <street>4832 Andell Road</street>
+    <city>Nashville</city>
+    <state>TN</state>
+    <zip>37201</zip>
+    <country>USA</country>
+  </address>
+  <emails/>
 </person>
