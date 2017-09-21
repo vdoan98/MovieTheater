@@ -108,7 +108,6 @@
   "customerCode": "C005",
   "type": "G",
   "contact": {
-<<<<<<< HEAD
     "personCode": "bbchar",
     "firstName": "Ebersbach",
     "lastName": "Leah",
@@ -127,7 +126,6 @@
     "city": " Viborg",
     "state": " SD",
     "zip": " 57070",
-=======
     "personCode": "965",
     "firstName": "Terrell",
     "lastName": "Connie",
@@ -148,7 +146,6 @@
     "city": "Boston",
     "state": "MA",
     "zip": "02210",
->>>>>>> d8ff28b706248b050f8168f7333a58f08ccbacdd
     "country": "USA"
   }
 }
@@ -156,7 +153,6 @@
   "customerCode": "C006",
   "type": "S",
   "contact": {
-<<<<<<< HEAD
     "personCode": "342dr",
     "firstName": "Diederich",
     "lastName": "Simone",
@@ -170,7 +166,6 @@
     "emails": [
       "die@homestuck.com",
       "dierich@unl.edu"
-=======
     "personCode": "965",
     "firstName": "Terrell",
     "lastName": "Connie",
@@ -183,30 +178,23 @@
     },
     "emails": [
       "connietterrell@rhyta.com"
->>>>>>> d8ff28b706248b050f8168f7333a58f08ccbacdd
-    ]
   },
   "name": "Jane Doe",
   "address": {
-<<<<<<< HEAD
     "street": "1922 Cabell Avenue",
     "city": " Alexandria",
     "state": " VA",
     "zip": " 22301",
-=======
     "street": "4729 Tenmile Road",
     "city": "Boston",
     "state": "MA",
     "zip": "02210",
->>>>>>> d8ff28b706248b050f8168f7333a58f08ccbacdd
     "country": "USA"
   }
-}
 {
   "customerCode": "C007",
   "type": "S",
   "contact": {
-<<<<<<< HEAD
     "personCode": "321dr",
     "firstName": "Udinesi",
     "lastName": "Geraldino",
@@ -219,7 +207,6 @@
     },
     "emails": [
       "drgerald@helpme.com"
-=======
     "personCode": "965",
     "firstName": "Terrell",
     "lastName": "Connie",
@@ -232,17 +219,13 @@
     },
     "emails": [
       "connietterrell@rhyta.com"
->>>>>>> d8ff28b706248b050f8168f7333a58f08ccbacdd
-    ]
   },
   "name": "Jade Harley",
   "address": {
-<<<<<<< HEAD
     "street": "4832 Andell Road",
     "city": "Nashville",
     "state": "TN",
     "zip": "37201",
-=======
     "street": "4729 Tenmile Road",
     "city": "Boston",
     "state": "MA",
