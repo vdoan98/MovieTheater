@@ -28,8 +28,8 @@ public class DataConverter {
 		JsonWriter jWriter = new JsonWriter();
 		jWriter.jsonConverter(personList, customerList, productList);
 		// // Write Person ArrayList into an XML file
-		// XMLWriter xmlWriter = new XMLWriter();
-		// xmlWriter.xmlConverter(personList);
+		XMLWriter xmlWriter = new XMLWriter();
+		xmlWriter.xmlConverter(personList, customerList, productList);
 	}
 	
 }
