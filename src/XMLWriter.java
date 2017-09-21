@@ -44,6 +44,7 @@ public class XMLWriter {
 			// Use toXML method to convert Person object into a String
 			String personOutput = xstream.toXML(aPerson);
 			xmlPrintWriter.write(personOutput);
+			xmlPrintWriter.flush();
 		}
 		try {
 			xmlPrintWriter = new PrintWriter(xmlCustomersOutput);
@@ -55,6 +56,7 @@ public class XMLWriter {
 			// Use toJson method to convert Customer object into a String
 			String customerOutput = xstream.toXML(aCustomer);
 			xmlPrintWriter.write(customerOutput + "\n");
+			xmlPrintWriter.flush();
 		}
 		try {
 			xmlPrintWriter = new PrintWriter(xmlProductsOutput);
@@ -66,6 +68,7 @@ public class XMLWriter {
 			String productOutput = xstream.toXML(aProduct);
 			//Problem: Gson has default for DateTime object representation. 
 			xmlPrintWriter.write(productOutput + "\n"); 
+			xmlPrintWriter.flush();
 		}
 		
 		xmlPrintWriter.close();	

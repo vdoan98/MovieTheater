@@ -60,7 +60,8 @@ public class JsonWriter {
 		for (Product aProduct : products) {
 			String productOutput = gson.toJson(aProduct);
 			//Problem: Gson has default for DateTime object representation. 
-			jsonPrintWriter.write(productOutput + "\n"); 
+			jsonPrintWriter.write(productOutput + "\n");
+			jsonPrintWriter.flush();
 		}
 		jsonPrintWriter.close();
 	}
