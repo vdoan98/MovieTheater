@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<customer>
+  <customerCode>C001</customerCode>
+  <type>G</type>
+  <contact>
+    <personCode>965</personCode>
+    <firstName>Terrell</firstName>
+    <lastName>Connie</lastName>
+    <address>
+      <street>4729 Tenmile Road</street>
+      <city>Boston</city>
+      <state>MA</state>
+      <zip>02210</zip>
+      <country>USA</country>
+    </address>
+    <emails>
+      <string>connietterrell@rhyta.com</string>
+    </emails>
+  </contact>
+  <name>Clark Consultants</name>
+  <address reference="../contact/address"/>
+</customer>
+<customer>
+  <customerCode>C002</customerCode>
+  <type>S</type>
+  <contact>
+    <personCode>965</personCode>
+    <firstName>Terrell</firstName>
+    <lastName>Connie</lastName>
+    <address>
+      <street>4729 Tenmile Road</street>
+      <city>Boston</city>
+      <state>MA</state>
+      <zip>02210</zip>
+      <country>USA</country>
+    </address>
+    <emails>
+      <string>connietterrell@rhyta.com</string>
+    </emails>
+  </contact>
+  <name>Aprico</name>
+  <address reference="../contact/address"/>
+</customer>
+<customer>
+  <customerCode>C003</customerCode>
+  <type>S</type>
+  <contact>
+    <personCode>965</personCode>
+    <firstName>Terrell</firstName>
+    <lastName>Connie</lastName>
+    <address>
+      <street>4729 Tenmile Road</street>
+      <city>Boston</city>
+      <state>MA</state>
+      <zip>02210</zip>
+      <country>USA</country>
+    </address>
+    <emails>
+      <string>connietterrell@rhyta.com</string>
+    </emails>
+  </contact>
+  <name>High Tide Entertainment</name>
+  <address reference="../contact/address"/>
+</customer>
+<customer>
+  <customerCode>C004</customerCode>
+  <type>G</type>
+  <contact>
+    <personCode>433</personCode>
+    <firstName>Eichel</firstName>
+    <lastName>Max</lastName>
+    <address>
+      <street>4757 Thrash Trail</street>
+      <city>Longview</city>
+      <state>TX</state>
+      <zip>75601</zip>
+      <country>USA</country>
+    </address>
+    <emails/>
+  </contact>
+  <name>Yeworks</name>
+  <address reference="../contact/address"/>
+</customer>
+<customer>
+  <customerCode>C005</customerCode>
+  <type>G</type>
+  <contact>
+    <personCode>965</personCode>
+    <firstName>Terrell</firstName>
+    <lastName>Connie</lastName>
+    <address>
+      <street>4729 Tenmile Road</street>
+      <city>Boston</city>
+      <state>MA</state>
+      <zip>02210</zip>
+      <country>USA</country>
+    </address>
+    <emails>
+      <string>connietterrell@rhyta.com</string>
+    </emails>
+  </contact>
+  <name>Saturn Softwares</name>
+  <address reference="../contact/address"/>
+</customer>
+<customer>
+  <customerCode>C006</customerCode>
+  <type>S</type>
+  <contact>
+    <personCode>965</personCode>
+    <firstName>Terrell</firstName>
+    <lastName>Connie</lastName>
+    <address>
+      <street>4729 Tenmile Road</street>
+      <city>Boston</city>
+      <state>MA</state>
+      <zip>02210</zip>
+      <country>USA</country>
+    </address>
+    <emails>
+      <string>connietterrell@rhyta.com</string>
+    </emails>
+  </contact>
+  <name>Jane Doe</name>
+  <address reference="../contact/address"/>
+</customer>
+<customer>
+  <customerCode>C007</customerCode>
+  <type>S</type>
+  <contact>
+    <personCode>965</personCode>
+    <firstName>Terrell</firstName>
+    <lastName>Connie</lastName>
+    <address>
+      <street>4729 Tenmile Road</street>
+      <city>Boston</city>
+      <state>MA</state>
+      <zip>02210</zip>
+      <country>USA</country>
+    </address>
+    <emails>
+      <string>connietterrell@rhyta.com</string>
+    </emails>
+  </contact>
+  <name>Jade Harley</name>
+  <address reference="../contact/address"/>
+</customer>

@@ -2,57 +2,53 @@
   "customerCode": "C001",
   "type": "G",
   "contact": {
-    "personCode": "231",
-    "firstName": "Baker",
-    "lastName": "Tom",
+    "personCode": "965",
+    "firstName": "Terrell",
+    "lastName": "Connie",
     "address": {
-      "street": "1 Blue Jays Way",
-      "city": " Toronto",
-      "state": " ON",
-      "zip": " M5V 1J1",
-      "country": " Canada"
+      "street": "4729 Tenmile Road",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "02210",
+      "country": "USA"
     },
     "emails": [
-      "famousdoc@who.com",
-      "tbaker@cse.unl.edu",
-      "mostfamous@whovian.com",
-      "thedoctor@bbc.com"
+      "connietterrell@rhyta.com"
     ]
   },
   "name": "Clark Consultants",
   "address": {
-    "street": "1 Blue Jays Way",
-    "city": " Toronto",
-    "state": " ON",
-    "zip": " M5V 1J1",
-    "country": " Canada"
+    "street": "4729 Tenmile Road",
+    "city": "Boston",
+    "state": "MA",
+    "zip": "02210",
+    "country": "USA"
   }
 }
 {
   "customerCode": "C002",
   "type": "S",
   "contact": {
-    "personCode": "944c",
-    "firstName": "Castro",
-    "lastName": " Starlin",
+    "personCode": "965",
+    "firstName": "Terrell",
+    "lastName": "Connie",
     "address": {
-      "street": "1060 West Addison Street",
-      "city": "Chicago",
-      "state": "IL",
-      "zip": "60613",
+      "street": "4729 Tenmile Road",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "02210",
       "country": "USA"
     },
     "emails": [
-      "scastro@cubs.com",
-      "starlin_castro13@gmail.com"
+      "connietterrell@rhyta.com"
     ]
   },
-  "name": "CAS International Fellows",
+  "name": "Aprico",
   "address": {
-    "street": "1060 West Addison Street",
-    "city": "Chicago",
-    "state": "IL",
-    "zip": "60613",
+    "street": "4729 Tenmile Road",
+    "city": "Boston",
+    "state": "MA",
+    "zip": "02210",
     "country": "USA"
   }
 }
@@ -60,27 +56,26 @@
   "customerCode": "C003",
   "type": "S",
   "contact": {
-    "personCode": "306a",
-    "firstName": "Sampson",
-    "lastName": " Brock",
+    "personCode": "965",
+    "firstName": "Terrell",
+    "lastName": "Connie",
     "address": {
-      "street": "123 N 1st Street",
-      "city": "Omaha",
-      "state": "NE",
-      "zip": "68116",
+      "street": "4729 Tenmile Road",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "02210",
       "country": "USA"
     },
     "emails": [
-      "brock_f_sampson@gmail.com",
-      "bsampson@venture.com"
+      "connietterrell@rhyta.com"
     ]
   },
-  "name": "Valueless Club",
+  "name": "High Tide Entertainment",
   "address": {
-    "street": "123 N 1st Street",
-    "city": "Omaha",
-    "state": "NE",
-    "zip": "68116",
+    "street": "4729 Tenmile Road",
+    "city": "Boston",
+    "state": "MA",
+    "zip": "02210",
     "country": "USA"
   }
 }
@@ -88,27 +83,24 @@
   "customerCode": "C004",
   "type": "G",
   "contact": {
-    "personCode": "321f",
-    "firstName": "Fox",
-    "lastName": " Bud",
+    "personCode": "433",
+    "firstName": "Eichel",
+    "lastName": "Max",
     "address": {
-      "street": "321 Bronx Street",
-      "city": "New York",
-      "state": "NY",
-      "zip": "10004",
+      "street": "4757 Thrash Trail",
+      "city": "Longview",
+      "state": "TX",
+      "zip": "75601",
       "country": "USA"
     },
-    "emails": [
-      "bfox@gmail.com",
-      "csheen@crazy.net"
-    ]
+    "emails": []
   },
-  "name": "Stony Brook",
+  "name": "Yeworks",
   "address": {
-    "street": "321 Bronx Street",
-    "city": "New York",
-    "state": "NY",
-    "zip": "10004",
+    "street": "4757 Thrash Trail",
+    "city": "Longview",
+    "state": "TX",
+    "zip": "75601",
     "country": "USA"
   }
 }
@@ -116,24 +108,26 @@
   "customerCode": "C005",
   "type": "G",
   "contact": {
-    "personCode": "bbchar",
-    "firstName": "Ehrmantraut",
-    "lastName": " Kaylee",
+    "personCode": "965",
+    "firstName": "Terrell",
+    "lastName": "Connie",
     "address": {
-      "street": "800 West 7th Street",
-      "city": " Albuquerque",
-      "state": " NM",
-      "zip": " 87105",
+      "street": "4729 Tenmile Road",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "02210",
       "country": "USA"
     },
-    "emails": []
+    "emails": [
+      "connietterrell@rhyta.com"
+    ]
   },
-  "name": "Hewlett Industries",
+  "name": "Saturn Softwares",
   "address": {
-    "street": "800 West 7th Street",
-    "city": " Albuquerque",
-    "state": " NM",
-    "zip": " 87105",
+    "street": "4729 Tenmile Road",
+    "city": "Boston",
+    "state": "MA",
+    "zip": "02210",
     "country": "USA"
   }
 }
@@ -141,26 +135,53 @@
   "customerCode": "C006",
   "type": "S",
   "contact": {
-    "personCode": "321dr",
-    "firstName": "Baker",
-    "lastName": " C.",
+    "personCode": "965",
+    "firstName": "Terrell",
+    "lastName": "Connie",
     "address": {
-      "street": "Avery Hall",
-      "city": "Lincoln",
-      "state": "NE",
-      "zip": "68503",
+      "street": "4729 Tenmile Road",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "02210",
       "country": "USA"
     },
     "emails": [
-      "dr@baker.com"
+      "connietterrell@rhyta.com"
     ]
   },
-  "name": "Gregory Smith",
+  "name": "Jane Doe",
   "address": {
-    "street": "Avery Hall",
-    "city": "Lincoln",
-    "state": "NE",
-    "zip": "68503",
+    "street": "4729 Tenmile Road",
+    "city": "Boston",
+    "state": "MA",
+    "zip": "02210",
+    "country": "USA"
+  }
+}
+{
+  "customerCode": "C007",
+  "type": "S",
+  "contact": {
+    "personCode": "965",
+    "firstName": "Terrell",
+    "lastName": "Connie",
+    "address": {
+      "street": "4729 Tenmile Road",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "02210",
+      "country": "USA"
+    },
+    "emails": [
+      "connietterrell@rhyta.com"
+    ]
+  },
+  "name": "Jade Harley",
+  "address": {
+    "street": "4729 Tenmile Road",
+    "city": "Boston",
+    "state": "MA",
+    "zip": "02210",
     "country": "USA"
   }
 }
