@@ -129,7 +129,6 @@ public class FlatFileReader {
 				case 'S':
 					season = new SeasonPass(data[0], data[1].charAt(0), data[2], formatter.parseDateTime(data[3]),formatter.parseDateTime(data[4]), Double.parseDouble(data[5]));
 					productList.add(season);
-					System.out.println(formatter.parseDateTime(data[3]));
 					break;
 				case 'M':
 					data[4].trim();

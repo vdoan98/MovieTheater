@@ -39,6 +39,7 @@ public class JsonWriter {
 			// Use toJson method to convert Person object into a String
 			String personOutput = gson.toJson(aPerson);
 			jsonPrintWriter.write(personOutput + "\n");
+			jsonPrintWriter.flush();
 		}
 		try {
 			jsonPrintWriter = new PrintWriter(jsonCustomersOutput);
@@ -49,6 +50,7 @@ public class JsonWriter {
 			// Use toJson method to convert Customer object into a String
 			String customerOutput = gson.toJson(aCustomer);
 			jsonPrintWriter.write(customerOutput + "\n");
+			jsonPrintWriter.flush();
 		}
 		try {
 			jsonPrintWriter = new PrintWriter(jsonProductsOutput);
