@@ -4,7 +4,7 @@ public class MovieTicket extends Product {
 	private String movieName;
 	private DateTime time;
 	private Address address; //TODO:Address class
-	private int screenNo;
+	private String screenNo;
 	private double pricePerUnit;
 	/** 
 	 * @param productCode
@@ -14,7 +14,7 @@ public class MovieTicket extends Product {
 	 * @param screenNo
 	 * @param pricePerUnit
 	 */
-	public MovieTicket(String productCode, char type, DateTime time, String movieName, Address address, int screenNo,
+	public MovieTicket(String productCode, char type, DateTime time, String movieName, Address address, String screenNo,
 			double pricePerUnit) {
 		super(productCode, type);
 		this.time = time;
@@ -62,13 +62,13 @@ public class MovieTicket extends Product {
 	/**
 	 * @return the screenNo
 	 */
-	public int getScreenNo() {
+	public String getScreenNo() {
 		return screenNo;
 	}
 	/**
 	 * @param screenNo the screenNo to set
 	 */
-	public void setScreenNo(int screenNo) {
+	public void setScreenNo(String screenNo) {
 		this.screenNo = screenNo;
 	}
 	/**
