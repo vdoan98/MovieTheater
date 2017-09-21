@@ -1,28 +1,15 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.lang.reflect.Type;
 import java.util.List;
 
-import org.joda.time.DateTime;
-
-import com.google.gson.JsonElement;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
 //import com.datacontainers.Person;
 import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.converters.basic.DateConverter;
 
 public class XMLWriter {
 
 	public void xmlConverter(List<Person> persons, List<Customer> customers, List<Product> products) {
 		XStream  xstream = new XStream();
-		
-		String dateFormat = "yyyy-MM-dd";
-		String timeFormat = "HH:mm";
-		String[] format = {timeFormat};
-		xstream.registerConverter(new DateConverter(dateFormat, format));
 		
         File xmlPersonsOutput = new File("data/Persons.xml");
         File xmlCustomersOutput = new File("data/Customers.xml");
@@ -53,7 +40,7 @@ public class XMLWriter {
 			e.printStackTrace();
 		}
 		for (Customer aCustomer : customers) {
-			// Use toJson method to convert Customer object into a String
+			// Use toXML method to convert Customer object into a String
 			String customerOutput = xstream.toXML(aCustomer);
 			xmlPrintWriter.write(customerOutput + "\n");
 			xmlPrintWriter.flush();
@@ -65,8 +52,8 @@ public class XMLWriter {
 			e.printStackTrace();
 		}
 		for (Product aProduct : products) {
+			// Use toXML method to convert Product object into a String
 			String productOutput = xstream.toXML(aProduct);
-			//Problem: Gson has default for DateTime object representation. 
 			xmlPrintWriter.write(productOutput + "\n"); 
 			xmlPrintWriter.flush();
 		}
