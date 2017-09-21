@@ -1,0 +1,187 @@
+{
+  "customerCode": "C001",
+  "type": "G",
+  "contact": {
+    "personCode": "965",
+    "firstName": "Terrell",
+    "lastName": "Connie",
+    "address": {
+      "street": "4729 Tenmile Road",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "02210",
+      "country": "USA"
+    },
+    "emails": [
+      "connietterrell@rhyta.com"
+    ]
+  },
+  "name": "Clark Consultants",
+  "address": {
+    "street": "4729 Tenmile Road",
+    "city": "Boston",
+    "state": "MA",
+    "zip": "02210",
+    "country": "USA"
+  }
+}
+{
+  "customerCode": "C002",
+  "type": "S",
+  "contact": {
+    "personCode": "965",
+    "firstName": "Terrell",
+    "lastName": "Connie",
+    "address": {
+      "street": "4729 Tenmile Road",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "02210",
+      "country": "USA"
+    },
+    "emails": [
+      "connietterrell@rhyta.com"
+    ]
+  },
+  "name": "Aprico",
+  "address": {
+    "street": "4729 Tenmile Road",
+    "city": "Boston",
+    "state": "MA",
+    "zip": "02210",
+    "country": "USA"
+  }
+}
+{
+  "customerCode": "C003",
+  "type": "S",
+  "contact": {
+    "personCode": "965",
+    "firstName": "Terrell",
+    "lastName": "Connie",
+    "address": {
+      "street": "4729 Tenmile Road",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "02210",
+      "country": "USA"
+    },
+    "emails": [
+      "connietterrell@rhyta.com"
+    ]
+  },
+  "name": "High Tide Entertainment",
+  "address": {
+    "street": "4729 Tenmile Road",
+    "city": "Boston",
+    "state": "MA",
+    "zip": "02210",
+    "country": "USA"
+  }
+}
+{
+  "customerCode": "C004",
+  "type": "G",
+  "contact": {
+    "personCode": "433",
+    "firstName": "Eichel",
+    "lastName": "Max",
+    "address": {
+      "street": "4757 Thrash Trail",
+      "city": "Longview",
+      "state": "TX",
+      "zip": "75601",
+      "country": "USA"
+    },
+    "emails": []
+  },
+  "name": "Yeworks",
+  "address": {
+    "street": "4757 Thrash Trail",
+    "city": "Longview",
+    "state": "TX",
+    "zip": "75601",
+    "country": "USA"
+  }
+}
+{
+  "customerCode": "C005",
+  "type": "G",
+  "contact": {
+    "personCode": "965",
+    "firstName": "Terrell",
+    "lastName": "Connie",
+    "address": {
+      "street": "4729 Tenmile Road",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "02210",
+      "country": "USA"
+    },
+    "emails": [
+      "connietterrell@rhyta.com"
+    ]
+  },
+  "name": "Saturn Softwares",
+  "address": {
+    "street": "4729 Tenmile Road",
+    "city": "Boston",
+    "state": "MA",
+    "zip": "02210",
+    "country": "USA"
+  }
+}
+{
+  "customerCode": "C006",
+  "type": "S",
+  "contact": {
+    "personCode": "965",
+    "firstName": "Terrell",
+    "lastName": "Connie",
+    "address": {
+      "street": "4729 Tenmile Road",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "02210",
+      "country": "USA"
+    },
+    "emails": [
+      "connietterrell@rhyta.com"
+    ]
+  },
+  "name": "Jane Doe",
+  "address": {
+    "street": "4729 Tenmile Road",
+    "city": "Boston",
+    "state": "MA",
+    "zip": "02210",
+    "country": "USA"
+  }
+}
+{
+  "customerCode": "C007",
+  "type": "S",
+  "contact": {
+    "personCode": "965",
+    "firstName": "Terrell",
+    "lastName": "Connie",
+    "address": {
+      "street": "4729 Tenmile Road",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "02210",
+      "country": "USA"
+    },
+    "emails": [
+      "connietterrell@rhyta.com"
+    ]
+  },
+  "name": "Jade Harley",
+  "address": {
+    "street": "4729 Tenmile Road",
+    "city": "Boston",
+    "state": "MA",
+    "zip": "02210",
+    "country": "USA"
+  }
+}
