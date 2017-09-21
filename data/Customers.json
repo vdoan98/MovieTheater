@@ -126,26 +126,6 @@
     "city": " Viborg",
     "state": " SD",
     "zip": " 57070",
-    "personCode": "965",
-    "firstName": "Terrell",
-    "lastName": "Connie",
-    "address": {
-      "street": "4729 Tenmile Road",
-      "city": "Boston",
-      "state": "MA",
-      "zip": "02210",
-      "country": "USA"
-    },
-    "emails": [
-      "connietterrell@rhyta.com"
-    ]
-  },
-  "name": "Saturn Softwares",
-  "address": {
-    "street": "4729 Tenmile Road",
-    "city": "Boston",
-    "state": "MA",
-    "zip": "02210",
     "country": "USA"
   }
 }
@@ -166,18 +146,7 @@
     "emails": [
       "die@homestuck.com",
       "dierich@unl.edu"
-    "personCode": "965",
-    "firstName": "Terrell",
-    "lastName": "Connie",
-    "address": {
-      "street": "4729 Tenmile Road",
-      "city": "Boston",
-      "state": "MA",
-      "zip": "02210",
-      "country": "USA"
-    },
-    "emails": [
-      "connietterrell@rhyta.com"
+    ]
   },
   "name": "Jane Doe",
   "address": {
@@ -185,12 +154,9 @@
     "city": " Alexandria",
     "state": " VA",
     "zip": " 22301",
-    "street": "4729 Tenmile Road",
-    "city": "Boston",
-    "state": "MA",
-    "zip": "02210",
     "country": "USA"
   }
+}
 {
   "customerCode": "C007",
   "type": "S",
@@ -207,18 +173,7 @@
     },
     "emails": [
       "drgerald@helpme.com"
-    "personCode": "965",
-    "firstName": "Terrell",
-    "lastName": "Connie",
-    "address": {
-      "street": "4729 Tenmile Road",
-      "city": "Boston",
-      "state": "MA",
-      "zip": "02210",
-      "country": "USA"
-    },
-    "emails": [
-      "connietterrell@rhyta.com"
+    ]
   },
   "name": "Jade Harley",
   "address": {
@@ -226,11 +181,6 @@
     "city": "Nashville",
     "state": "TN",
     "zip": "37201",
-    "street": "4729 Tenmile Road",
-    "city": "Boston",
-    "state": "MA",
-    "zip": "02210",
->>>>>>> d8ff28b706248b050f8168f7333a58f08ccbacdd
     "country": "USA"
   }
 }
