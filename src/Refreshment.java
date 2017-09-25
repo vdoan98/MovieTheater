@@ -1,6 +1,20 @@
 public class Refreshment extends Product {
 	private String name;
 	private double price;
+	private int amount;
+
+	/**
+	 * @param productCode
+	 * @param type
+	 * @param name
+	 * @param price
+	 * @param amount
+	 */
+	public Refreshment(String productCode, char type, String name, double price, int amount) {
+		super(productCode, type, amount);
+		this.name = name;
+		this.price = price;
+	}
 
 	/**
 	 * @param productCode

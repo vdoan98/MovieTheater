@@ -6,6 +6,7 @@ public class MovieTicket extends Product {
 	private Address address; //TODO:Address class
 	private String screenNo;
 	private double pricePerUnit;
+	private int amount; 
 	/** 
 	 * @param productCode
 	 * @param type
@@ -23,6 +24,45 @@ public class MovieTicket extends Product {
 		this.screenNo = screenNo;
 		this.pricePerUnit = pricePerUnit;
 	}
+	
+	
+	/**
+	 * @return the amount
+	 */
+	public int getAmount() {
+		return amount;
+	}
+
+
+	/**
+	 * @param amount the amount to set
+	 */
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+
+	/**
+	 * @param productCode
+	 * @param type
+	 * @param movieName
+	 * @param time
+	 * @param address
+	 * @param screenNo
+	 * @param pricePerUnit
+	 * @param amount
+	 */
+	public MovieTicket(String productCode, char type, String movieName, DateTime time, Address address, String screenNo,
+			double pricePerUnit, int amount) {
+		super(productCode, type, amount);
+		this.movieName = movieName;
+		this.time = time;
+		this.address = address;
+		this.screenNo = screenNo;
+		this.pricePerUnit = pricePerUnit;
+	}
+
+
 	/**
 	 * @return the time
 	 */

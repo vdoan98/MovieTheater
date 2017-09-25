@@ -6,6 +6,7 @@ public class SeasonPass extends Product {
 	private DateTime startDate;
 	private DateTime endDate;
 	private double cost;
+	private int amount;
 	
 	/**
 	 * @param productCodes
@@ -22,6 +23,47 @@ public class SeasonPass extends Product {
 		this.endDate = endDate;
 		this.cost = cost;
 	}
+	
+	
+	
+	/**
+	 * @param productCode
+	 * @param type
+	 * @param name
+	 * @param startDate
+	 * @param endDate
+	 * @param cost
+	 * @param amount
+	 */
+	public SeasonPass(String productCode, char type, String name, DateTime startDate, DateTime endDate, double cost,
+			int amount) {
+		super(productCode, type, amount);
+		this.name = name;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.cost = cost;
+	}
+
+
+
+	/**
+	 * @return the amount
+	 */
+	public int getAmount() {
+		return amount;
+	}
+
+
+
+	/**
+	 * @param amount the amount to set
+	 */
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+
+
 	/**
 	 * @return the name
 	 */

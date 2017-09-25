@@ -1,5 +1,6 @@
 public class ParkingPass extends Product {
 	private double parkingFee;
+	private int amount;
 
 	/**
 	 * @param productCode
@@ -10,6 +11,35 @@ public class ParkingPass extends Product {
 		super(productCode, type);
 		this.parkingFee = parkingFee;
 	}
+	
+
+	/**
+	 * @return the amount
+	 */
+	public int getAmount() {
+		return amount;
+	}
+
+
+	/**
+	 * @param amount the amount to set
+	 */
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+
+	/**
+	 * @param productCode
+	 * @param type
+	 * @param parkingFee
+	 * @param amount
+	 */
+	public ParkingPass(String productCode, char type, double parkingFee, int amount) {
+		super(productCode, type, amount);
+		this.parkingFee = parkingFee;
+	}
+
 
 	/**
 	 * @return the parkingFee

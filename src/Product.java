@@ -1,6 +1,7 @@
 public abstract class Product {
 	private String productCode;
 	private char type;
+	private int amount;
 	/**
 	 * @param productCode
 	 * @param type
@@ -10,6 +11,21 @@ public abstract class Product {
 		this.productCode = productCode;
 		this.type = type;
 	}
+	
+	
+	/**
+	 * @param productCode
+	 * @param type
+	 * @param amount
+	 */
+	public Product(String productCode, char type, int amount) {
+		super();
+		this.productCode = productCode;
+		this.type = type;
+		this.amount = amount;
+	}
+
+
 	/**
 	 * @return the productCode
 	 */
