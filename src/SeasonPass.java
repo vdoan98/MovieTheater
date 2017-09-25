@@ -73,7 +73,7 @@ public class SeasonPass extends Product {
 	@Override
 	public double getTax() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 0.04;
 	}
 	@Override
 	public double computeTotal() {
