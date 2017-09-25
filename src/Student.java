@@ -9,19 +9,19 @@ public class Student extends Customer{
 	@Override
 	public double getTax() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 0.0;
 	}
 
 	@Override
 	public double getDiscount() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 0.08;
 	}
 
 	@Override
 	public double getAdditionalFee() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 6.75;
 	}
 
 }
