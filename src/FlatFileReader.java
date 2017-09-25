@@ -84,11 +84,17 @@ public class FlatFileReader {
 					}
 				}
 				
+				if (data[1].charAt(0) == 'S'){
+					Student customer = new Student(data[0], data[1].charAt(0), personList.get(code), data[3], personList.get(code).getAddress());
+					// Adds the Person object into Person ArrayList
+					customerList.add(customer);
+				}else if (data[1].charAt(0) == 'G'){
+					General customer = new General(data[0], data[1].charAt(0), personList.get(code), data[3], personList.get(code).getAddress());
+					// Adds the Person object into Person ArrayList
+					customerList.add(customer);
+				}
+				
 
-				Customer customer = new Customer(data[0], data[1].charAt(0), personList.get(code), data[3], personList.get(code).getAddress());
-
-				// Adds the Person object into Person ArrayList
-				customerList.add(customer);
 			}
 
 			sc.close();
