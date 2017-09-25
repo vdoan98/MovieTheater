@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import org.joda.time.DateTime;
 
 public class Invoice {
@@ -5,18 +7,21 @@ public class Invoice {
 	private DateTime date;
 	private Customer customer;
 	private Person salePerson;
+	ArrayList<Product> products;
 	/**
 	 * @param code
 	 * @param date
 	 * @param customer
 	 * @param salePerson
+	 * @param products
 	 */
-	public Invoice(String code, DateTime date, Customer customer, Person salePerson) {
+	public Invoice(String code, Customer customer, Person salePerson, DateTime date, ArrayList<Product> products) {
 		super();
 		this.code = code;
 		this.date = date;
 		this.customer = customer;
 		this.salePerson = salePerson;
+		this.products = products;
 	}
 	/**
 	 * @return the code
