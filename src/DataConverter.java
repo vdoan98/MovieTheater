@@ -24,6 +24,7 @@ public class DataConverter {
 		List<Person> personList = fr.readPersons();
 		List<Customer> customerList = fr.readCustomer();
 		List<Product> productList = fr.readProducts();
+		List<Invoice> invoiceList = fr.readInvoices();
 		// Write Person ArrayList and Customer ArrayList into a Json file
 		JsonWriter jWriter = new JsonWriter();
 		jWriter.jsonConverter(personList, customerList, productList);

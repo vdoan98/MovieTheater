@@ -72,6 +72,7 @@ public class FlatFileReader {
 				}
 				
 				Invoice invoice = new Invoice (data[0], customerList.get(customerCount), personList.get(personCount), date, totalProducts);
+				
 
 				invoiceList.add(invoice);
 			}
