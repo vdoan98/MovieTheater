@@ -70,6 +70,16 @@ public class SeasonPass extends Product {
 	public void setEndDate(DateTime endDate) {
 		this.endDate = endDate;
 	}
+	@Override
+	public double getTax() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public double computeTotal() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 	

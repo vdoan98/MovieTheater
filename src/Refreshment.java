@@ -44,4 +44,16 @@ public class Refreshment extends Product {
 		this.price = price;
 	}
 
+	@Override
+	public double getTax() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double computeTotal() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

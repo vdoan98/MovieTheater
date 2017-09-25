@@ -83,6 +83,16 @@ public class MovieTicket extends Product {
 	public void setPricePerUnit(double pricePerUnit) {
 		this.pricePerUnit = pricePerUnit;
 	}
+	@Override
+	public double getTax() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public double computeTotal() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 	
