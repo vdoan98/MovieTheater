@@ -2,6 +2,7 @@
 /Customer.class
 /DataConverter.class
 /FlatFileReader.class
+/JsonWriter$1.class
 /JsonWriter.class
 /MovieTicket.class
 /ParkingPass.class
@@ -9,5 +10,4 @@
 /Product.class
 /Refreshment.class
 /SeasonPass.class
-/JsonWriter$1.class
 /XMLWriter.class
