@@ -1,5 +1,5 @@
 
-public class Customer {
+public abstract class Customer {
 	
 	/*
 	 * This class is the constructor class for the Customer object.
@@ -120,6 +120,9 @@ public class Customer {
 		this.address = address;
 	}
 
+	public abstract double getTax();
+	public abstract double getDiscount();
+	public abstract double getAdditionalFee();
 	
 	
 }

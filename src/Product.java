@@ -1,4 +1,4 @@
-public class Product {
+public abstract class Product {
 	private String productCode;
 	private char type;
 	/**
@@ -36,6 +36,8 @@ public class Product {
 	}
 	
 	
+	public abstract double getTax();
+	public abstract double computeTotal();
 	
 	
 
