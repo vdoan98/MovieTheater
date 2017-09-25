@@ -1,7 +1,6 @@
 public class Refreshment extends Product {
 	private String name;
 	private double price;
-	private int amount;
 
 	/**
 	 * @param productCode

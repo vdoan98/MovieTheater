@@ -2,53 +2,57 @@
   "customerCode": "C001",
   "type": "G",
   "contact": {
-    "personCode": "965",
-    "firstName": "Terrell",
-    "lastName": "Connie",
+    "personCode": "231",
+    "firstName": "Baker",
+    "lastName": "Tom",
     "address": {
-      "street": "4729 Tenmile Road",
-      "city": "Boston",
-      "state": "MA",
-      "zip": "02210",
-      "country": "USA"
+      "street": "1 Blue Jays Way",
+      "city": " Toronto",
+      "state": " ON",
+      "zip": " M5V 1J1",
+      "country": " Canada"
     },
     "emails": [
-      "connietterrell@rhyta.com"
+      "famousdoc@who.com",
+      "tbaker@cse.unl.edu",
+      "mostfamous@whovian.com",
+      "thedoctor@bbc.com"
     ]
   },
   "name": "Clark Consultants",
   "address": {
-    "street": "4729 Tenmile Road",
-    "city": "Boston",
-    "state": "MA",
-    "zip": "02210",
-    "country": "USA"
+    "street": "1 Blue Jays Way",
+    "city": " Toronto",
+    "state": " ON",
+    "zip": " M5V 1J1",
+    "country": " Canada"
   }
 }
 {
   "customerCode": "C002",
   "type": "S",
   "contact": {
-    "personCode": "965",
-    "firstName": "Terrell",
-    "lastName": "Connie",
+    "personCode": "944c",
+    "firstName": "Castro",
+    "lastName": " Starlin",
     "address": {
-      "street": "4729 Tenmile Road",
-      "city": "Boston",
-      "state": "MA",
-      "zip": "02210",
+      "street": "1060 West Addison Street",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "60613",
       "country": "USA"
     },
     "emails": [
-      "connietterrell@rhyta.com"
+      "scastro@cubs.com",
+      "starlin_castro13@gmail.com"
     ]
   },
-  "name": "Aprico",
+  "name": "CAS International Fellows",
   "address": {
-    "street": "4729 Tenmile Road",
-    "city": "Boston",
-    "state": "MA",
-    "zip": "02210",
+    "street": "1060 West Addison Street",
+    "city": "Chicago",
+    "state": "IL",
+    "zip": "60613",
     "country": "USA"
   }
 }
@@ -56,26 +60,27 @@
   "customerCode": "C003",
   "type": "S",
   "contact": {
-    "personCode": "965",
-    "firstName": "Terrell",
-    "lastName": "Connie",
+    "personCode": "306a",
+    "firstName": "Sampson",
+    "lastName": " Brock",
     "address": {
-      "street": "4729 Tenmile Road",
-      "city": "Boston",
-      "state": "MA",
-      "zip": "02210",
+      "street": "123 N 1st Street",
+      "city": "Omaha",
+      "state": "NE",
+      "zip": "68116",
       "country": "USA"
     },
     "emails": [
-      "connietterrell@rhyta.com"
+      "brock_f_sampson@gmail.com",
+      "bsampson@venture.com"
     ]
   },
-  "name": "High Tide Entertainment",
+  "name": "Valueless Club",
   "address": {
-    "street": "4729 Tenmile Road",
-    "city": "Boston",
-    "state": "MA",
-    "zip": "02210",
+    "street": "123 N 1st Street",
+    "city": "Omaha",
+    "state": "NE",
+    "zip": "68116",
     "country": "USA"
   }
 }
@@ -83,24 +88,27 @@
   "customerCode": "C004",
   "type": "G",
   "contact": {
-    "personCode": "433",
-    "firstName": "Eichel",
-    "lastName": "Max",
+    "personCode": "321f",
+    "firstName": "Fox",
+    "lastName": " Bud",
     "address": {
-      "street": "4757 Thrash Trail",
-      "city": "Longview",
-      "state": "TX",
-      "zip": "75601",
+      "street": "321 Bronx Street",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10004",
       "country": "USA"
     },
-    "emails": []
+    "emails": [
+      "bfox@gmail.com",
+      "csheen@crazy.net"
+    ]
   },
-  "name": "Yeworks",
+  "name": "Stony Brook",
   "address": {
-    "street": "4757 Thrash Trail",
-    "city": "Longview",
-    "state": "TX",
-    "zip": "75601",
+    "street": "321 Bronx Street",
+    "city": "New York",
+    "state": "NY",
+    "zip": "10004",
     "country": "USA"
   }
 }
@@ -109,23 +117,23 @@
   "type": "G",
   "contact": {
     "personCode": "bbchar",
-    "firstName": "Ebersbach",
-    "lastName": "Leah",
+    "firstName": "Ehrmantraut",
+    "lastName": " Kaylee",
     "address": {
-      "street": "4327 Elsie Drive",
-      "city": " Viborg",
-      "state": " SD",
-      "zip": " 57070",
+      "street": "800 West 7th Street",
+      "city": " Albuquerque",
+      "state": " NM",
+      "zip": " 87105",
       "country": "USA"
     },
     "emails": []
   },
-  "name": "Saturn Softwares",
+  "name": "Hewlett Industries",
   "address": {
-    "street": "4327 Elsie Drive",
-    "city": " Viborg",
-    "state": " SD",
-    "zip": " 57070",
+    "street": "800 West 7th Street",
+    "city": " Albuquerque",
+    "state": " NM",
+    "zip": " 87105",
     "country": "USA"
   }
 }
@@ -133,54 +141,26 @@
   "customerCode": "C006",
   "type": "S",
   "contact": {
-    "personCode": "342dr",
-    "firstName": "Diederich",
-    "lastName": "Simone",
-    "address": {
-      "street": "1922 Cabell Avenue",
-      "city": " Alexandria",
-      "state": " VA",
-      "zip": " 22301",
-      "country": "USA"
-    },
-    "emails": [
-      "die@homestuck.com",
-      "dierich@unl.edu"
-    ]
-  },
-  "name": "Jane Doe",
-  "address": {
-    "street": "1922 Cabell Avenue",
-    "city": " Alexandria",
-    "state": " VA",
-    "zip": " 22301",
-    "country": "USA"
-  }
-}
-{
-  "customerCode": "C007",
-  "type": "S",
-  "contact": {
     "personCode": "321dr",
-    "firstName": "Udinesi",
-    "lastName": "Geraldino",
+    "firstName": "Baker",
+    "lastName": " C.",
     "address": {
-      "street": "4832 Andell Road",
-      "city": "Nashville",
-      "state": "TN",
-      "zip": "37201",
+      "street": "Avery Hall",
+      "city": "Lincoln",
+      "state": "NE",
+      "zip": "68503",
       "country": "USA"
     },
     "emails": [
-      "drgerald@helpme.com"
+      "dr@baker.com"
     ]
   },
-  "name": "Jade Harley",
+  "name": "Gregory Smith",
   "address": {
-    "street": "4832 Andell Road",
-    "city": "Nashville",
-    "state": "TN",
-    "zip": "37201",
+    "street": "Avery Hall",
+    "city": "Lincoln",
+    "state": "NE",
+    "zip": "68503",
     "country": "USA"
   }
 }
