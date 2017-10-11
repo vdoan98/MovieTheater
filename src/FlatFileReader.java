@@ -204,10 +204,22 @@ public class FlatFileReader {
 
 				for (int i = 0; i < productArray.length; i++) {
 					String tempArray[] = productArray[i].split(":");
-					for (int j = 0; j < this.readProducts().size(); j++) {
-						if (tempArray[0].compareToIgnoreCase(this.readProducts().get(j).getProductCode()) == 0) {	
-							totalProducts.add(this.readProducts().get(j));
-							break;
+					if (tempArray.length == 2){
+						for (int j = 0; j < this.readProducts().size(); j++) {
+							if (tempArray[0].compareToIgnoreCase(this.readProducts().get(j).getProductCode()) == 0) {
+								productList.get(j).setAmount(Integer.parseInt(tempArray[1]));
+								totalProducts.add(this.readProducts().get(j));
+								break;
+							}
+						}
+					}else if (tempArray.length == 3){
+						for (int j = 0; j < this.readProducts().size(); j++) {
+							if (tempArray[0].compareToIgnoreCase(this.readProducts().get(j).getProductCode()) == 0) {
+								productList.get(j).setAmount(Integer.parseInt(tempArray[1]));
+								((ParkingPass) productList.get(j)).setTicket(tempArray[2]);
+								totalProducts.add(this.readProducts().get(j));
+								break;
+							}
 						}
 					}
 				}

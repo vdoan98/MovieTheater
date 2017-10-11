@@ -1,5 +1,24 @@
 public class ParkingPass extends Product {
 	private double parkingFee;
+	private String ticket;
+
+	/**
+	 * @return the ticket
+	 */
+	public String getTicket() {
+		return ticket;
+	}
+
+
+
+	/**
+	 * @param ticket the ticket to set
+	 */
+	public void setTicket(String ticket) {
+		this.ticket = ticket;
+	}
+
+
 
 	/**
 	 * @param productCode

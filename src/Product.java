@@ -51,6 +51,23 @@ public abstract class Product {
 		this.type = type;
 	}
 	
+	
+	/**
+	 * @return the amount
+	 */
+	public int getAmount() {
+		return amount;
+	}
+
+
+	/**
+	 * @param amount the amount to set
+	 */
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+
 	public abstract double getTax();
 	public abstract double computeTotal();
 	
