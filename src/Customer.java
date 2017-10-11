@@ -53,8 +53,16 @@ public abstract class Customer {
 	/**
 	 * @return the type
 	 */
-	public char getType() {
-		return type;
+	public String getType() {
+		String temp = null;
+		if (this.type == 'S'){
+			temp = "Student";
+		}else if (this.type == 'G'){
+			temp = "General";
+		}
+		
+		return temp;
+			
 	}
 
 

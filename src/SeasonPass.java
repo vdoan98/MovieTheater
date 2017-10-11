@@ -54,9 +54,12 @@ public class SeasonPass extends Product {
 	public String getName() {
 		return this.name;
 	}
+	
+	
 	/**
 	 * @param name the name to set
 	 */
+
 	public void setName(String name) {
 		this.name = name;
 	}

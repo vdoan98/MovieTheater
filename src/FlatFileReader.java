@@ -211,13 +211,9 @@ public class FlatFileReader {
 						}
 					}
 				}
-
-				System.out.println(totalProducts);
 				
 
 				Invoice invoice = new Invoice (code, date, totalProducts);
-				
-				System.out.println(customerList.size());
 		
 				
 				//checkCustomer 

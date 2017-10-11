@@ -85,7 +85,24 @@ public class Invoice {
 	 */
 	public void setSalePerson(Person salePerson) {
 		this.salePerson = salePerson;
+	}
+
+
+	/**
+	 * @return the products
+	 */
+	public ArrayList<Product> getProducts() {
+		return products;
+	}
+
+
+	/**
+	 * @param products the products to set
+	 */
+	public void setProducts(ArrayList<Product> products) {
+		this.products = products;
 	} 
+	
 	
 	
 	
