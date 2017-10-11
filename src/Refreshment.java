@@ -31,7 +31,7 @@ public class Refreshment extends Product {
 	 * @return the name
 	 */
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	/**
@@ -46,7 +46,7 @@ public class Refreshment extends Product {
 	 * @return the price
 	 */
 	public double getPrice() {
-		return price;
+		return this.price;
 	}
 
 	/**

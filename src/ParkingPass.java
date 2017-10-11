@@ -29,7 +29,7 @@ public class ParkingPass extends Product {
 	 * @return the parkingFee
 	 */
 	public double getParkingFee() {
-		return parkingFee;
+		return this.parkingFee;
 	}
 
 	/**

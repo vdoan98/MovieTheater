@@ -11,83 +11,9 @@ public class FlatFileReader {
 	ArrayList<Customer> customerList = new ArrayList<Customer>();
 	ArrayList<Product> productList = new ArrayList<Product>();
 	ArrayList<Invoice> invoiceList = new ArrayList<Invoice>();
+	
 
-	public ArrayList<Invoice> readInvoices() {
-
-		Scanner sc = null;
-		// This Person ArrayList stores the Person objects
-		String data[];
-		String product;
-
-		try {
-			sc = new Scanner(new File("data/Invoices.dat"));
-			sc.nextLine(); // reads the number of records from the first line
-
-			while (sc.hasNext()) {
-				String line = sc.nextLine(); // reads each line starting from 2nd line
-				line.trim();
-				data = line.split(";"); // splits the line and stores in a string array
-				DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd");
-
-				String code = data[0];
-				DateTime date = formatter.parseDateTime(data[3]);
-				String productArray[] = data[4].split(",");
-				ArrayList<Product> totalProducts = new ArrayList<Product>();
-				
-				int customerCount = 0;
-				//checkCustomer 
-				for (int i = 0; i < customerList.size(); i++) {
-					if(customerList.get(i).getCustomerCode().compareTo(data[1])==0) {
-						customerCount = i;
-					}
-				}
-				
-				int personCount = 0;
-				
-				//check the sale person
-				for (int i = 0; i < personList.size(); i++) {
-					if(personList.get(i).getPersonCode().compareTo(data[1])==0) {
-						personCount = i;
-					}
-				}
-
-				for (int i = 0; i < productArray.length; i++) {
-					String tempArray[] = productArray[i].split(":");
-					if (tempArray.length == 2) {
-						for (int j = 0; j < productList.size(); j++) {
-							if (tempArray[0].compareToIgnoreCase(productList.get(j).getProductCode()) == 0) {
-								// Give you access to Refreshment, MovieTicket and SeasonTicket
-								totalProducts.add(productList.get(j));
-							}
-						}
-					} else if (tempArray.length == 3) {
-						for (int j = 0; j < productList.size(); j++) {
-							if (tempArray[0].compareToIgnoreCase(productList.get(j).getProductCode()) == 0) {
-								// Give you access to ParkingPass
-								totalProducts.add(productList.get(j));
-							}
-
-						}
-					}
-				}
-				
-				Invoice invoice = new Invoice (data[0], customerList.get(customerCount), personList.get(personCount), date, totalProducts);
-				
-
-				invoiceList.add(invoice);
-			}
-
-			sc.close();
-			return invoiceList;
-
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			return null;
-		} catch (Exception le) {
-			le.printStackTrace();
-			return null;
-		}
-	}
+	
 
 	public ArrayList<Person> readPersons() {
 
@@ -247,6 +173,77 @@ public class FlatFileReader {
 			return null;
 		}
 
+	}
+	
+	public ArrayList<Invoice> readInvoices() {
+
+		Scanner sc = null;
+		// This Person ArrayList stores the Person objects
+		String data[];
+		String product;
+
+		try {
+			sc = new Scanner(new File("data/Invoices.dat"));
+			sc.nextLine(); // reads the number of records from the first line
+
+			while (sc.hasNext()) {
+				String line = sc.nextLine(); // reads each line starting from 2nd line
+				line.trim();
+				data = line.split(";"); // splits the line and stores in a string array
+				DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd");
+
+				String code = data[0];
+				DateTime date = formatter.parseDateTime(data[3]);
+				String productArray[] = data[4].split(",");
+				ArrayList<Product> totalProducts = new ArrayList<Product>();
+
+				
+
+				for (int i = 0; i < productArray.length; i++) {
+					String tempArray[] = productArray[i].split(":");
+					for (int j = 0; j < productList.size(); j++) {
+						if (tempArray[0].compareTo(this.readProducts().get(j).getProductCode()) == 0) {
+							totalProducts.add(productList.get(j));
+						}
+					}
+				}
+				
+
+				Invoice invoice = new Invoice (code, date, totalProducts);
+				Customer tempCustomer = null;
+				//checkCustomer 
+				for (int i = 0; i < customerList.size(); i++) {
+					if(((this.customerList.get(i).getCustomerCode()).compareTo(data[1]))==0) {
+						invoice.setCustomer(this.customerList.get(i));
+					}
+				}
+				
+				
+				Person tempPerson = null;
+
+				//check the sale person
+				for (int i = 0; i < personList.size(); i++) {
+					if(((this.personList.get(i).getPersonCode()).compareTo(data[2]))==0) {
+						tempPerson = this.readPersons().get(i);
+						invoice.setSalePerson(this.personList.get(i));
+					}
+				}
+				
+
+
+				invoiceList.add(invoice);
+			}
+
+			sc.close();
+			return invoiceList;
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			return null;
+		} catch (Exception le) {
+			le.printStackTrace();
+			return null;
+		}
 	}
 
 }

@@ -30,7 +30,7 @@ public abstract class Product {
 	 * @return the productCode
 	 */
 	public String getProductCode() {
-		return productCode;
+		return this.productCode;
 	}
 	/**
 	 * @param productCode the productCode to set
@@ -42,7 +42,7 @@ public abstract class Product {
 	 * @return the type
 	 */
 	public char getType() {
-		return type;
+		return this.type;
 	}
 	/**
 	 * @param type the type to set
@@ -50,7 +50,6 @@ public abstract class Product {
 	public void setType(char type) {
 		this.type = type;
 	}
-	
 	
 	public abstract double getTax();
 	public abstract double computeTotal();

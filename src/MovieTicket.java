@@ -50,7 +50,7 @@ public class MovieTicket extends Product {
 	 * @return the time
 	 */
 	public DateTime getTime() {
-		return time;
+		return this.time;
 	}
 	/**
 	 * @param time the time to set
@@ -62,7 +62,7 @@ public class MovieTicket extends Product {
 	 * @return the movieName
 	 */
 	public String getMovieName() {
-		return movieName;
+		return this.movieName;
 	}
 	/**
 	 * @param movieName the movieName to set
@@ -74,7 +74,7 @@ public class MovieTicket extends Product {
 	 * @return the address
 	 */
 	public Address getAddress() {
-		return address;
+		return this.address;
 	}
 	/**
 	 * @param address the address to set
@@ -98,7 +98,7 @@ public class MovieTicket extends Product {
 	 * @return the pricePerUnit
 	 */
 	public double getPricePerUnit() {
-		return pricePerUnit;
+		return this.pricePerUnit;
 	}
 	/**
 	 * @param pricePerUnit the pricePerUnit to set

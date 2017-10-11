@@ -23,6 +23,21 @@ public class Invoice {
 		this.salePerson = salePerson;
 		this.products = products;
 	}
+	
+	
+	/**
+	 * @param code
+	 * @param date
+	 * @param products
+	 */
+	public Invoice(String code, DateTime date, ArrayList<Product> products) {
+		super();
+		this.code = code;
+		this.date = date;
+		this.products = products;
+	}
+
+
 	/**
 	 * @return the code
 	 */

@@ -52,7 +52,7 @@ public class SeasonPass extends Product {
 	 * @return the name
 	 */
 	public String getName() {
-		return name;
+		return this.name;
 	}
 	/**
 	 * @param name the name to set
@@ -64,7 +64,7 @@ public class SeasonPass extends Product {
 	 * @return the cost
 	 */
 	public double getCost() {
-		return cost;
+		return this.cost;
 	}
 	/**
 	 * @param cost the cost to set
@@ -76,7 +76,7 @@ public class SeasonPass extends Product {
 	 * @return the startDate
 	 */
 	public DateTime getStartDate() {
-		return startDate;
+		return this.startDate;
 	}
 	/**
 	 * @param startDate the startDate to set
@@ -88,7 +88,7 @@ public class SeasonPass extends Product {
 	 * @return the endDate
 	 */
 	public DateTime getEndDate() {
-		return endDate;
+		return this.endDate;
 	}
 	/**
 	 * @param endDate the endDate to set
