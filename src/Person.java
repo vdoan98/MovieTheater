@@ -16,7 +16,7 @@ public class Person {
 	 * @param lastName
 	 * @param address
 	 */
-	public Person(String personCode, String firstName, String lastName, Address address, String emails) {
+	public Person(String personCode, String lastName, String firstName, Address address, String emails) {
 		super();
 		this.personCode = personCode;
 		this.firstName = firstName;
@@ -31,7 +31,7 @@ public class Person {
 	 * @param lastName
 	 * @param address
 	 */
-	public Person(String personCode, String firstName, String lastName, Address address) {
+	public Person(String personCode, String lastName, String firstName, Address address) {
 		super();
 		this.personCode = personCode;
 		this.firstName = firstName;

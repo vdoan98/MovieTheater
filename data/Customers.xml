@@ -4,8 +4,8 @@
   <type>G</type>
   <contact>
     <personCode>231</personCode>
-    <firstName>Baker</firstName>
-    <lastName>Tom</lastName>
+    <firstName>Tom</firstName>
+    <lastName>Baker</lastName>
     <address>
       <street>1 Blue Jays Way</street>
       <city> Toronto</city>
@@ -28,8 +28,8 @@
   <type>S</type>
   <contact>
     <personCode>944c</personCode>
-    <firstName>Castro</firstName>
-    <lastName> Starlin</lastName>
+    <firstName> Starlin</firstName>
+    <lastName>Castro</lastName>
     <address>
       <street>1060 West Addison Street</street>
       <city>Chicago</city>
@@ -50,8 +50,8 @@
   <type>S</type>
   <contact>
     <personCode>306a</personCode>
-    <firstName>Sampson</firstName>
-    <lastName> Brock</lastName>
+    <firstName> Brock</firstName>
+    <lastName>Sampson</lastName>
     <address>
       <street>123 N 1st Street</street>
       <city>Omaha</city>
@@ -72,8 +72,8 @@
   <type>G</type>
   <contact>
     <personCode>321f</personCode>
-    <firstName>Fox</firstName>
-    <lastName> Bud</lastName>
+    <firstName> Bud</firstName>
+    <lastName>Fox</lastName>
     <address>
       <street>321 Bronx Street</street>
       <city>New York</city>
@@ -94,8 +94,8 @@
   <type>G</type>
   <contact>
     <personCode>bbchar</personCode>
-    <firstName>Ehrmantraut</firstName>
-    <lastName> Kaylee</lastName>
+    <firstName> Kaylee</firstName>
+    <lastName>Ehrmantraut</lastName>
     <address>
       <street>800 West 7th Street</street>
       <city> Albuquerque</city>
@@ -113,8 +113,8 @@
   <type>S</type>
   <contact>
     <personCode>321dr</personCode>
-    <firstName>Baker</firstName>
-    <lastName> C.</lastName>
+    <firstName> C.</firstName>
+    <lastName>Baker</lastName>
     <address>
       <street>Avery Hall</street>
       <city>Lincoln</city>
