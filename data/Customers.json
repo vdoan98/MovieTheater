@@ -3,8 +3,8 @@
   "type": "G",
   "contact": {
     "personCode": "231",
-    "firstName": "Baker",
-    "lastName": "Tom",
+    "firstName": "Tom",
+    "lastName": "Baker",
     "address": {
       "street": "1 Blue Jays Way",
       "city": " Toronto",
@@ -33,8 +33,8 @@
   "type": "S",
   "contact": {
     "personCode": "944c",
-    "firstName": "Castro",
-    "lastName": " Starlin",
+    "firstName": " Starlin",
+    "lastName": "Castro",
     "address": {
       "street": "1060 West Addison Street",
       "city": "Chicago",
@@ -61,8 +61,8 @@
   "type": "S",
   "contact": {
     "personCode": "306a",
-    "firstName": "Sampson",
-    "lastName": " Brock",
+    "firstName": " Brock",
+    "lastName": "Sampson",
     "address": {
       "street": "123 N 1st Street",
       "city": "Omaha",
@@ -89,8 +89,8 @@
   "type": "G",
   "contact": {
     "personCode": "321f",
-    "firstName": "Fox",
-    "lastName": " Bud",
+    "firstName": " Bud",
+    "lastName": "Fox",
     "address": {
       "street": "321 Bronx Street",
       "city": "New York",
@@ -117,8 +117,8 @@
   "type": "G",
   "contact": {
     "personCode": "bbchar",
-    "firstName": "Ehrmantraut",
-    "lastName": " Kaylee",
+    "firstName": " Kaylee",
+    "lastName": "Ehrmantraut",
     "address": {
       "street": "800 West 7th Street",
       "city": " Albuquerque",
@@ -142,8 +142,8 @@
   "type": "S",
   "contact": {
     "personCode": "321dr",
-    "firstName": "Baker",
-    "lastName": " C.",
+    "firstName": " C.",
+    "lastName": "Baker",
     "address": {
       "street": "Avery Hall",
       "city": "Lincoln",
