@@ -12,7 +12,6 @@ public class FlatFileReader {
 	ArrayList<Product> productList = new ArrayList<Product>();
 	ArrayList<Invoice> invoiceList = new ArrayList<Invoice>();
 	
-
 	
 
 	public ArrayList<Person> readPersons() {
@@ -181,6 +180,11 @@ public class FlatFileReader {
 		// This Person ArrayList stores the Person objects
 		String data[];
 		String product;
+		
+		//Invoke readPersons() and readCustomer() before invoice run 
+		//Prevent personList and customerList size from being 0
+		this.readPersons();
+		this.readCustomer();
 
 		try {
 			sc = new Scanner(new File("data/Invoices.dat"));
@@ -201,35 +205,38 @@ public class FlatFileReader {
 
 				for (int i = 0; i < productArray.length; i++) {
 					String tempArray[] = productArray[i].split(":");
-					for (int j = 0; j < productList.size(); j++) {
-						if (tempArray[0].compareTo(this.readProducts().get(j).getProductCode()) == 0) {
-							totalProducts.add(productList.get(j));
+					for (int j = 0; j < this.readProducts().size(); j++) {
+						if (tempArray[0].compareToIgnoreCase(this.readProducts().get(j).getProductCode()) == 0) {	
+							totalProducts.add(this.readProducts().get(j));
+							break;
 						}
 					}
 				}
+
+				System.out.println(totalProducts);
 				
 
 				Invoice invoice = new Invoice (code, date, totalProducts);
-				Customer tempCustomer = null;
+				
+				System.out.println(customerList.size());
+		
+				
 				//checkCustomer 
-				for (int i = 0; i < customerList.size(); i++) {
-					if(((this.customerList.get(i).getCustomerCode()).compareTo(data[1]))==0) {
-						invoice.setCustomer(this.customerList.get(i));
+				for (int i = 0; i < this.readCustomer().size(); i++) {
+					if(((this.readCustomer().get(i).getCustomerCode()).compareToIgnoreCase(data[1])) == 0) {
+						invoice.setCustomer(this.readCustomer().get(i));
+						break;
 					}
 				}
 				
-				
-				Person tempPerson = null;
 
 				//check the sale person
 				for (int i = 0; i < personList.size(); i++) {
-					if(((this.personList.get(i).getPersonCode()).compareTo(data[2]))==0) {
-						tempPerson = this.readPersons().get(i);
-						invoice.setSalePerson(this.personList.get(i));
+					if(((this.readPersons().get(i).getPersonCode()).compareToIgnoreCase(data[2])) == 0) {
+						invoice.setSalePerson(this.readPersons().get(i));
+						break;
 					}
 				}
-				
-
 
 				invoiceList.add(invoice);
 			}
