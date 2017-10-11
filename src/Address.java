@@ -1,13 +1,13 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Address {
-	
+
 	private String street;
 	private String city;
 	private String state;
 	private String zip;
 	private String country;
-	
-
 
 	/**
 	 * @param street
@@ -33,7 +33,8 @@ public class Address {
 	}
 
 	/**
-	 * @param street the street to set
+	 * @param street
+	 *            the street to set
 	 */
 	public void setStreet(String street) {
 		this.street = street;
@@ -47,7 +48,8 @@ public class Address {
 	}
 
 	/**
-	 * @param city the city to set
+	 * @param city
+	 *            the city to set
 	 */
 	public void setCity(String city) {
 		this.city = city;
@@ -61,7 +63,8 @@ public class Address {
 	}
 
 	/**
-	 * @param state the state to set
+	 * @param state
+	 *            the state to set
 	 */
 	public void setState(String state) {
 		this.state = state;
@@ -75,7 +78,8 @@ public class Address {
 	}
 
 	/**
-	 * @param zip the zip to set
+	 * @param zip
+	 *            the zip to set
 	 */
 	public void setZip(String zip) {
 		this.zip = zip;
@@ -89,12 +93,20 @@ public class Address {
 	}
 
 	/**
-	 * @param country the country to set
+	 * @param country
+	 *            the country to set
 	 */
 	public void setCountry(String country) {
 		this.country = country;
 	}
 
-	
-	
+	public String toString() {// overriding the toString() method
+		String street = this.getStreet();
+		String city = this.getCity();
+		String state = this.getState();
+		String zip = this.getZip();
+		String country = this.getCountry();
+		return street + "\n" + city + " " + state + " " + zip + " " + country;
+	}
+
 }
