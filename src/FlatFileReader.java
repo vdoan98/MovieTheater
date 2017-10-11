@@ -179,7 +179,6 @@ public class FlatFileReader {
 		Scanner sc = null;
 		// This Person ArrayList stores the Person objects
 		String data[];
-		String product;
 		
 		//Invoke readPersons() and readCustomer() before invoice run 
 		//Prevent personList and customerList size from being 0
