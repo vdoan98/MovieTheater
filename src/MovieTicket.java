@@ -1,3 +1,5 @@
+import java.sql.Date;
+
 import org.joda.time.DateTime;
 
 public class MovieTicket extends Product {
@@ -118,11 +120,34 @@ public class MovieTicket extends Product {
 		// TODO Auto-generated method stub
 		double total = 0;
 		if (type == 'S'){
-			total = (this.getPricePerUnit() - this.getPricePerUnit() * 0.08) * this.getAmount();
+			if (time.getDayOfWeek() == 2 || time.getDayOfWeek() == 4){
+				total = (this.getPricePerUnit() - this.getPricePerUnit() * 0.08 - this.getPricePerUnit() * 0.07) * this.getAmount();
+			}else{
+				total = (this.getPricePerUnit() - this.getPricePerUnit() * 0.08 ) * this.getAmount();
+			}
 		}else if (type == 'G'){
-			total = this.getPricePerUnit() * this.getTax() * this.getAmount();
+			if (time.getDayOfWeek() == 2 || time.getDayOfWeek() == 4){
+				total = (this.getPricePerUnit() + this.getPricePerUnit() * this.getTax() - this.getPricePerUnit() * 0.07) * this.getAmount();
+			}else {
+				total = (this.getPricePerUnit() + this.getPricePerUnit() * this.getTax()) * this.getAmount();
+			}
 		}
 		return total;
+	}
+	
+
+
+	@Override
+	public double getTotal() {
+		// TODO Auto-generated method stub
+		return this.getPricePerUnit() * this.getAmount();
+	}
+
+
+	@Override
+	public double computeTax() {
+		// TODO Auto-generated method stub
+		return this.getPricePerUnit() * this.getTax() * this.getAmount();
 	}
 	
 	

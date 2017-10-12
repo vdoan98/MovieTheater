@@ -100,13 +100,9 @@ public class Address {
 		this.country = country;
 	}
 
+	@Override 
 	public String toString() {// overriding the toString() method
-		String street = this.getStreet();
-		String city = this.getCity();
-		String state = this.getState();
-		String zip = this.getZip();
-		String country = this.getCountry();
-		return street + "\n" + city + " " + state + " " + zip + " " + country;
+		return this.street + "\n" + this.city + " " + this.state + " " + this.zip + " " + this.country;
 	}
-
+	
 }

@@ -113,9 +113,25 @@ public class SeasonPass extends Product {
 		if (type == 'S'){
 			total = (this.getCost() - this.getCost() * 0.08) * this.getAmount();
 		}else if (type == 'G'){
-			total = this.getCost() * this.getTax() * this.getAmount();
+			total = (this.getCost() + this.getCost() * this.getTax()) * this.getAmount();
 		}
 		return total;
+	}
+
+
+
+	@Override
+	public double getTotal() {
+		// TODO Auto-generated method stub
+		return this.getCost() * this.getAmount();
+	}
+
+
+
+	@Override
+	public double computeTax() {
+		// TODO Auto-generated method stub
+		return this.getCost() * this.getTax() * this.getAmount();
 	}
 	
 	

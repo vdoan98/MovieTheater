@@ -97,4 +97,20 @@ public class ParkingPass extends Product {
 		return total;
 	}
 
+
+
+	@Override
+	public double getTotal() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+	@Override
+	public double computeTax() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

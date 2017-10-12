@@ -101,7 +101,43 @@ public class Invoice {
 	 */
 	public void setProducts(ArrayList<Product> products) {
 		this.products = products;
-	} 
+	}
+	
+	public double getSubTotal(){
+		double total = 0;
+		for (int i = 0; i < this.products.size(); i++){
+			total += this.products.get(i).getTotal();
+		}
+		return total;
+	}
+	
+	public double getFee(){
+		return 0.0;
+	}
+	
+	public double getTotal(){
+		double total = 0;
+		for (int i = 0; i < this.products.size(); i++){
+			total += this.products.get(i).computeTotal(this.getCustomer().getType().charAt(0));
+		}
+		return total;
+	}
+	
+	public double getTax(){
+		double total = 0;
+		for (int i = 0; i < this.products.size(); i++){
+			total += this.products.get(i).computeTax();
+		}
+		return total;
+	}
+	
+	public double getDiscount(){
+		double discount = 0;
+		for (int i = 0; i < this.products.size(); i++){
+			discount += this.products.get(i).getTotal();
+		}
+		return -1 * (this.getTotal() - discount);
+	}
 	
 	
 	
