@@ -59,21 +59,21 @@ public class Refreshment extends Product {
 	}
 
 	@Override
-	public double getTax(char type) {
+	public double getTax() {
 		// TODO Auto-generated method stub
-		double tax = 0;
-		if (type == 'S'){
-			tax = 0.0;
-		}else if (type == 'G'){
-			tax = 0.04;
-		}
-		return tax;
+		return 0.04;
 	}
 
 	@Override
-	public double computeTotal() {
+	public double computeTotal(char type) {
 		// TODO Auto-generated method stub
-		return 0;
+		double total = 0;
+		if (type == 'S'){
+			total = (this.getPrice() - this.getPrice() * 0.08) * this.getAmount() ;
+		}else if (type == 'G'){
+			total = this.getPrice() * this.getTax() * this.getAmount();
+		}
+		return total;
 	}
 
 }

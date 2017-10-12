@@ -1,6 +1,7 @@
 public class ParkingPass extends Product {
 	private double parkingFee;
 	private String ticket;
+	private double price = 25.0;
 
 	/**
 	 * @return the ticket
@@ -57,23 +58,43 @@ public class ParkingPass extends Product {
 	public void setParkingFee(double parkingFee) {
 		this.parkingFee = parkingFee;
 	}
+	
+	
+
+	/**
+	 * @return the price
+	 */
+	public double getPrice() {
+		return price;
+	}
+
+
+
+	/**
+	 * @param price the price to set
+	 */
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+
 
 	@Override
-	public double getTax(char type) {
+	public double getTax() {
 		// TODO Auto-generated method stub
-		double tax = 0;
-		if (type == 'S'){
-			tax = 0.0;
-		}else if (type == 'G'){
-			tax = 0.04;
-		}
-		return tax;
+		return 0.04;
 	}
 
 	@Override
-	public double computeTotal() {
+	public double computeTotal(char type) {
 		// TODO Auto-generated method stub
-		return 0;
+		double total = 0;
+		if (type == 'S'){
+			
+		}else if (type == 'G'){
+			
+		}
+		return total;
 	}
 
 }

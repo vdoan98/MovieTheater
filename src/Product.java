@@ -68,8 +68,8 @@ public abstract class Product {
 	}
 
 
-	public abstract double getTax(char type);
-	public abstract double computeTotal();
+	public abstract double getTax();
+	public abstract double computeTotal(char type);
 	
 	
 
