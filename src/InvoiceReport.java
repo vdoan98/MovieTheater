@@ -134,16 +134,26 @@ public class InvoiceReport {
 
 				} else if (invoiceArray.get(i).getProducts().get(j).getType() == 'P') {
 					// ParkingPass
-					
-					System.out.printf("%-8.8s %-70.70s %-10.10s %-10.10s %-10.10s\n", 
-									((ParkingPass) tempProduct).getProductCode(),
-									"ParkingPass " + ((ParkingPass) tempProduct).getTicket() + 
-									" (" + tempProduct.getAmount() + " units @ $" + 
-									((ParkingPass) tempProduct).getPrice() + "/unit with " +  
-									((ParkingPass) tempProduct).getTicketAmount() +" free)", 
-									"$" + df.format(((ParkingPass) tempProduct).getTotal()),
-									"$" + df.format(((ParkingPass) tempProduct).computeTax()), 
-									"$" + df.format(((ParkingPass) tempProduct).computeTotal()));
+					if (hasTicket){
+						System.out.printf("%-8.8s %-70.70s %-10.10s %-10.10s %-10.10s\n", 
+								((ParkingPass) tempProduct).getProductCode(),
+								"ParkingPass " + ((ParkingPass) tempProduct).getTicket() + 
+								" (" + tempProduct.getAmount() + " units @ $" + 
+								((ParkingPass) tempProduct).getPrice() + "/unit with " +  
+								((ParkingPass) tempProduct).getTicketAmount() +" free)", 
+								"$" + df.format(((ParkingPass) tempProduct).getTotal()),
+								"$" + df.format(((ParkingPass) tempProduct).computeTax()), 
+								"$" + df.format(((ParkingPass) tempProduct).computeTotal()));
+					}else{
+						System.out.printf("%-8.8s %-70.70s %-10.10s %-10.10s %-10.10s\n", 
+								((ParkingPass) tempProduct).getProductCode(),
+								"ParkingPass" + 
+								" (" + tempProduct.getAmount() + " units @ $" + 
+								((ParkingPass) tempProduct).getPrice() + "/unit)", 
+								"$" + df.format(((ParkingPass) tempProduct).getTotal()),
+								"$" + df.format(((ParkingPass) tempProduct).computeTax()), 
+								"$" + df.format(((ParkingPass) tempProduct).computeTotal()));
+					}
 					
 					totalSubTotal += ((ParkingPass) tempProduct).getTotal();
 					totalTaxes += ((ParkingPass) tempProduct).computeTax();
@@ -157,22 +167,26 @@ public class InvoiceReport {
 					double rComputeTotal = 0;
 					
 					if (hasTicket){
-						rTotal = ((Refreshment) tempProduct).getTotal() - ((Refreshment) tempProduct).getDiscount();
-						rTax = ((Refreshment) tempProduct).computeTax() - ((Refreshment) tempProduct).getDiscountTax();
-						rComputeTotal = rTotal + rTax;
+
+						
+						System.out.printf("%-8.8s %-70.70s %-10.10s %-10.10s %-10.10s\n", 
+								((Refreshment) tempProduct).getProductCode(),
+								((Refreshment) tempProduct).getName() + " (" + tempProduct.getAmount() + " units @ $" + 
+								df.format(((Refreshment) tempProduct).getPrice()) + "/unit with 5% off)",
+								"$" + df.format(((Refreshment) tempProduct).getTotal() - ((Refreshment) tempProduct).getDiscount()),
+								"$" + df.format(((Refreshment) tempProduct).computeTax() - ((Refreshment) tempProduct).getDiscountTax()),
+								"$" + df.format(((Refreshment) tempProduct).getTotal() - ((Refreshment) tempProduct).getDiscount() + ((Refreshment) tempProduct).computeTax() - ((Refreshment) tempProduct).getDiscountTax()));
 					}else{
-						rTotal = ((Refreshment) tempProduct).getTotal();
-						rTax = ((Refreshment) tempProduct).computeTax();
-						rComputeTotal = rTotal + rTax;
+
+						System.out.printf("%-8.8s %-70.70s %-10.10s %-10.10s %-10.10s\n", 
+								((Refreshment) tempProduct).getProductCode(),
+								((Refreshment) tempProduct).getName() + " (" + tempProduct.getAmount() + " units @ $" + 
+								df.format(((Refreshment) tempProduct).getPrice()) + "/unit)",
+								"$" + df.format(((Refreshment) tempProduct).getTotal()),
+								"$" + df.format(((Refreshment) tempProduct).computeTax()),
+								"$" + df.format(((Refreshment) tempProduct).getTotal() + ((Refreshment) tempProduct).computeTax()));
 					}
 					
-					System.out.printf("%-8.8s %-70.70s %-10.10s %-10.10s %-10.10s\n", 
-									((Refreshment) tempProduct).getProductCode(),
-									((Refreshment) tempProduct).getName() + " (" + tempProduct.getAmount() + " units @ $" + 
-									df.format(((Refreshment) tempProduct).getPrice()) + "/unit with 5% off)",
-									"$" + df.format(rTotal),
-									"$" + df.format(rTax),
-									"$" + df.format(rComputeTotal));
 					totalSubTotal += ((Refreshment) tempProduct).getTotal();
 					totalTaxes += ((Refreshment) tempProduct).computeTax();
 					totalTotal += ((Refreshment) tempProduct).computeTotal();
@@ -215,8 +229,6 @@ public class InvoiceReport {
 			
 			System.out.println();
 			System.out.println();
-			//			double tax = invoiceArray.get(i).getProducts().get(i).getTax();
-			//			double total = invoiceArray.get(i).getProducts().get(i).computeTotal();
 		}
 	}
 
