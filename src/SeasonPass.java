@@ -103,16 +103,13 @@ public class SeasonPass extends Product {
 	@Override
 	public double getTax() {
 		// TODO Auto-generated method stub
-		return 0.04;
+		return 0.06;
 	}
 
 	@Override
 	public double computeTotal() {
 		// TODO Auto-generated method stub
-		double total = 0;
-		total = (this.getCost() + this.getCost() * this.getTax()) * this.getAmount();
-
-		return total;
+		return this.getTotal() + this.computeTax();
 	}
 
 
@@ -120,7 +117,7 @@ public class SeasonPass extends Product {
 	@Override
 	public double getTotal() {
 		// TODO Auto-generated method stub
-		return this.getCost() * this.getAmount();
+		return (this.getCost() + 8) * this.getAmount() ;
 	}
 
 
@@ -128,7 +125,7 @@ public class SeasonPass extends Product {
 	@Override
 	public double computeTax() {
 		// TODO Auto-generated method stub
-		return this.getCost() * this.getTax() * this.getAmount();
+		return (this.getCost()+ 8) * this.getTax() * this.getAmount();
 	}
 
 

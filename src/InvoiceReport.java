@@ -85,7 +85,7 @@ public class InvoiceReport {
 							"$" + df.format(((SeasonPass) tempProduct).computeTotal())
 							);
 					System.out.printf("%-8.8s %-70.70s %-10.10s %-10.10s %-10.10s\n", "  ",
-							"(" + tempProduct.getAmount() + " units @ $" + df.format(((SeasonPass) tempProduct).getCost()) + "/unit) ",
+							"(" + tempProduct.getAmount() + " units @ $" + df.format(((SeasonPass) tempProduct).getCost()) + "/unit + $8 fee/unit) ",
 							"", "", "");
 					totalSubTotal += ((SeasonPass) tempProduct).getTotal();
 					totalTaxes += ((SeasonPass) tempProduct).computeTax();

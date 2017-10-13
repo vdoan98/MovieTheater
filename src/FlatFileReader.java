@@ -200,8 +200,6 @@ public class FlatFileReader {
 				String productArray[] = data[4].split(",");
 				ArrayList<Product> totalProducts = new ArrayList<Product>();
 
-				
-				int ticketNumber = 0; //Reads MovieTickets and SeasonPasses
 				for (int i = 0; i < productArray.length; i++) {
 					String tempArray[] = productArray[i].split(":");
 					if (tempArray.length == 2){
@@ -209,9 +207,6 @@ public class FlatFileReader {
 							if (tempArray[0].compareToIgnoreCase(this.readProducts().get(j).getProductCode()) == 0) {
 								productList.get(j).setAmount(Integer.parseInt(tempArray[1]));
 								totalProducts.add(this.readProducts().get(j));
-								if (productList.get(j) instanceof MovieTicket|| productList.get(j) instanceof SeasonPass){
-									ticketNumber = Integer.parseInt(tempArray[1]);
-								}
 							
 								break;
 							}
@@ -219,17 +214,26 @@ public class FlatFileReader {
 					}else if (tempArray.length == 3){ //Reads ParkingPasses
 						for (int j = 0; j < this.readProducts().size(); j++) {
 							if (tempArray[0].compareToIgnoreCase(this.readProducts().get(j).getProductCode()) == 0) {
-								ticketNumber = Integer.parseInt(tempArray[1]); //# of ParkingPasses
 								productList.get(j).setAmount(Integer.parseInt(tempArray[1])); 
 								((ParkingPass) productList.get(j)).setTicket(tempArray[2]); //Sets corresponding Product Code
-								((ParkingPass) productList.get(j)).setTicketAmount(ticketNumber); //Sets number of ParkingPasses
 								totalProducts.add(this.readProducts().get(j));
-								ticketNumber = 0;
 								break;
 							}
 						}
 					}
 					
+				}
+				
+				for (int i = 0; i < totalProducts.size() ; i ++){
+					if (totalProducts.get(i) instanceof ParkingPass){
+						
+						for (int j = 0; j < totalProducts.size(); j++){
+							if ((totalProducts.get(j) instanceof MovieTicket && (((ParkingPass) totalProducts.get(i)).getTicket()).compareTo(((MovieTicket) totalProducts.get(j)).getProductCode()) == 0
+								|| totalProducts.get(j) instanceof SeasonPass && (((ParkingPass) totalProducts.get(i)).getTicket()).compareTo(((SeasonPass) totalProducts.get(j)).getProductCode()) == 0)){
+								((ParkingPass) totalProducts.get(i)).setTicketAmount(totalProducts.get(j).getAmount());
+							}
+						}
+					}
 				}
 				
 
