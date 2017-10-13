@@ -7,7 +7,8 @@ public class MovieTicket extends Product {
 	private DateTime time;
 	private Address address; //TODO:Address class
 	private String screenNo;
-	private double pricePerUnit; 
+	private double pricePerUnit;
+	private int ticketAmount;
 	/** 
 	 * @param productCode
 	 * @param type
@@ -45,6 +46,23 @@ public class MovieTicket extends Product {
 		this.address = address;
 		this.screenNo = screenNo;
 		this.pricePerUnit = pricePerUnit;
+		this.ticketAmount = amount;
+	}
+
+
+	/**
+	 * @return the ticketAmount
+	 */
+	public int getTicketAmount() {
+		return ticketAmount;
+	}
+
+
+	/**
+	 * @param ticketAmount the ticketAmount to set
+	 */
+	public void setTicketAmount(int ticketAmount) {
+		this.ticketAmount = ticketAmount;
 	}
 
 
@@ -119,11 +137,12 @@ public class MovieTicket extends Product {
 	public double computeTotal() {
 		// TODO Auto-generated method stub
 		double total = 0;
-		if (time.getDayOfWeek() == 2 || time.getDayOfWeek() == 4){
-			total = (this.getPricePerUnit() + this.getPricePerUnit() * this.getTax() - this.getPricePerUnit() * 0.07) * this.getAmount();
-		}else {
-			total = (this.getPricePerUnit() + this.getPricePerUnit() * this.getTax()) * this.getAmount();
-		}
+//		if (time.getDayOfWeek() == 2 || time.getDayOfWeek() == 4){
+//			total = (this.getPricePerUnit() + this.getPricePerUnit() * this.getTax() - this.getPricePerUnit() * 0.07) * this.getAmount();
+//		}else {
+//			total = (this.getPricePerUnit() + this.getPricePerUnit() * this.getTax()) * this.getAmount();
+//		}
+		total = this.getTotal() + this.computeTax();
 
 		return total;
 	}

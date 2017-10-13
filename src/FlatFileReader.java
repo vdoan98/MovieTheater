@@ -201,7 +201,7 @@ public class FlatFileReader {
 				ArrayList<Product> totalProducts = new ArrayList<Product>();
 
 				
-				int ticketNumber = 0;
+				int ticketNumber = 0; //Reads MovieTickets and SeasonPasses
 				for (int i = 0; i < productArray.length; i++) {
 					String tempArray[] = productArray[i].split(":");
 					if (tempArray.length == 2){
@@ -212,15 +212,17 @@ public class FlatFileReader {
 								if (productList.get(j) instanceof MovieTicket|| productList.get(j) instanceof SeasonPass){
 									ticketNumber = Integer.parseInt(tempArray[1]);
 								}
+							
 								break;
 							}
 						}
-					}else if (tempArray.length == 3){
+					}else if (tempArray.length == 3){ //Reads ParkingPasses
 						for (int j = 0; j < this.readProducts().size(); j++) {
 							if (tempArray[0].compareToIgnoreCase(this.readProducts().get(j).getProductCode()) == 0) {
-								productList.get(j).setAmount(Integer.parseInt(tempArray[1]));
-								((ParkingPass) productList.get(j)).setTicket(tempArray[2]);
-								((ParkingPass) productList.get(j)).setTicketAmount(ticketNumber);
+								ticketNumber = Integer.parseInt(tempArray[1]); //# of ParkingPasses
+								productList.get(j).setAmount(Integer.parseInt(tempArray[1])); 
+								((ParkingPass) productList.get(j)).setTicket(tempArray[2]); //Sets corresponding Product Code
+								((ParkingPass) productList.get(j)).setTicketAmount(ticketNumber); //Sets number of ParkingPasses
 								totalProducts.add(this.readProducts().get(j));
 								ticketNumber = 0;
 								break;

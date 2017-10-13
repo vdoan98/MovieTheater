@@ -139,7 +139,7 @@ public class InvoiceReport {
 								((ParkingPass) tempProduct).getProductCode(),
 								"ParkingPass " + ((ParkingPass) tempProduct).getTicket() + 
 								" (" + tempProduct.getAmount() + " units @ $" + 
-								((ParkingPass) tempProduct).getPrice() + "/unit with " +  
+								((ParkingPass) tempProduct).getParkingFee() + "/unit with " +  
 								((ParkingPass) tempProduct).getTicketAmount() +" free)", 
 								"$" + df.format(((ParkingPass) tempProduct).getTotal()),
 								"$" + df.format(((ParkingPass) tempProduct).computeTax()), 
@@ -149,7 +149,7 @@ public class InvoiceReport {
 								((ParkingPass) tempProduct).getProductCode(),
 								"ParkingPass" + 
 								" (" + tempProduct.getAmount() + " units @ $" + 
-								((ParkingPass) tempProduct).getPrice() + "/unit)", 
+								((ParkingPass) tempProduct).getParkingFee() + "/unit)", 
 								"$" + df.format(((ParkingPass) tempProduct).getTotal()),
 								"$" + df.format(((ParkingPass) tempProduct).computeTax()), 
 								"$" + df.format(((ParkingPass) tempProduct).computeTotal()));

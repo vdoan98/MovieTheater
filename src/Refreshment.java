@@ -70,8 +70,8 @@ public class Refreshment extends Product {
 	public double computeTotal() {
 		// TODO Auto-generated method stub
 		double total = 0;
-		total = (this.getPrice() + this.getPrice() * this.getTax()) * this.getAmount();
-
+//		total = (this.getPrice() + this.getPrice() * this.getTax()) * this.getAmount();
+		total = this.getTotal() + this.computeTax();
 		return total;
 	}
 
