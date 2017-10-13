@@ -25,7 +25,7 @@ public class MovieTicket extends Product {
 		this.screenNo = screenNo;
 		this.pricePerUnit = pricePerUnit;
 	}
-	
+
 
 	/**
 	 * @param productCode
@@ -108,33 +108,26 @@ public class MovieTicket extends Product {
 	public void setPricePerUnit(double pricePerUnit) {
 		this.pricePerUnit = pricePerUnit;
 	}
-	
+
 	@Override
 	public double getTax() {
 		// TODO Auto-generated method stub
 		return 0.04;
 	}
-	
+
 	@Override
-	public double computeTotal(char type) {
+	public double computeTotal() {
 		// TODO Auto-generated method stub
 		double total = 0;
-		if (type == 'S'){
-			if (time.getDayOfWeek() == 2 || time.getDayOfWeek() == 4){
-				total = (this.getPricePerUnit() - this.getPricePerUnit() * 0.08 - this.getPricePerUnit() * 0.07) * this.getAmount();
-			}else{
-				total = (this.getPricePerUnit() - this.getPricePerUnit() * 0.08 ) * this.getAmount();
-			}
-		}else if (type == 'G'){
-			if (time.getDayOfWeek() == 2 || time.getDayOfWeek() == 4){
-				total = (this.getPricePerUnit() + this.getPricePerUnit() * this.getTax() - this.getPricePerUnit() * 0.07) * this.getAmount();
-			}else {
-				total = (this.getPricePerUnit() + this.getPricePerUnit() * this.getTax()) * this.getAmount();
-			}
+		if (time.getDayOfWeek() == 2 || time.getDayOfWeek() == 4){
+			total = (this.getPricePerUnit() + this.getPricePerUnit() * this.getTax() - this.getPricePerUnit() * 0.07) * this.getAmount();
+		}else {
+			total = (this.getPricePerUnit() + this.getPricePerUnit() * this.getTax()) * this.getAmount();
 		}
+
 		return total;
 	}
-	
+
 
 
 	@Override
@@ -149,8 +142,15 @@ public class MovieTicket extends Product {
 		// TODO Auto-generated method stub
 		return this.getPricePerUnit() * this.getTax() * this.getAmount();
 	}
-	
-	
-	
+
+
+	@Override
+	public double studentDiscount() {
+		// TODO Auto-generated method stub
+		return (this.getPricePerUnit() - this.getPricePerUnit() * 0.08) * this.getAmount();
+	}
+
+
+
 
 }

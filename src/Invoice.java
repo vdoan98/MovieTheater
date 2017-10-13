@@ -8,6 +8,7 @@ public class Invoice {
 	private Customer customer;
 	private Person salePerson;
 	ArrayList<Product> products;
+	private double discount;
 	/**
 	 * @param code
 	 * @param date
@@ -25,6 +26,14 @@ public class Invoice {
 	}
 	
 	
+	/**
+	 * @param discount the discount to set
+	 */
+	public void setDiscount(double discount) {
+		this.discount = discount;
+	}
+
+
 	/**
 	 * @param code
 	 * @param date
@@ -118,7 +127,7 @@ public class Invoice {
 	public double getTotal(){
 		double total = 0;
 		for (int i = 0; i < this.products.size(); i++){
-			total += this.products.get(i).computeTotal(this.getCustomer().getType().charAt(0));
+			total += this.products.get(i).computeTotal();
 		}
 		return total;
 	}

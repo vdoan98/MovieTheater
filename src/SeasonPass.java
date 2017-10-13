@@ -7,7 +7,7 @@ public class SeasonPass extends Product {
 	private DateTime endDate;
 	private double cost;
 
-	
+
 	/**
 	 * @param productCodes
 	 * @param type
@@ -23,9 +23,9 @@ public class SeasonPass extends Product {
 		this.endDate = endDate;
 		this.cost = cost;
 	}
-	
-	
-	
+
+
+
 	/**
 	 * @param productCode
 	 * @param type
@@ -54,8 +54,8 @@ public class SeasonPass extends Product {
 	public String getName() {
 		return this.name;
 	}
-	
-	
+
+
 	/**
 	 * @param name the name to set
 	 */
@@ -99,22 +99,19 @@ public class SeasonPass extends Product {
 	public void setEndDate(DateTime endDate) {
 		this.endDate = endDate;
 	}
-	
+
 	@Override
 	public double getTax() {
 		// TODO Auto-generated method stub
 		return 0.04;
 	}
-	
+
 	@Override
-	public double computeTotal(char type) {
+	public double computeTotal() {
 		// TODO Auto-generated method stub
 		double total = 0;
-		if (type == 'S'){
-			total = (this.getCost() - this.getCost() * 0.08) * this.getAmount();
-		}else if (type == 'G'){
-			total = (this.getCost() + this.getCost() * this.getTax()) * this.getAmount();
-		}
+		total = (this.getCost() + this.getCost() * this.getTax()) * this.getAmount();
+
 		return total;
 	}
 
@@ -133,8 +130,16 @@ public class SeasonPass extends Product {
 		// TODO Auto-generated method stub
 		return this.getCost() * this.getTax() * this.getAmount();
 	}
-	
-	
-	
-	
+
+
+
+	@Override
+	public double studentDiscount() {
+		// TODO Auto-generated method stub
+		return (this.getCost() - this.getCost() * 0.08) * this.getAmount();
+	}
+
+
+
+
 }

@@ -28,8 +28,8 @@ public class InvoiceReport {
 			System.out.printf("%-8.8s %-35.35s %-20.20s %-10.10s %-10.10s %-10.10s %-10.10s %-10.10s\n", invoiceArray.get(i).getCode(), 
 					(invoiceArray.get(i).getCustomer().getName() + "[" + invoiceArray.get(i).getCustomer().getType() + "]"), 
 					(invoiceArray.get(i).getSalePerson().getLastName() + ", " + invoiceArray.get(i).getSalePerson().getFirstName()),
-					"$" + df.format(invoiceArray.get(i).getSubTotal()), "$" + df.format(invoiceArray.get(i).getFee())
-					, "$" + df.format(invoiceArray.get(i).getTax()), "$" + df.format(invoiceArray.get(i).getDiscount()), 
+					"$" + df.format(invoiceArray.get(i).getSubTotal()), "$" + df.format(((Customer)invoiceArray.get(i).getCustomer()).getAdditionalFee())
+					, "$" + df.format(invoiceArray.get(i).getTax()), "$" + df.format(((Customer)invoiceArray.get(i).getCustomer()).getDiscount()), 
 					"$" + df.format(invoiceArray.get(i).getTotal()));
 			totalSubTotal += invoiceArray.get(i).getSubTotal();
 			totalFee += invoiceArray.get(i).getFee();
@@ -65,7 +65,13 @@ public class InvoiceReport {
 			System.out.println("----------------------------");
 			System.out.printf("%-8.8s %-70.70s %-10.10s %-10.10s %-10.10s\n", "Code", "Item", "Sub Total", "Tax", "Total");
 
-			Product tempProduct ;
+			Product tempProduct;
+			
+			totalSubTotal = 0;
+			totalTaxes = 0;
+			totalTotal = 0;
+			double studentDiscount = 0;
+			Boolean hasTicket = false;
 
 			for (int j = 0; j < invoiceArray.get(i).getProducts().size(); j++) {
 				tempProduct = invoiceArray.get(i).getProducts().get(j);
@@ -76,14 +82,16 @@ public class InvoiceReport {
 							"SeasonPass - " + ((SeasonPass) tempProduct).getName(),
 							"$" + df.format(((SeasonPass) tempProduct).getTotal()), 
 							"$" + df.format(((SeasonPass) tempProduct).computeTax()),
-							"$" + df.format(((SeasonPass) tempProduct).computeTotal(invoiceArray.get(i).getCustomer().getType().charAt(0)))
+							"$" + df.format(((SeasonPass) tempProduct).computeTotal())
 							);
 					System.out.printf("%-8.8s %-70.70s %-10.10s %-10.10s %-10.10s\n", "  ",
 							"(" + tempProduct.getAmount() + " units @ $" + df.format(((SeasonPass) tempProduct).getCost()) + "/unit) ",
 							"", "", "");
 					totalSubTotal += ((SeasonPass) tempProduct).getTotal();
 					totalTaxes += ((SeasonPass) tempProduct).computeTax();
-					totalTotal += ((SeasonPass) tempProduct).computeTotal(invoiceArray.get(i).getCustomer().getType().charAt(0));
+					totalTotal += ((SeasonPass) tempProduct).computeTotal();
+					studentDiscount += ((SeasonPass) tempProduct).studentDiscount();
+					hasTicket = true;
 				} else if (tempProduct.getType() == 'M') {
 					// MovieTicket
 					if (((MovieTicket) tempProduct).getTime().getDayOfWeek() == 2 || ((MovieTicket) tempProduct).getTime().getDayOfWeek() == 5){
@@ -93,7 +101,7 @@ public class InvoiceReport {
 								" @ "+((MovieTicket) tempProduct).getAddress().getStreet() ,
 								"$" + df.format(((MovieTicket) tempProduct).getTotal()),
 								"$" + df.format(((MovieTicket) tempProduct).computeTax()),
-								"$" + df.format(((MovieTicket) tempProduct).computeTotal(invoiceArray.get(i).getCustomer().getType().charAt(0)))
+								"$" + df.format(((MovieTicket) tempProduct).computeTotal())
 								);
 						System.out.printf("%-8.8s %-70.70s %-10.10s %-10.10s %-10.10s\n",
 								"", dtfOut.print(((MovieTicket) tempProduct).getTime()) + " (" + tempProduct.getAmount() + " units @ $"
@@ -101,7 +109,9 @@ public class InvoiceReport {
 								"", "", "");
 						totalSubTotal += ((MovieTicket) tempProduct).getTotal();
 						totalTaxes += ((MovieTicket) tempProduct).computeTax();
-						totalTotal += ((MovieTicket) tempProduct).computeTotal(invoiceArray.get(i).getCustomer().getType().charAt(0));
+						totalTotal += ((MovieTicket) tempProduct).computeTotal();
+						studentDiscount += ((MovieTicket) tempProduct).studentDiscount();
+						hasTicket = true;
 					}else {
 						System.out.printf("%-8.8s %-70.70s %-10.10s %-10.10s %-10.10s\n", 
 								((MovieTicket) tempProduct).getProductCode(),
@@ -109,7 +119,7 @@ public class InvoiceReport {
 								" @ "+((MovieTicket) tempProduct).getAddress().getStreet(),
 								"$" + df.format(((MovieTicket) tempProduct).getTotal()),
 								"$" + df.format(((MovieTicket) tempProduct).computeTax()),
-								"$" + df.format(((MovieTicket) tempProduct).computeTotal(invoiceArray.get(i).getCustomer().getType().charAt(0)))
+								"$" + df.format(((MovieTicket) tempProduct).computeTotal())
 								);
 						System.out.printf("%-8.8s %-70.70s %-10.10s %-10.10s %-10.10s\n",
 								"", dtfOut.print(((MovieTicket) tempProduct).getTime()) + " (" + tempProduct.getAmount() + " units @ $"
@@ -117,8 +127,9 @@ public class InvoiceReport {
 								"", "", "");
 						totalSubTotal += ((MovieTicket) tempProduct).getTotal();
 						totalTaxes += ((MovieTicket) tempProduct).computeTax();
-						totalTotal += ((MovieTicket) tempProduct).computeTotal(invoiceArray.get(i).getCustomer().getType().charAt(0));
-
+						totalTotal += ((MovieTicket) tempProduct).computeTotal();
+						studentDiscount += ((MovieTicket) tempProduct).studentDiscount();
+						hasTicket = true;
 					}
 
 				} else if (invoiceArray.get(i).getProducts().get(j).getType() == 'P') {
@@ -127,33 +138,74 @@ public class InvoiceReport {
 					System.out.printf("%-8.8s %-70.70s %-10.10s %-10.10s %-10.10s\n", 
 									((ParkingPass) tempProduct).getProductCode(),
 									"ParkingPass " + ((ParkingPass) tempProduct).getTicket() + 
-									"(" + tempProduct.getAmount() + " units @ $" + 
-									((ParkingPass) tempProduct).getPrice() + "/unit)", 
-									"", "", "");
+									" (" + tempProduct.getAmount() + " units @ $" + 
+									((ParkingPass) tempProduct).getPrice() + "/unit with " +  
+									((ParkingPass) tempProduct).getTicketAmount() +" free)", 
+									"$" + df.format(((ParkingPass) tempProduct).getTotal()),
+									"$" + df.format(((ParkingPass) tempProduct).computeTax()), 
+									"$" + df.format(((ParkingPass) tempProduct).computeTotal()));
+					
+					totalSubTotal += ((ParkingPass) tempProduct).getTotal();
+					totalTaxes += ((ParkingPass) tempProduct).computeTax();
+					totalTotal += ((ParkingPass) tempProduct).computeTotal();
+					studentDiscount += ((ParkingPass) tempProduct).studentDiscount();
 
 				} else if (invoiceArray.get(i).getProducts().get(j).getType() == 'R') {
 					// Refreshment
+					double rTotal = 0;
+					double rTax = 0;
+					double rComputeTotal = 0;
+					
+					if (hasTicket){
+						rTotal = ((Refreshment) tempProduct).getTotal() - ((Refreshment) tempProduct).getDiscount();
+						rTax = ((Refreshment) tempProduct).computeTax() - ((Refreshment) tempProduct).getDiscountTax();
+						rComputeTotal = rTotal + rTax;
+					}else{
+						rTotal = ((Refreshment) tempProduct).getTotal();
+						rTax = ((Refreshment) tempProduct).computeTax();
+						rComputeTotal = rTotal + rTax;
+					}
 					
 					System.out.printf("%-8.8s %-70.70s %-10.10s %-10.10s %-10.10s\n", 
 									((Refreshment) tempProduct).getProductCode(),
 									((Refreshment) tempProduct).getName() + " (" + tempProduct.getAmount() + " units @ $" + 
-									df.format(((Refreshment) tempProduct).getPrice()) + "/unit)",
-									"$" + df.format(((Refreshment) tempProduct).getTotal()),
-									"$" + df.format(((Refreshment) tempProduct).computeTax()),
-									"$" + df.format(((Refreshment) tempProduct).computeTotal(invoiceArray.get(i).getCustomer().getType().charAt(0))));
+									df.format(((Refreshment) tempProduct).getPrice()) + "/unit with 5% off)",
+									"$" + df.format(rTotal),
+									"$" + df.format(rTax),
+									"$" + df.format(rComputeTotal));
 					totalSubTotal += ((Refreshment) tempProduct).getTotal();
 					totalTaxes += ((Refreshment) tempProduct).computeTax();
-					totalTotal += ((Refreshment) tempProduct).computeTotal(invoiceArray.get(i).getCustomer().getType().charAt(0));
+					totalTotal += ((Refreshment) tempProduct).computeTotal();
+					studentDiscount += ((Refreshment) tempProduct).studentDiscount();
 				}
 			}
-			System.out.printf("%-8.8s %-70.70s %-10.10s %-10.10s %-10.10s\n", "", "", 
+			invoiceArray.get(i).setDiscount(studentDiscount);
+			System.out.printf("%-38.38s %-40.40s %-10.10s %-10.10s %-10.10s\n", "", "", 
 					  "===============================",
 					  "===============================",
 					  "===============================");
-			System.out.printf("%-8.8s %-70.70s %-10.10s %-10.10s %-10.10s", "SUBTOTAL", "", 
+			System.out.printf("%-38.38s %-40.40s %-10.10s %-10.10s %-10.10s\n", "SUBTOTAL", "", 
 					  "$" + df.format(totalSubTotal),
 					  "$" + df.format(totalTaxes),
 					  "$" + df.format(totalTotal));
+			
+			if (invoiceArray.get(i).getCustomer().getType().charAt(0) == 'S'){
+				System.out.printf("%-38.38s %-40.40s %-10.10s %-10.10s %-10.10s\n", 
+						"DISCOUNT ( 8%  STUDENT & NO TAX)",
+						"", "", "",
+						"$-" + df.format(studentDiscount)
+						);
+				System.out.printf("%-38.38s %-40.40s %-10.10s %-10.10s %-10.10s\n", 
+						"ADDITIONAL FEE (Student)",
+						"", "", "",
+						"$" + df.format(6.75)
+						);
+				System.out.printf("%-38.38s %-40.40s %-10.10s %-10.10s %-10.10s\n", 
+						"TOTAL",
+						"", "", "",
+						"$" + df.format(totalTotal - totalTaxes - studentDiscount + 6.75)
+						);
+			}
 			
 			System.out.println();
 			System.out.println();

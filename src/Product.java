@@ -71,7 +71,8 @@ public abstract class Product {
 	public abstract double getTax();
 	public abstract double getTotal();
 	public abstract double computeTax();
-	public abstract double computeTotal(char type);
+	public abstract double computeTotal();
+	public abstract double studentDiscount();
 	
 	
 

@@ -1,6 +1,7 @@
 public class ParkingPass extends Product {
 	private double parkingFee;
 	private String ticket;
+	private int ticketAmount = 0;
 	private double price = 25.0;
 
 	/**
@@ -30,7 +31,7 @@ public class ParkingPass extends Product {
 		super(productCode, type);
 		this.parkingFee = parkingFee;
 	}
-	
+
 
 
 	/**
@@ -58,8 +59,8 @@ public class ParkingPass extends Product {
 	public void setParkingFee(double parkingFee) {
 		this.parkingFee = parkingFee;
 	}
-	
-	
+
+
 
 	/**
 	 * @return the price
@@ -79,6 +80,26 @@ public class ParkingPass extends Product {
 
 
 
+
+
+	/**
+	 * @return the ticketAmount
+	 */
+	public int getTicketAmount() {
+		return ticketAmount;
+	}
+
+
+
+	/**
+	 * @param ticketAmount the ticketAmount to set
+	 */
+	public void setTicketAmount(int ticketAmount) {
+		this.ticketAmount = ticketAmount;
+	}
+
+
+
 	@Override
 	public double getTax() {
 		// TODO Auto-generated method stub
@@ -86,14 +107,16 @@ public class ParkingPass extends Product {
 	}
 
 	@Override
-	public double computeTotal(char type) {
+	public double computeTotal() {
 		// TODO Auto-generated method stub
 		double total = 0;
-		if (type == 'S'){
-			
-		}else if (type == 'G'){
-			
+		double priceTax = this.getPrice() + this.getPrice() * this.getTax() ;
+		if (this.getAmount() <= this.getTicketAmount()){
+			total = (priceTax * this.getAmount()) - (this.getAmount() * priceTax);
+		}else{
+			total = (priceTax * this.getAmount()) - (this.ticketAmount * priceTax);
 		}
+
 		return total;
 	}
 
@@ -102,7 +125,15 @@ public class ParkingPass extends Product {
 	@Override
 	public double getTotal() {
 		// TODO Auto-generated method stub
-		return 0;
+		double total = 0;
+		if (this.getAmount() <= this.getTicketAmount()){
+			total = (this.getPrice() * this.getAmount()) - (this.getAmount() * this.getPrice());
+		}else{
+			total = (this.getPrice() * this.getAmount()) - (this.ticketAmount * this.getPrice());
+		}
+
+
+		return total;
 	}
 
 
@@ -110,7 +141,28 @@ public class ParkingPass extends Product {
 	@Override
 	public double computeTax() {
 		// TODO Auto-generated method stub
-		return 0;
+		double total = 0;
+		if (this.getAmount() <= this.getTicketAmount()){
+			total = (this.getPrice() * this.getTax() * this.getAmount()) - (this.getAmount() * this.getTax() * this.getPrice());
+		}else{
+			total = (this.getPrice() * this.getTax() * this.getAmount()) - (this.ticketAmount * this.getTax() * this.getPrice());
+		}
+
+		return total;
+	}
+
+
+
+	@Override
+	public double studentDiscount() {
+		// TODO Auto-generated method stub
+		double total = 0;
+		if(this.getAmount() <= this.getTicketAmount()){
+			total = (this.getPrice() - this.getPrice() * 0.08) * this.getAmount();
+		}else{
+			total = (this.getPrice() - this.getPrice() * 0.08) * this.ticketAmount;
+		}
+		return total;
 	}
 
 }

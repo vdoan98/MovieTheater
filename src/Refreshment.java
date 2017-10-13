@@ -63,18 +63,15 @@ public class Refreshment extends Product {
 		// TODO Auto-generated method stub
 		return 0.04;
 	}
-	
-	
+
+
 
 	@Override
-	public double computeTotal(char type) {
+	public double computeTotal() {
 		// TODO Auto-generated method stub
 		double total = 0;
-		if (type == 'S'){
-			total = (this.getPrice() - this.getPrice() * 0.08) * this.getAmount() ;
-		}else if (type == 'G'){
-			total = (this.getPrice() + this.getPrice() * this.getTax()) * this.getAmount();
-		}
+		total = (this.getPrice() + this.getPrice() * this.getTax()) * this.getAmount();
+
 		return total;
 	}
 
@@ -88,6 +85,20 @@ public class Refreshment extends Product {
 	public double computeTax() {
 		// TODO Auto-generated method stub
 		return this.getPrice() * this.getTax() * this.getAmount();
+	}
+
+	@Override
+	public double studentDiscount() {
+		// TODO Auto-generated method stub
+		return (this.getPrice() - this.getPrice() * 0.08) * this.getAmount();
+	}
+	 
+	public double getDiscount(){
+		return (this.getPrice() * 0.05) * this.getAmount();
+	}
+	
+	public double getDiscountTax(){
+		return this.getPrice() * this.getTax() * 0.05 * this.getAmount();
 	}
 
 }
