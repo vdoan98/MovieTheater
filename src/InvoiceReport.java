@@ -205,6 +205,12 @@ public class InvoiceReport {
 						"", "", "",
 						"$" + df.format(totalTotal - totalTaxes - studentDiscount + 6.75)
 						);
+			}else{
+				System.out.printf("%-38.38s %-40.40s %-10.10s %-10.10s %-10.10s\n", 
+						"TOTAL",
+						"", "", "",
+						"$" + df.format(totalTotal)
+						);
 			}
 			
 			System.out.println();
