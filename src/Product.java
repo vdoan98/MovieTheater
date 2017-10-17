@@ -1,78 +1,35 @@
-public abstract class Product {
-	private String productCode;
-	private char type;
-	private int amount;
-	/**
-	 * @param productCode
-	 * @param type
-	 */
-	public Product(String productCode, char type) {
-		super();
-		this.productCode = productCode;
-		this.type = type;
-	}
+import org.joda.time.DateTime;
+
+public interface Product {
+
+	String getProductCode();
+
+	void setProductCode(String productCode);
+
+	char getType();
 	
+	void setType(char type);
 	
-	/**
-	 * @param productCode
-	 * @param type
-	 * @param amount
-	 */
-	public Product(String productCode, char type, int amount) {
-		super();
-		this.productCode = productCode;
-		this.type = type;
-		this.amount = amount;
-	}
+	int getAmount();
 
-
-	/**
-	 * @return the productCode
-	 */
-	public String getProductCode() {
-		return this.productCode;
-	}
-	/**
-	 * @param productCode the productCode to set
-	 */
-	public void setProductCode(String productCode) {
-		this.productCode = productCode;
-	}
-	/**
-	 * @return the type
-	 */
-	public char getType() {
-		return this.type;
-	}
-	/**
-	 * @param type the type to set
-	 */
-	public void setType(char type) {
-		this.type = type;
-	}
+	void setAmount(int amount);
 	
+	boolean isOverStartDate(DateTime date);
 	
-	/**
-	 * @return the amount
-	 */
-	public int getAmount() {
-		return amount;
-	}
 
-
-	/**
-	 * @param amount the amount to set
-	 */
-	public void setAmount(int amount) {
-		this.amount = amount;
-	}
-
-
+	//Get tax rate for each product. Different products have different tax rate
 	public abstract double getTax();
-	public abstract double getTotal();
+	//Compute total price before tax
+	public abstract double totalBeforeTax();
+	//Compute tax amount
 	public abstract double computeTax();
+	//Add tax and total price before tax to get total price 
 	public abstract double computeTotal();
+	//Compute discount for student. 
 	public abstract double studentDiscount();
+	
+	public abstract double getDiscount();
+	
 	
 	
 

@@ -2,7 +2,11 @@ import java.sql.Date;
 
 import org.joda.time.DateTime;
 
-public class MovieTicket extends Product {
+public class MovieTicket implements Product {
+	
+	private String productCode;
+	private char type;
+	private int amount;
 	private String movieName;
 	private DateTime time;
 	private Address address; //TODO:Address class
@@ -19,7 +23,8 @@ public class MovieTicket extends Product {
 	 */
 	public MovieTicket(String productCode, char type, DateTime time, String movieName, Address address, String screenNo,
 			double pricePerUnit) {
-		super(productCode, type);
+		this.productCode = productCode;
+		this.type = type;
 		this.time = time;
 		this.movieName = movieName;
 		this.address = address;
@@ -40,13 +45,76 @@ public class MovieTicket extends Product {
 	 */
 	public MovieTicket(String productCode, char type, String movieName, DateTime time, Address address, String screenNo,
 			double pricePerUnit, int amount) {
-		super(productCode, type, amount);
+		this.productCode = productCode;
+		this.type = type;
+		this.movieName = movieName;
 		this.movieName = movieName;
 		this.time = time;
 		this.address = address;
 		this.screenNo = screenNo;
 		this.pricePerUnit = pricePerUnit;
 		this.ticketAmount = amount;
+	}
+	
+	public MovieTicket(MovieTicket oldProduct){
+		this.productCode = oldProduct.productCode;
+		this.type = oldProduct.type;
+		this.movieName = oldProduct.movieName;
+		this.movieName = oldProduct.movieName;
+		this.time = new DateTime(oldProduct.time);
+		this.address = new Address(oldProduct.address);
+		this.screenNo = oldProduct.screenNo;
+		this.pricePerUnit = oldProduct.pricePerUnit;
+		this.ticketAmount = oldProduct.amount;
+	}
+
+	
+	
+	/**
+	 * @return the productCode
+	 */
+	public String getProductCode() {
+		return productCode;
+	}
+
+
+	/**
+	 * @param productCode the productCode to set
+	 */
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
+	}
+
+
+	/**
+	 * @return the type
+	 */
+	public char getType() {
+		return type;
+	}
+
+
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(char type) {
+		this.type = type;
+	}
+
+
+	/**
+	 * @return the amount
+	 */
+	public int getAmount() {
+		return amount;
+	}
+
+
+	/**
+	 * @param amount the amount to set
+	 */
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 
 
@@ -142,13 +210,13 @@ public class MovieTicket extends Product {
 	@Override
 	public double computeTotal() {
 		// TODO Auto-generated method stub
-		return this.getTotal() + this.computeTax();
+		return this.totalBeforeTax() + this.computeTax();
 	}
 
 
 
 	@Override
-	public double getTotal() {
+	public double totalBeforeTax() {
 		// TODO Auto-generated method stub
 		return this.getPricePerUnit() * this.getAmount();
 	}
@@ -164,7 +232,23 @@ public class MovieTicket extends Product {
 	@Override
 	public double studentDiscount() {
 		// TODO Auto-generated method stub
-		return (this.getPricePerUnit() - this.getPricePerUnit() * 0.08) * this.getAmount();
+		//Students don't pay tax and get 8% discounts
+		return this.totalBeforeTax() * 0.08 + this.computeTax();
+	}
+
+
+	@Override
+	public double getDiscount() {
+		// TODO Auto-generated method stub
+		//Discount for Tuesday and Thursday 
+		return this.getPricePerUnit() * 0.07 * this.getAmount();
+	}
+
+
+	@Override
+	public boolean isOverStartDate(DateTime date) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 

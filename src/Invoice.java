@@ -115,13 +115,19 @@ public class Invoice {
 	public double getSubTotal(){
 		double total = 0;
 		for (int i = 0; i < this.products.size(); i++){
-			total += this.products.get(i).getTotal();
+			total += this.products.get(i).totalBeforeTax();
 		}
 		return total;
 	}
 	
 	public double getFee(){
-		return 0.0;
+		double fee = 0;
+		if(this.getCustomer() instanceof Student){
+			fee = 6.75;
+		}else if(this.getCustomer() instanceof General){
+			fee = 0;
+		}
+		return fee;
 	}
 	
 	public double getTotal(){
@@ -143,9 +149,23 @@ public class Invoice {
 	public double getDiscount(){
 		double discount = 0;
 		for (int i = 0; i < this.products.size(); i++){
-			discount += this.products.get(i).getTotal();
+			if(this.getCustomer().getType().charAt(0) == 'S'){
+				discount += this.products.get(i).getDiscount(); 
+				discount += this.products.get(i).studentDiscount();
+			}else if (this.getCustomer().getType().charAt(0) == 'G'){
+				discount += 0;
+			}
 		}
-		return -1 * (this.getTotal() - discount);
+		return -1 * discount;
+	}
+	
+	public double getStudentDiscount(){
+		double discount = 0;
+		for (int i = 0; i < this.products.size(); i++){
+			discount += this.products.get(i).studentDiscount();
+		}
+		return -1 * discount;
+		
 	}
 	
 	

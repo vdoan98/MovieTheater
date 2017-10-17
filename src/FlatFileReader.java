@@ -205,18 +205,39 @@ public class FlatFileReader {
 					if (tempArray.length == 2){
 						for (int j = 0; j < this.readProducts().size(); j++) {
 							if (tempArray[0].compareToIgnoreCase(this.readProducts().get(j).getProductCode()) == 0) {
-								productList.get(j).setAmount(Integer.parseInt(tempArray[1]));
-								totalProducts.add(this.readProducts().get(j));
-							
+								if (this.readProducts().get(j) instanceof MovieTicket){
+									MovieTicket tempProduct = new MovieTicket((MovieTicket)this.readProducts().get(j));
+									tempProduct.setAmount(Integer.parseInt(tempArray[1]));
+									tempProduct.isOverStartDate(date);
+									totalProducts.add(tempProduct);
+								}else if (this.readProducts().get(j) instanceof SeasonPass){
+									SeasonPass tempProduct = new SeasonPass((SeasonPass)this.readProducts().get(j));
+									tempProduct.setAmount(Integer.parseInt(tempArray[1]));
+									tempProduct.isOverStartDate(date);
+									totalProducts.add(tempProduct);
+								}else if (this.readProducts().get(j) instanceof Refreshment){
+									Refreshment tempProduct = new Refreshment((Refreshment)this.readProducts().get(j));
+									tempProduct.setAmount(Integer.parseInt(tempArray[1]));
+									tempProduct.isOverStartDate(date);
+									totalProducts.add(tempProduct);
+								}else if(this.readProducts().get(j) instanceof ParkingPass){
+									ParkingPass tempProduct = new ParkingPass((ParkingPass)this.readProducts().get(j));
+									tempProduct.setAmount(Integer.parseInt(tempArray[1])); 
+									totalProducts.add(tempProduct);
+								}
 								break;
 							}
 						}
 					}else if (tempArray.length == 3){ //Reads ParkingPasses
 						for (int j = 0; j < this.readProducts().size(); j++) {
 							if (tempArray[0].compareToIgnoreCase(this.readProducts().get(j).getProductCode()) == 0) {
-								productList.get(j).setAmount(Integer.parseInt(tempArray[1])); 
-								((ParkingPass) productList.get(j)).setTicket(tempArray[2]); //Sets corresponding Product Code
-								totalProducts.add(this.readProducts().get(j));
+								if(this.readProducts().get(j) instanceof ParkingPass){
+									ParkingPass tempProduct = new ParkingPass((ParkingPass)this.readProducts().get(j));
+									tempProduct.setAmount(Integer.parseInt(tempArray[1])); 
+									tempProduct.setTicket(tempArray[2]); //Sets corresponding Product Code
+									totalProducts.add(tempProduct);
+								}
+								
 								break;
 							}
 						}

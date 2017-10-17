@@ -1,4 +1,10 @@
-public class ParkingPass extends Product {
+import org.joda.time.DateTime;
+
+public class ParkingPass implements Product {
+	
+	private String productCode;
+	private char type;
+	private int amount;
 	private double parkingFee;
 	private String ticket;
 	private int ticketAmount;
@@ -26,7 +32,8 @@ public class ParkingPass extends Product {
 	 * @param parkingFee
 	 */
 	public ParkingPass(String productCode, char type, double parkingFee) {
-		super(productCode, type);
+		this.productCode = productCode;
+		this.type = type;
 		this.parkingFee = parkingFee;
 	}
 
@@ -37,9 +44,61 @@ public class ParkingPass extends Product {
 	 * @param amount
 	 */
 	public ParkingPass(String productCode, char type, double parkingFee, int amount) {
-		super(productCode, type, amount);
+		this.productCode = productCode;
+		this.type = type;
 		this.parkingFee = parkingFee;
-		this.ticketAmount = amount;
+		this.amount = amount;
+	}
+	
+	public ParkingPass(ParkingPass oldProduct) {
+		this.productCode = oldProduct.productCode;
+		this.type = oldProduct.type;
+		this.parkingFee = oldProduct.parkingFee;
+		this.amount = oldProduct.amount;
+	}
+	
+	
+
+	/**
+	 * @return the productCode
+	 */
+	public String getProductCode() {
+		return productCode;
+	}
+
+	/**
+	 * @param productCode the productCode to set
+	 */
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
+	}
+
+	/**
+	 * @return the type
+	 */
+	public char getType() {
+		return type;
+	}
+
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(char type) {
+		this.type = type;
+	}
+
+	/**
+	 * @return the amount
+	 */
+	public int getAmount() {
+		return amount;
+	}
+
+	/**
+	 * @param amount the amount to set
+	 */
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 
 	/**
@@ -86,6 +145,16 @@ public class ParkingPass extends Product {
 	public void setTicketAmount(int ticketAmount) {
 		this.ticketAmount = ticketAmount;
 	}
+	
+	public int getFreeAmount(){
+		int amount = 0;
+		if (this.getAmount() < this.getTicketAmount()){
+			amount = this.getAmount();
+		}else{
+			amount = this.getTicketAmount();
+		}
+		return amount;
+	}
 
 	@Override
 	public double getTax() {
@@ -96,27 +165,18 @@ public class ParkingPass extends Product {
 	@Override
 	public double computeTotal() {
 		// TODO Auto-generated method stub
-		double total = 0;
-//		double priceTax = this.getPrice() + this.getPrice() * this.getTax();
-//		if (this.getAmount() <= this.getTicketAmount()) {
-//			total = (priceTax * this.getAmount()) - (this.getAmount() * priceTax);
-//		} else {
-//			total = (priceTax * this.getAmount()) - (this.ticketAmount * priceTax);
-//		}
-		total = this.getTotal() + this.computeTax();
-
-		return total;
+		return this.totalBeforeTax() + this.computeTax();
 	}
 
 	@Override
-	public double getTotal() {
+	public double totalBeforeTax() {
 		// TODO Auto-generated method stub
 		double total = 0;
-		
+
 		if (this.getAmount() <= this.getTicketAmount()) {
-			total = (this.getParkingFee() * this.getAmount()) - (this.getAmount() * this.getParkingFee());
+			total = 0;
 		} else {
-			total = (this.getParkingFee() * this.getAmount()) - (this.ticketAmount * this.getParkingFee());
+			total = (this.getParkingFee() * this.getAmount()) - (this.getTicketAmount() * this.getParkingFee());
 		}
 
 		return total;
@@ -127,11 +187,10 @@ public class ParkingPass extends Product {
 		// TODO Auto-generated method stub
 		double total = 0;
 		if (this.getAmount() <= this.getTicketAmount()) {
-			total = (this.getParkingFee() * this.getTax() * this.getAmount())
-					- (this.getAmount() * this.getTax() * this.getParkingFee());
+			total = 0;
 		} else {
 			total = (this.getParkingFee() * this.getTax() * this.getAmount())
-					- (this.ticketAmount * this.getTax() * this.getParkingFee());
+					- (this.getTicketAmount() * this.getTax() * this.getParkingFee());
 		}
 
 		return total;
@@ -140,13 +199,19 @@ public class ParkingPass extends Product {
 	@Override
 	public double studentDiscount() {
 		// TODO Auto-generated method stub
-		double total = 0;
-		if (this.getAmount() <= this.getTicketAmount()) {
-			total = (this.getParkingFee() - this.getParkingFee() * 0.08) * this.getAmount();
-		} else {
-			total = (this.getParkingFee() - this.getParkingFee() * 0.08) * this.ticketAmount;
-		}
-		return total;
+		return this.totalBeforeTax() * 0.08 + this.computeTax();
+	}
+
+	@Override
+	public double getDiscount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean isOverStartDate(DateTime date) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
