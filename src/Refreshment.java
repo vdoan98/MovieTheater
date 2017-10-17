@@ -175,9 +175,9 @@ public class Refreshment implements Product {
 		
 		//If refreshment is purchased with a ticket, 5% discount
 		double discount = 0;
-		if(this.hasTicket){
+		if(this.isHasTicket()){
 			discount = this.getPrice() * 0.05 * this.getAmount();
-		}else if(!this.hasTicket) {
+		}else if(!this.isHasTicket()) {
 			discount = 0;
 		}
 		return discount;
