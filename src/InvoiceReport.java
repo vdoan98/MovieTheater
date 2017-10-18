@@ -34,8 +34,9 @@ public class InvoiceReport {
 						((Refreshment) tempProduct).setHasTicket(false);
 					}
 				}
-				hasTicket = false;
 			}
+			hasTicket = false;
+			
 		}
 
 		System.out.println("Executive Summary Report");
