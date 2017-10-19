@@ -9,7 +9,7 @@ public class SeasonPass implements Product {
 	private DateTime startDate;
 	private DateTime endDate;
 	private double cost;
-	private boolean isOver;
+	private boolean isOver = false;
 	private int dayLeft;
 
 

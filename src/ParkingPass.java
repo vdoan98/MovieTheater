@@ -6,7 +6,7 @@ public class ParkingPass implements Product {
 	private char type;
 	private int amount;
 	private double parkingFee;
-	private String ticket;
+	private String ticket = "";
 	private int ticketAmount;
 	private double price;
 

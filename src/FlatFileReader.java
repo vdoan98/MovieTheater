@@ -249,10 +249,13 @@ public class FlatFileReader {
 					if (totalProducts.get(i) instanceof ParkingPass){
 						
 						for (int j = 0; j < totalProducts.size(); j++){
-							if ((totalProducts.get(j) instanceof MovieTicket && (((ParkingPass) totalProducts.get(i)).getTicket()).compareTo(((MovieTicket) totalProducts.get(j)).getProductCode()) == 0
-								|| totalProducts.get(j) instanceof SeasonPass && (((ParkingPass) totalProducts.get(i)).getTicket()).compareTo(((SeasonPass) totalProducts.get(j)).getProductCode()) == 0)){
-								((ParkingPass) totalProducts.get(i)).setTicketAmount(totalProducts.get(j).getAmount());
+							if (totalProducts.get(j) != null){
+								if (((totalProducts.get(j) instanceof MovieTicket && (((ParkingPass) totalProducts.get(i)).getTicket()).compareTo(((MovieTicket) totalProducts.get(j)).getProductCode()) == 0)
+										|| (totalProducts.get(j) instanceof SeasonPass && (((ParkingPass) totalProducts.get(i)).getTicket()).compareTo(((SeasonPass) totalProducts.get(j)).getProductCode()) == 0))){
+										((ParkingPass) totalProducts.get(i)).setTicketAmount(totalProducts.get(j).getAmount());
+									}
 							}
+							
 						}
 					}
 				}
