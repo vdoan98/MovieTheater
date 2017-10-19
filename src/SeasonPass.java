@@ -205,7 +205,7 @@ public class SeasonPass implements Product {
 		if (this.isOver){
 			totalDate = this.getEndDate().getDayOfMonth() - this.getStartDate().getDayOfMonth();
 			total = (this.getCost() / totalDate * this.dayLeft) * this.getAmount()  + (8 * this.getAmount()) ;
-		}else {
+		}else if (!this.isOver){
 			total = this.getCost()  * this.getAmount()  + (8 * this.getAmount()) ;
 		}
 		return total ;
