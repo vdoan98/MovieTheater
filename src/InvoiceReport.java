@@ -60,7 +60,7 @@ public class InvoiceReport {
 				totalFee += invoiceArray.get(i).getFee();
 				totalTaxes += invoiceArray.get(i).getTax();
 				totalDiscount += invoiceArray.get(i).getStudentDiscount();
-				totalTotal += invoiceArray.get(i).getTotal() + invoiceArray.get(i).getDiscount()+6.75;
+				totalTotal += invoiceArray.get(i).getTotal() + invoiceArray.get(i).getStudentDiscount() + 6.75;
 				
 			}else if (invoiceArray.get(i).getCustomer().getType().charAt(0) == 'G'){
 				System.out.printf("%-8.8s %-35.35s %-20.20s %-10.10s %-10.10s %-10.10s %-10.10s %-10.10s\n", invoiceArray.get(i).getCode(), 
