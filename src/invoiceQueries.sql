@@ -89,7 +89,7 @@ DROP TABLE IF EXISTS `SeasonPass`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `SeasonPass`(
 	`ProductCode` varchar(30)  NOT NULL,
-    `Name` varchar(30) DEFAULT NULL ,
+    `ProductName` varchar(30) DEFAULT NULL ,
     `StartDate` varchar(30) DEFAULT NULL,
     `EndDate` varchar(30) DEFAULT NULL,
     `Price` float(11) DEFAULT NULL,
@@ -102,7 +102,7 @@ DROP TABLE IF EXISTS `MovieTicket`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `MovieTicket`(
 	`ProductCode` varchar(30)  NOT NULL,
-    `MovieName` varchar(30) DEFAULT NULL,
+    `ProductName` varchar(30) DEFAULT NULL,
     `Time` varchar(30),
     `AddressID` int(11),
     `ScreenNo` int(11) DEFAULT NULL,
@@ -116,7 +116,7 @@ DROP TABLE IF EXISTS `Refreshment`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Refreshment`(
 	`ProductCode` varchar(30)  NOT NULL,
-    `Name` varchar(30) DEFAULT NULL,
+    `ProductName` varchar(30) DEFAULT NULL,
     `Price` float(11),
     PRIMARY KEY (`ProductCode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -134,3 +134,45 @@ CREATE TABLE `ParkingPass`(
     FOREIGN KEY (`SeasonPassCode`) REFERENCES SeasonPass(`ProductCode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+
+/*--Writing Queries for search;*/;
+/*-- 1*/
+SELECT p.PersonCode, PersonFirstName, PersonLastName, 
+				EmailAddress, a.Street, a.State, a.Zip, a.Country 
+                FROM (Person AS p JOIN Emails AS e ON p.PersonCode = e.PersonCode) 
+                JOIN (Address AS a JOIN pa AS PersonAddress ON a.AddressID = pa.AddressID) 
+                ON p.PersonCode = pa.PersonCode;
+/*--2*/
+INSERT INTO Emails VALUES (PersonCode, NewEmail);
+
+/*--3*/
+UPDATE 	Address
+SET 		Street = "   ", State = "   ", Zip = "   ", Country = "   " 
+WHERE	(MovieTicket.AddressID = Address.AddressID);
+
+
+/*--4*/
+DELETE FROM MovieTicket WHERE MovieTicket.ProductCode = "   ";
+
+/*--5*/
+SELECT	ProductCode, ProductName 
+FROM 	ProductInvoice AS p JOIN SeasonPass AS s ON p.ProductCode = s.ProductCode
+JOIN		MovieTicket AS m ON p.ProductCode = m.ProductCode
+JOIN 		Refreshment AS r ON p.ProductCode = r.ProductCode
+JOIN 		ParkingPass AS pp	ON p.ProductCode = pp.ProductCode
+WHERE 	p.ProductCode = " ";
+
+/*--6*/
+
+
+/*--7*/
+
+/*--8*/
+
+/*--9*/
+
+
+
+
+ 
