@@ -164,14 +164,20 @@ JOIN 		ParkingPass AS pp	ON p.ProductCode = pp.ProductCode
 WHERE 	p.ProductCode = " ";
 
 /*--6*/
-
+SELECT InvoiceCode FROM Invoice WHERE CustomerCode = "    ";
 
 /*--7*/
+INSERT INTO 	ProductInvoice 
+VALUES 				(ProductInvoiceID, ProductCode, InvoiceCode, Amount);
 
 /*--8*/
+SELECT	SUM(Price) AS 'Total Price' FROM MovieTicket;
+
 
 /*--9*/
-
+SELECT	SUM(Amount) AS 'Total Sold' 
+FROM		(ProductInvoice AS p JOIN MovieTicket AS m ON p.ProductCode = m.ProductCode)
+WHERE	m.Time = "   ";
 
 
 
