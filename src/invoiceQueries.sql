@@ -9,13 +9,13 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-
+SHOW WARNINGS;
 DROP TABLE IF EXISTS Person;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE Person(
 	PersonID int(11) NOT NULL AUTO_INCREMENT,
-	PersonCode varchar(30) DEFAULT NULL,
+	PersonCode varchar(30) NOT NULL DEFAULT '000',
     PersonFirstName varchar(30) DEFAULT NULL,
     PersonLastName varchar(30) DEFAULT NULL,
     PRIMARY KEY (PersonID)
@@ -68,7 +68,11 @@ DROP TABLE IF EXISTS PersonAddress;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE PersonAddress(
 	PersonAddressID int(11) NOT NULL AUTO_INCREMENT,
+<<<<<<< HEAD
     PersonCode varchar(30)  ,
+=======
+    PersonCode varchar(30) NOT NULL DEFAULT '000',
+>>>>>>> c97c948d83671bffb1dcb49c01228fdcf171588c
     AddressID int(11) ,
     PRIMARY KEY (PersonAddressID),
     FOREIGN KEY (PersonCode) REFERENCES Person(PersonCode) ,
@@ -89,7 +93,11 @@ DROP TABLE IF EXISTS Emails;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE Emails(
 	EmailAddressID int(11) NOT NULL AUTO_INCREMENT,
+<<<<<<< HEAD
     PersonCode varchar(30) DEFAULT NULL,
+=======
+    PersonCode varchar(30) NOT NULL DEFAULT '000',
+>>>>>>> c97c948d83671bffb1dcb49c01228fdcf171588c
     EmailAddress varchar(50) DEFAULT NULL ,
     PRIMARY KEY (EmailAddressID),
     FOREIGN KEY (PersonCode) REFERENCES Person(PersonCode) 
@@ -140,7 +148,7 @@ DROP TABLE IF EXISTS SalePerson;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE SalePerson(
 	SalePersonID int(11) NOT NULL AUTO_INCREMENT,
-    PersonCode varchar(30) ,
+    PersonCode varchar(30) NOT NULL DEFAULT '000',
     PRIMARY KEY (SalePersonID),
     FOREIGN KEY (PersonCode) REFERENCES Person(PersonCode) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
