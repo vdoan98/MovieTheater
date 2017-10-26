@@ -68,7 +68,7 @@ DROP TABLE IF EXISTS PersonAddress;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE PersonAddress(
 	PersonAddressID int(11) NOT NULL AUTO_INCREMENT,
-    PersonCode varchar(30) ,
+    PersonCode varchar(30)  ,
     AddressID int(11) ,
     PRIMARY KEY (PersonAddressID),
     FOREIGN KEY (PersonCode) REFERENCES Person(PersonCode) ,
@@ -89,7 +89,7 @@ DROP TABLE IF EXISTS Emails;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE Emails(
 	EmailAddressID int(11) NOT NULL AUTO_INCREMENT,
-    PersonCode varchar(30) ,
+    PersonCode varchar(30) DEFAULT NULL,
     EmailAddress varchar(50) DEFAULT NULL ,
     PRIMARY KEY (EmailAddressID),
     FOREIGN KEY (PersonCode) REFERENCES Person(PersonCode) 
