@@ -14,26 +14,53 @@ DROP TABLE IF EXISTS Person;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE Person(
+	PersonID int(11) NOT NULL AUTO_INCREMENT,
 	PersonCode varchar(30) DEFAULT NULL,
     PersonFirstName varchar(30) DEFAULT NULL,
     PersonLastName varchar(30) DEFAULT NULL,
-    PRIMARY KEY (PersonCode)a
+    PRIMARY KEY (PersonID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
 /*!40000 ALTER TABLE Person DISABLE KEYS */;
+INSERT INTO Person(PersonCode, PersonFirstName, PersonLastName) VALUES 
+			('0327m', 'Trommler', 'Florian'), ('hstuck2', 'Sherrer', 'Rose'), ('35fh', 'Riley', 'Roxana'),
+			('fads', 'Ward', 'Melissa'), ('7df8', 'Lessard', 'Helen'), ('7457j', 'Pray', 'James'),
+            ('k54l', 'Watkins', 'Nancy'), ('402', 'Smith', 'Zoe'), ('35po', 'Bradley', 'Vicki'),
+            ('321na', 'Steward', 'Mark'), ('rbee', 'Weiss', 'Charles'), ('34nj', 'Delaney', 'Alice'),
+            ('606s', 'Thomas', 'Jeffery'), ('3knj', 'Hamlin', 'Valerie'), ('68zc', 'Marcantel', 'Abraham'),
+            ('nctis', 'Moench', 'Bernd'), ('58ht', 'Faust', 'Ute'), ('sawin', 'Neudort', 'Lisa');
+/*!40000 ALTER TABLE Person ENABLE KEYS */;
+
+
 DROP TABLE IF EXISTS Address;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE Address(
 	AddressID int(11) NOT NULL AUTO_INCREMENT,
-    Street varchar(30) DEFAULT NULL,
+    Street varchar(50) DEFAULT NULL,
+    City varchar(50) DEFAULT NULL,
     State varchar(30) DEFAULT NULL,
     Zip int(11) DEFAULT NULL,
     Country varchar(30) DEFAULT NULL,
     PRIMARY KEY (AddressID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40000 ALTER TABLE Address DISABLE KEYS */;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+/*!40000 ALTER TABLE Address DISABLE KEYS */;
+INSERT INTO Address(Street, City, State, Zip, Country) VALUES 
+			('229 Grove Avenue', 'Kingfisher', 'OK', '73750', 'USA'), ('994 Blair Court', 'Blairstown', 'MO', '64726', 'USA'),
+            ('637 Devils Hill Road', 'Jackson', 'MS', '39201', 'USA'), ('4139 Harter Street', 'Urbana', 'OH', '43078', 'USA'),
+            ('4476 Cedar Street', 'Mount Ida', 'AR', '71957', 'USA'), ('4153 Ferrell Street', 'Callaway', 'MN', '56521', 'USA'),
+            ('543 Butternut Lane', 'Renault', 'IL', '62279', 'USA'), ('1262 Ashford Drive', 'Mc Lean', 'VA', '22102', 'USA'),
+            ('3402 Kelly Street', 'Charlotte', 'NC', '28206', 'USA'), ('1408 Dovetail Estates', 'Ringwood', 'OK', '73768'),
+            ('1594 Hurry Street', 'Stuarts Drat', 'VA', '24477', 'USA'), ('3409 Pointe Lane', 'Deerfield Beach', 'FL', '33442', 'USA'),
+            ('2823 Garfield Road', 'Peoria', 'IL', '61614', 'USA'), ('2207 August Lane', 'Shreveport', 'LA', '71101', 'USA'),
+            ('1721 Rosebud Avenue', 'Pine Bluff', 'AR', '71601', 'USA'), ('767 Honeysuckle Lane', 'Portland', 'WA', '97232', 'USA'),
+            ('813 Benson Park Drive', 'Newcastle', 'OK', '73065', 'USA'), ('942 Hope Street', 'Plano', 'TX', '75074', 'USA');
+/*!40000 ALTER TABLE Address ENABLE KEYS */;            
+
+
 DROP TABLE IF EXISTS PersonAddress;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -45,8 +72,15 @@ CREATE TABLE PersonAddress(
     FOREIGN KEY (PersonCode) REFERENCES Person(PersonCode) ,
     FOREIGN KEY (AddressID) REFERENCES Address(AddressID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40000 ALTER TABLE PersonAddress DISABLE KEYS */;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+/*!40000 ALTER TABLE PersonAddress DISABLE KEYS */;
+INSERT INTO PersonAddress(PersonCode, AddressID) VALUES 
+			('0327m', 1), ('hstuck2', 2), ('35fh', 3), ('fads', 4), ('7df8', 5), ('7457j', 6), ('k54l', 7), ('402', 8),
+            ('35po', 9), ('321na', 10), ('rbee', 11), ('34nj', 12), ('606s', 13), ('3knj', 14), ('68zc', 15), ('nctis', 16),
+            ('58ht', 17), ('sawin', 18);
+/*!40000 ALTER TABLE PersonAddress ENABLE KEYS */;    
+
 
 DROP TABLE IF EXISTS Emails;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -58,8 +92,13 @@ CREATE TABLE Emails(
     PRIMARY KEY (EmailAddressID),
     FOREIGN KEY (PersonCode) REFERENCES Person(PersonCode) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40000 ALTER TABLE Emails DISABLE KEYS */;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+/*!40000 ALTER TABLE Emails DISABLE KEYS */;
+INSERT INTO Emails(PersonCode, EmailAddress) VALUES 
+			('0327m', 'tflor@gmail.com'), ('0327m', 'tromm12@yahoo.com'),
+            ('hstuck2', 'rosey1@unl.edu'), ('hstuck2', 'rosesherrer@gmail.com'),
+            ('35fh', 'roxy123@gmail.com'), ('35fh', 'riley1994@yahoo.com');
 
 DROP TABLE IF EXISTS Customers;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
