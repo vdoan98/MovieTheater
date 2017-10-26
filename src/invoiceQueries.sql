@@ -168,20 +168,20 @@ DROP TABLE IF EXISTS Invoice;
 CREATE TABLE Invoice(
 	InvoiceID int(11) NOT NULL AUTO_INCREMENT,
 	InvoiceCode varchar(30)  NOT NULL,
-    CustomerCode varchar(30) ,
+    CustomerID int(11) ,
     SalePersonID int(11),
     PRIMARY KEY (InvoiceID),
-    FOREIGN KEY (CustomerCode) REFERENCES Customers(CustomerCode),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
     FOREIGN KEY (SalePersonID) REFERENCES SalePerson(SalePersonID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 /*!40000 ALTER TABLE Invoice DISABLE KEYS */;
 INSERT INTO Invoice(InvoiceCode, CustomerCode, SalePersonID) VALUES 
-			('INV001', 'C001', 1),
-            ('INV002', 'C002', 2),
-            ('INV003', 'C003', 3),
-            ('INV004', 'C004', 4);
+			('INV001', 1, 1),
+            ('INV002', 2, 2),
+            ('INV003', 3, 3),
+            ('INV004', 4, 4);
 /*!40000 ALTER TABLE Invoice ENABLE KEYS */;  
 
 DROP TABLE IF EXISTS SeasonPass;
