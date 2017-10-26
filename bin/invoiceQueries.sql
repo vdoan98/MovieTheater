@@ -100,31 +100,31 @@ DROP TABLE IF EXISTS Emails;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE Emails(
 	EmailAddressID int(11) NOT NULL AUTO_INCREMENT,
-    PersonCode varchar(30) NOT NULL DEFAULT '000',
+    PersonID int(11) DEFAULT NULL,
     EmailAddress varchar(50) DEFAULT NULL ,
     PRIMARY KEY (EmailAddressID),
-    FOREIGN KEY (PersonCode) REFERENCES Person(PersonCode) 
+    FOREIGN KEY (PersonID) REFERENCES Person(PersonID) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 /*!40000 ALTER TABLE Emails DISABLE KEYS */;
-INSERT INTO Emails(PersonCode, EmailAddress) VALUES 
-			('0327m', 'tflor@gmail.com'), ('0327m', 'tromm12@yahoo.com'),
-            ('hstuck2', 'rosey1@unl.edu'), ('hstuck2', 'rosesherrer@gmail.com'),
-            ('35fh', 'roxy123@gmail.com'), ('35fh', 'riley1994@yahoo.com'),
-            ('fads', 'mward@twc.net'), ('fads', 'melissaw87@yahoo.com'), ('fads', 'melward@unl.edu'),
-            ('7df8', 'lesshel@windstream.net'), ('7df8', 'helen98@gmail.com'),
-            ('7457j', 'pray4james@gmail.com'), ('7457j', 'jamespray@unl.edu'), 
-            ('k54l', 'wawawatkins@gmail.com'),
-            ('35po', 'vickibradley@armyspy.com'), ('35po', 'vbradley@gmail.com'),
-            ('321na', 'dovetailestates@windtream.net'), ('321na', 'markstew@twc.net'),
-            ('rbee', 'seisssnow@yahoo.com'), ('rbee', 'weissschnee@hotmail.com'),
-            ('34nj', 'alicedel@gmail.com'), ('34nj', 'delaney92@yahoo.com'),
-            ('606s', 'jefferyt165@gmail.com'), ('606s', 'jefferythomas@unl.edu'),
-            ('3knj', 'valerieham@gmail.com'), ('3knj', 'valerihamlin@yahoo.com'),
-            ('nctis', 'berndone@tw.net'), ('nctis', 'berndmunch@gmail.com'), ('nctis', 'berndmoench@unl.edu'),
-            ('58ht', 'uteute@twc.net'),
-            ('sawin', 'lisaluna1@gmail.com'), ('sawin', 'lisaneudort14@yahoo.com');
+INSERT INTO Emails(PersonID, EmailAddress) VALUES 
+			(1, 'tflor@gmail.com'), (1, 'tromm12@yahoo.com'),
+            (2, 'rosey1@unl.edu'), (2, 'rosesherrer@gmail.com'),
+            (3, 'roxy123@gmail.com'), (3, 'riley1994@yahoo.com'),
+            (4, 'mward@twc.net'), (4, 'melissaw87@yahoo.com'), (4, 'melward@unl.edu'),
+            (5, 'lesshel@windstream.net'), (5, 'helen98@gmail.com'),
+            (6, 'pray4james@gmail.com'), (6, 'jamespray@unl.edu'), 
+            (7, 'wawawatkins@gmail.com'),
+            (9, 'vickibradley@armyspy.com'), (9, 'vbradley@gmail.com'),
+            (10, 'dovetailestates@windtream.net'), (10, 'markstew@twc.net'),
+            (11, 'seisssnow@yahoo.com'), (11, 'weissschnee@hotmail.com'),
+            (12, 'alicedel@gmail.com'), (12, 'delaney92@yahoo.com'),
+            (13, 'jefferyt165@gmail.com'), (13, 'jefferythomas@unl.edu'),
+            (14, 'valerieham@gmail.com'), (14,'3knj', 'valerihamlin@yahoo.com'),
+            (16, 'berndone@tw.net'), (16, 'berndmunch@gmail.com'), (16, 'berndmoench@unl.edu'),
+            (17, 'uteute@twc.net'),
+            (18, 'lisaluna1@gmail.com'), (18, 'lisaneudort14@yahoo.com');
 /*!40000 ALTER TABLE Emails ENABLE KEYS */;    
 
 DROP TABLE IF EXISTS Customers;

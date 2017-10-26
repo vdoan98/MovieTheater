@@ -151,15 +151,15 @@ DROP TABLE IF EXISTS SalePerson;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE SalePerson(
 	SalePersonID int(11) NOT NULL AUTO_INCREMENT,
-    PersonCode varchar(30) NOT NULL DEFAULT '000',
+    PersonID int(11) DEFAULT NULL,
     PRIMARY KEY (SalePersonID),
-    FOREIGN KEY (PersonCode) REFERENCES Person(PersonCode) 
+    FOREIGN KEY (PersonID) REFERENCES Person(PersonID) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 /*!40000 ALTER TABLE SalePerson DISABLE KEYS */;
-INSERT INTO SalePerson(PersonCode) VALUES 
-			('hstuck2'), ('sawin'), ('rbee'), ('nctis');
+INSERT INTO SalePerson(PersonID) VALUES 
+			(2), (18), (11), (17);
 /*!40000 ALTER TABLE SalePerson ENABLE KEYS */;  
 
 DROP TABLE IF EXISTS Invoice;
