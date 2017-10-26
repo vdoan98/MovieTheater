@@ -10,6 +10,17 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 SHOW WARNINGS;
+DROP TABLE IF EXISTS Address;
+DROP TABLE IF EXISTS PersonAddress;
+DROP TABLE IF EXISTS Emails;
+DROP TABLE IF EXISTS Customers;
+DROP TABLE IF EXISTS SalePerson;
+DROP TABLE IF EXISTS Invoice;
+DROP TABLE IF EXISTS SeasonPass;
+DROP TABLE IF EXISTS MovieTicket;
+DROP TABLE IF EXISTS Refreshment;
+DROP TABLE IF EXISTS ParkingPass;
+DROP TABLE IF EXISTS PersonAddress;
 DROP TABLE IF EXISTS Person;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -33,7 +44,6 @@ INSERT INTO Person(PersonCode, PersonFirstName, PersonLastName) VALUES
 /*!40000 ALTER TABLE Person ENABLE KEYS */;
 
 
-DROP TABLE IF EXISTS Address;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE Address(
@@ -53,7 +63,7 @@ INSERT INTO Address(Street, City, State, Zip, Country) VALUES
             ('637 Devils Hill Road', 'Jackson', 'MS', '39201', 'USA'), ('4139 Harter Street', 'Urbana', 'OH', '43078', 'USA'),
             ('4476 Cedar Street', 'Mount Ida', 'AR', '71957', 'USA'), ('4153 Ferrell Street', 'Callaway', 'MN', '56521', 'USA'),
             ('543 Butternut Lane', 'Renault', 'IL', '62279', 'USA'), ('1262 Ashford Drive', 'Mc Lean', 'VA', '22102', 'USA'),
-            ('3402 Kelly Street', 'Charlotte', 'NC', '28206', 'USA'), ('1408 Dovetail Estates', 'Ringwood', 'OK', '73768'),
+            ('3402 Kelly Street', 'Charlotte', 'NC', '28206', 'USA'), ('1408 Dovetail Estates', 'Ringwood', 'OK', '73768','USA'),
             ('1594 Hurry Street', 'Stuarts Drat', 'VA', '24477', 'USA'), ('3409 Pointe Lane', 'Deerfield Beach', 'FL', '33442', 'USA'),
             ('2823 Garfield Road', 'Peoria', 'IL', '61614', 'USA'), ('2207 August Lane', 'Shreveport', 'LA', '71101', 'USA'),
             ('1721 Rosebud Avenue', 'Pine Bluff', 'AR', '71601', 'USA'), ('767 Honeysuckle Lane', 'Portland', 'WA', '97232', 'USA'),
@@ -69,18 +79,19 @@ DROP TABLE IF EXISTS PersonAddress;
 CREATE TABLE PersonAddress(
 	PersonAddressID int(11) NOT NULL AUTO_INCREMENT,
     PersonCode varchar(30) NOT NULL DEFAULT '000',
-    AddressID int(11) ,
+    AddressID int(11) DEFAULT NULL ,
+    PersonID int(11) DEFAULT NULL,
     PRIMARY KEY (PersonAddressID),
-    FOREIGN KEY (PersonCode) REFERENCES Person(PersonCode) ,
+    FOREIGN KEY (PersonID) REFERENCES Person(PersonID) ,
     FOREIGN KEY (AddressID) REFERENCES Address(AddressID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 /*!40000 ALTER TABLE PersonAddress DISABLE KEYS */;
 INSERT INTO PersonAddress(PersonCode, AddressID) VALUES 
-			('0327m', 1), ('hstuck2', 2), ('35fh', 3), ('fads', 4), ('7df8', 5), ('7457j', 6), ('k54l', 7), ('402', 8),
-            ('35po', 9), ('321na', 10), ('rbee', 11), ('34nj', 12), ('606s', 13), ('3knj', 14), ('68zc', 15), ('nctis', 16),
-            ('58ht', 17), ('sawin', 18);
+			(1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7), (8, 8),
+            (9, 9), (10, 10), (11, 11), (12, 12), (13, 13), (14, 14), (15, 15), (16, 16),
+            (17, 17), (18, 18);
 /*!40000 ALTER TABLE PersonAddress ENABLE KEYS */;    
 
 
@@ -183,7 +194,8 @@ CREATE TABLE SeasonPass(
     StartDate varchar(30) DEFAULT NULL,
     EndDate varchar(30) DEFAULT NULL,
     Price float(11) DEFAULT NULL,
-    PRIMARY KEY (ProductID)
+    PRIMARY KEY (ProductID),
+    FOREIGN KEY (ProductCode) REFERENCES Invoice(InvoiceID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
