@@ -10,6 +10,7 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 SHOW WARNINGS;
+DROP TABLE IF EXISTS ProductInvoice;
 DROP TABLE IF EXISTS Address;
 DROP TABLE IF EXISTS PersonAddress;
 DROP TABLE IF EXISTS Emails;
@@ -72,8 +73,6 @@ INSERT INTO Address(Street, City, State, Zip, Country) VALUES
             ('2210 White Oak Drive', 'Overland Park', 'MO', '64110', 'USA');
 /*!40000 ALTER TABLE Address ENABLE KEYS */;            
 
-
-DROP TABLE IF EXISTS PersonAddress;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE PersonAddress(
@@ -95,7 +94,6 @@ INSERT INTO PersonAddress(PersonCode, AddressID) VALUES
 /*!40000 ALTER TABLE PersonAddress ENABLE KEYS */;    
 
 
-DROP TABLE IF EXISTS Emails;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE Emails(
@@ -121,13 +119,12 @@ INSERT INTO Emails(PersonID, EmailAddress) VALUES
             (11, 'seisssnow@yahoo.com'), (11, 'weissschnee@hotmail.com'),
             (12, 'alicedel@gmail.com'), (12, 'delaney92@yahoo.com'),
             (13, 'jefferyt165@gmail.com'), (13, 'jefferythomas@unl.edu'),
-            (14, 'valerieham@gmail.com'), (14,'3knj', 'valerihamlin@yahoo.com'),
+            (14, 'valerieham@gmail.com'), (14, 'valerihamlin@yahoo.com'),
             (16, 'berndone@tw.net'), (16, 'berndmunch@gmail.com'), (16, 'berndmoench@unl.edu'),
             (17, 'uteute@twc.net'),
             (18, 'lisaluna1@gmail.com'), (18, 'lisaneudort14@yahoo.com');
 /*!40000 ALTER TABLE Emails ENABLE KEYS */;    
 
-DROP TABLE IF EXISTS Customers;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE Customers(
@@ -146,7 +143,6 @@ INSERT INTO Customers(CustomerCode, PersonAddressID, CustomerType) VALUES
             ('C006', 11, 'G'), ('C007', 8, 'S'), ('C008', 16, 'G');
 /*!40000 ALTER TABLE Customers ENABLE KEYS */;  
 
-DROP TABLE IF EXISTS SalePerson;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE SalePerson(
@@ -162,14 +158,13 @@ INSERT INTO SalePerson(PersonID) VALUES
 			(2), (18), (11), (17);
 /*!40000 ALTER TABLE SalePerson ENABLE KEYS */;  
 
-DROP TABLE IF EXISTS Invoice;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE Invoice(
 	InvoiceID int(11) NOT NULL AUTO_INCREMENT,
-	InvoiceCode varchar(30)  NOT NULL,
-    CustomerID int(11) ,
-    SalePersonID int(11),
+	InvoiceCode varchar(30) NOT NULL,
+    CustomerID int(11) NOT NULL,
+    SalePersonID int(11) NOT NULL,
     PRIMARY KEY (InvoiceID),
     FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
     FOREIGN KEY (SalePersonID) REFERENCES SalePerson(SalePersonID)
@@ -177,25 +172,23 @@ CREATE TABLE Invoice(
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 /*!40000 ALTER TABLE Invoice DISABLE KEYS */;
-INSERT INTO Invoice(InvoiceCode, CustomerCode, SalePersonID) VALUES 
+INSERT INTO Invoice(InvoiceCode, CustomerID, SalePersonID) VALUES 
 			('INV001', 1, 1),
             ('INV002', 2, 2),
             ('INV003', 3, 3),
             ('INV004', 4, 4);
 /*!40000 ALTER TABLE Invoice ENABLE KEYS */;  
 
-DROP TABLE IF EXISTS SeasonPass;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE SeasonPass(
 	ProductID int(11) NOT NULL AUTO_INCREMENT,
-	ProductCode varchar(30)  NOT NULL,
+	ProductCode varchar(30) UNIQUE NOT NULL,
     ProductName varchar(30) DEFAULT NULL ,
     StartDate varchar(30) DEFAULT NULL,
     EndDate varchar(30) DEFAULT NULL,
     Price float(11) DEFAULT NULL,
-    PRIMARY KEY (ProductID),
-    FOREIGN KEY (ProductCode) REFERENCES Invoice(InvoiceID)
+    PRIMARY KEY (ProductID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -206,12 +199,10 @@ INSERT INTO SeasonPass(ProductCode, ProductName, StartDate, EndDate, Price) VALU
             ('pro2', '1 Month Plan', '2016-10-07', '2016-11-07', 40.00);
 /*!40000 ALTER TABLE SeasonPass ENABLE KEYS */; 
 
-DROP TABLE IF EXISTS MovieTicket;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE MovieTicket(
 	ProductID int(11) NOT NULL AUTO_INCREMENT,
-	ProductCode varchar(30)  NOT NULL,
+	ProductCode varchar(30) UNIQUE NOT NULL,
     ProductName varchar(30) DEFAULT NULL,
     MovieTime varchar(30),
     AddressID int(11),
@@ -226,15 +217,14 @@ CREATE TABLE MovieTicket(
 INSERT INTO MovieTicket(ProductCode, ProductName, MovieTime, AddressID, ScreenNo, Price) VALUES
 			('586a', 'The Witch', '2016-12-21 15:10', 20, '3A', 11.50),
             ('5089', 'Room', '2016-09-15 12:30', 21, '13F', 15.00),
-            ('4v5a', 'Tangerine', '2016-12-10 10:00', '32B', 15.50);
-/*!40000 ALTER TABLE MovieTheater ENABLE KEYS */; 
+            ('4v5a', 'Tangerine', '2016-12-10 10:00', 22, '32B', 15.50);
+/*!40000 ALTER TABLE MovieTicket ENABLE KEYS */; 
 
-DROP TABLE IF EXISTS Refreshment;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE Refreshment(
 	ProductID int(11) NOT NULL AUTO_INCREMENT,
-	ProductCode varchar(30)  NOT NULL,
+	ProductCode varchar(30) UNIQUE NOT NULL,
     ProductName varchar(30) DEFAULT NULL,
     Price float(11),
     PRIMARY KEY (ProductID)
@@ -247,48 +237,73 @@ INSERT INTO Refreshment(ProductCode, ProductName, Price)  VALUES
             ('6v76', 'Coca Cola-20oz', 4.99);		
 /*!40000 ALTER TABLE Refreshment ENABLE KEYS */;             
 
-
-DROP TABLE IF EXISTS ParkingPass;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE ParkingPass(
 	ProductID int(11) NOT NULL AUTO_INCREMENT,
-	ProductCode varchar(30)  NOT NULL,
+	ProductCode varchar(30) UNIQUE NOT NULL,
     MovieTicketCode varchar(30) DEFAULT NULL,
 	SeasonPassCode varchar(30) DEFAULT NULL,
     Price float(11) DEFAULT -9999,
-    PRIMARY KEY (ProductID),
-    FOREIGN KEY (MovieTicketCode) REFERENCES MovieTicket(ProductCode),
-    FOREIGN KEY (SeasonPassCode) REFERENCES SeasonPass(ProductCode)
+    PRIMARY KEY (ProductID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 /*!40000 ALTER TABLE ParkingPass DISABLE KEYS */;
 INSERT INTO ParkingPass(ProductCode, PRICE)  VALUES
 			('87df', 30.00), ('08ss', 20.00), ('157h', 55.00), ('rcx3', 80.00), ('28bb', 40.00);
-/*!40000 ALTER TABLE ParkingPass ENABLE KEYS */;  
+/*!40000 ALTER TABLE ParkingPass ENABLE KEYS */; 
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE ProductInvoice(
+	ProductInvoiceID int(11) NOT NULL AUTO_INCREMENT,
+    MovieCode varchar(30) DEFAULT NULL,
+    SeasonCode varchar(30) DEFAULT NULL,
+    RefreshmentCode varchar(30) DEFAULT NULL,
+    ParkingCode varchar(30) DEFAULT NULL,
+    InvoiceID int(11) DEFAULT NULL,
+    Amount int(11) DEFAULT NULL,
+    PRIMARY KEY (ProductInvoiceID),
+    FOREIGN KEY (InvoiceID) REFERENCES Invoice(InvoiceID),
+    FOREIGN KEY (MovieCode) REFERENCES MovieTicket(ProductCode),
+    FOREIGN KEY (SeasonCode) REFERENCES SeasonPass(ProductCode),
+    FOREIGN KEY (RefreshmentCode) REFERENCES Refreshment(ProductCode),
+    FOREIGN KEY (ParkingCode) REFERENCES ParkingCode(ProductCode)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+/*!40000 ALTER TABLE ProductInvoice DISABLE KEYS */;
+INSERT INTO ProductInvoice(MovieCode,InvoiceID,Amount) VALUES
+			('586a', 1, 1), ('586a', 2, 1), ('5089',2,30), ('586a', 3, 5);
+INSERT INTO ProductInvoice(SeasonCode,InvoiceID,Amount) VALUES
+			('c67g',2,24),('4v5a',3,5),('9sd0',3,5);
+INSERT INTO ProductInvoice(RefreshmentCode,InvoiceID,Amount) VALUES
+			('ga69',1,2), ('6v76',1,4),('saf9',2,20), ('ga69',3,10), ('4v5a',4,2);
+INSERT INTO ProductInvoice(MovieCode, ParkingCode,InvoiceID,Amount) VALUES
+			('586a','rcx3',1, 1),('586a','87df',2,30),(NULL, '157h',4,5);
+/*!40000 ALTER TABLE ProductInvoice ENABLE KEYS */;  
 
 SELECT * FROM Person;
-
+SELECT * FROM ProductInvoice;
 
 /*--Writing Queries for search;*/;
 /*-- 1*/
-SELECT p.PersonCode, PersonFirstName, PersonLastName, 
-				EmailAddress, a.Street, a.State, a.Zip, a.Country 
-                FROM (Person AS p JOIN Emails AS e ON p.PersonCode = e.PersonCode) 
-                JOIN (Address AS a JOIN pa AS PersonAddress ON a.AddressID = pa.AddressID) 
-                ON p.PersonCode = pa.PersonCode;
+SELECT p.PersonCode, PersonFirstName, PersonLastName, EmailAddress, a.Street, a.State, a.Zip, a.Country
+	FROM(Person AS p JOIN Emails AS e ON p.PersonID = e.PersonID)
+	JOIN (Address AS a JOIN PersonAddress AS pa ON a.AddressID = pa.AddressID) ON p.PersonID = pa.PersonID;
 /*--2*/
-INSERT INTO Emails VALUES (PersonCode, NewEmail);
+INSERT INTO Emails (PersonID, EmailAddress)
+	VALUES (1,'hstucknew@gmail.com');
 
 /*--3*/
 UPDATE 	Address
-SET 		Street = "229 Grove Avenue", State = "OK", Zip = "73750", Country = "USA" 
+SET 		Street = '29 Grove Avenue', State = 'OK', Zip = '73750', Country = 'USA' 
 WHERE	(MovieTicket.AddressID = Address.AddressID);
 
 
 /*--4*/
-DELETE FROM MovieTicket WHERE MovieTicket.ProductCode = "   ";
+DELETE FROM MovieTicket WHERE MovieTicket.ProductCode = '5089';
 
 /*--5*/
 SELECT	ProductCode, ProductName 

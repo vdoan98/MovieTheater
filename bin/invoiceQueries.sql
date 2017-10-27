@@ -121,7 +121,7 @@ INSERT INTO Emails(PersonID, EmailAddress) VALUES
             (11, 'seisssnow@yahoo.com'), (11, 'weissschnee@hotmail.com'),
             (12, 'alicedel@gmail.com'), (12, 'delaney92@yahoo.com'),
             (13, 'jefferyt165@gmail.com'), (13, 'jefferythomas@unl.edu'),
-            (14, 'valerieham@gmail.com'), (14,'3knj', 'valerihamlin@yahoo.com'),
+            (14, 'valerieham@gmail.com'), (14, 'valerihamlin@yahoo.com'),
             (16, 'berndone@tw.net'), (16, 'berndmunch@gmail.com'), (16, 'berndmoench@unl.edu'),
             (17, 'uteute@twc.net'),
             (18, 'lisaluna1@gmail.com'), (18, 'lisaneudort14@yahoo.com');
@@ -167,9 +167,15 @@ DROP TABLE IF EXISTS Invoice;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE Invoice(
 	InvoiceID int(11) NOT NULL AUTO_INCREMENT,
+<<<<<<< HEAD
 	InvoiceCode varchar(30)  NOT NULL,
     CustomerID int(11) ,
     SalePersonID int(11),
+=======
+	InvoiceCode varchar(30) NOT NULL,
+    CustomerID int(11) NOT NULL,
+    SalePersonID int(11) NOT NULL,
+>>>>>>> 7cf9a754367e88d4d3b0e06110952234e3600ec8
     PRIMARY KEY (InvoiceID),
     FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
     FOREIGN KEY (SalePersonID) REFERENCES SalePerson(SalePersonID)
@@ -177,7 +183,11 @@ CREATE TABLE Invoice(
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 /*!40000 ALTER TABLE Invoice DISABLE KEYS */;
+<<<<<<< HEAD
 INSERT INTO Invoice(InvoiceCode, CustomerCode, SalePersonID) VALUES 
+=======
+INSERT INTO Invoice(InvoiceCode, CustomerID, SalePersonID) VALUES 
+>>>>>>> 7cf9a754367e88d4d3b0e06110952234e3600ec8
 			('INV001', 1, 1),
             ('INV002', 2, 2),
             ('INV003', 3, 3),
@@ -194,8 +204,7 @@ CREATE TABLE SeasonPass(
     StartDate varchar(30) DEFAULT NULL,
     EndDate varchar(30) DEFAULT NULL,
     Price float(11) DEFAULT NULL,
-    PRIMARY KEY (ProductID),
-    FOREIGN KEY (ProductCode) REFERENCES Invoice(InvoiceID)
+    PRIMARY KEY (ProductID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
