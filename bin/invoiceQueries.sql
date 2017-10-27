@@ -121,7 +121,7 @@ INSERT INTO Emails(PersonID, EmailAddress) VALUES
             (11, 'seisssnow@yahoo.com'), (11, 'weissschnee@hotmail.com'),
             (12, 'alicedel@gmail.com'), (12, 'delaney92@yahoo.com'),
             (13, 'jefferyt165@gmail.com'), (13, 'jefferythomas@unl.edu'),
-            (14, 'valerieham@gmail.com'), (14,'3knj', 'valerihamlin@yahoo.com'),
+            (14, 'valerieham@gmail.com'), (14, 'valerihamlin@yahoo.com'),
             (16, 'berndone@tw.net'), (16, 'berndmunch@gmail.com'), (16, 'berndmoench@unl.edu'),
             (17, 'uteute@twc.net'),
             (18, 'lisaluna1@gmail.com'), (18, 'lisaneudort14@yahoo.com');
@@ -151,15 +151,15 @@ DROP TABLE IF EXISTS SalePerson;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE SalePerson(
 	SalePersonID int(11) NOT NULL AUTO_INCREMENT,
-    PersonCode varchar(30) NOT NULL DEFAULT '000',
+    PersonID int(11) DEFAULT NULL,
     PRIMARY KEY (SalePersonID),
-    FOREIGN KEY (PersonCode) REFERENCES Person(PersonCode) 
+    FOREIGN KEY (PersonID) REFERENCES Person(PersonID) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 /*!40000 ALTER TABLE SalePerson DISABLE KEYS */;
-INSERT INTO SalePerson(PersonCode) VALUES 
-			('hstuck2'), ('sawin'), ('rbee'), ('nctis');
+INSERT INTO SalePerson(PersonID) VALUES 
+			(2), (18), (11), (17);
 /*!40000 ALTER TABLE SalePerson ENABLE KEYS */;  
 
 DROP TABLE IF EXISTS Invoice;
@@ -167,21 +167,21 @@ DROP TABLE IF EXISTS Invoice;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE Invoice(
 	InvoiceID int(11) NOT NULL AUTO_INCREMENT,
-	InvoiceCode varchar(30)  NOT NULL,
-    CustomerCode varchar(30) ,
-    SalePersonID int(11),
+	InvoiceCode varchar(30) NOT NULL,
+    CustomerID int(11) NOT NULL,
+    SalePersonID int(11) NOT NULL,
     PRIMARY KEY (InvoiceID),
-    FOREIGN KEY (CustomerCode) REFERENCES Customers(CustomerCode),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
     FOREIGN KEY (SalePersonID) REFERENCES SalePerson(SalePersonID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 /*!40000 ALTER TABLE Invoice DISABLE KEYS */;
-INSERT INTO Invoice(InvoiceCode, CustomerCode, SalePersonID) VALUES 
-			('INV001', 'C001', 1),
-            ('INV002', 'C002', 2),
-            ('INV003', 'C003', 3),
-            ('INV004', 'C004', 4);
+INSERT INTO Invoice(InvoiceCode, CustomerID, SalePersonID) VALUES 
+			('INV001', 1, 1),
+            ('INV002', 2, 2),
+            ('INV003', 3, 3),
+            ('INV004', 4, 4);
 /*!40000 ALTER TABLE Invoice ENABLE KEYS */;  
 
 DROP TABLE IF EXISTS SeasonPass;
@@ -194,8 +194,7 @@ CREATE TABLE SeasonPass(
     StartDate varchar(30) DEFAULT NULL,
     EndDate varchar(30) DEFAULT NULL,
     Price float(11) DEFAULT NULL,
-    PRIMARY KEY (ProductID),
-    FOREIGN KEY (ProductCode) REFERENCES Invoice(InvoiceID)
+    PRIMARY KEY (ProductID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
