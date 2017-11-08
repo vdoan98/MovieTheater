@@ -1,4 +1,4 @@
-public class LinkedList<T> {
+public class LinkedList {
 	private LinkedNode start = null;
 	private LinkedNode end = null;
 	private int size;
@@ -87,7 +87,15 @@ public class LinkedList<T> {
 	}
 
 	private LinkedNode getLinkedNode(int position) {
-		throw new UnsupportedOperationException("Not yet implemented.");
+		LinkedNode headNode = start;
+		for(int i = 1; i< position; i++){
+			if(headNode.getNext() == null){
+				return null;
+			}
+			headNode = headNode.getNext();
+		}
+		return headNode;
+		
 	}
 
 	public Object getObject(int position) {
