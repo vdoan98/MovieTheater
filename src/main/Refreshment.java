@@ -1,3 +1,4 @@
+package main;
 import org.joda.time.DateTime;
 
 public class Refreshment implements Product {

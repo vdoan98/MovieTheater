@@ -1,3 +1,4 @@
+package main;
 public class LinkedList {
 	private LinkedNode start = null;
 	private LinkedNode end = null;
