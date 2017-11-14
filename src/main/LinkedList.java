@@ -109,6 +109,10 @@ public class LinkedList {
 		}
 		return headNode.getNodeItem();
 	}
+	
+	public int getSize(){
+		return this.size;
+	}
 
 //	public void print() {
 //		TruckListNode currentNode = start;
