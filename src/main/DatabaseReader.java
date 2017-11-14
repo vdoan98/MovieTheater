@@ -9,12 +9,12 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
+import com.ceg.ext.InvoiceData;
+
 public class DatabaseReader {
 
-	//	ArrayList<Person> personList = new ArrayList<Person>();
-	//	ArrayList<Customer> customerList = new ArrayList<Customer>();
-	//	ArrayList<Product> productList = new ArrayList<Product>();
-	//	ArrayList<Invoice> invoiceList = new ArrayList<Invoice>();
+	InvoiceData allInfo = new InvoiceData();
+
 	LinkedList personList = new LinkedList();
 	LinkedList customerList = new LinkedList();
 	LinkedList productList = new LinkedList();

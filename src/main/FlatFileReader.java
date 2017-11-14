@@ -7,6 +7,8 @@ import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
 public class FlatFileReader {
+	
+	
 
 	ArrayList<Person> personList = new ArrayList<Person>();
 	ArrayList<Customer> customerList = new ArrayList<Customer>();
