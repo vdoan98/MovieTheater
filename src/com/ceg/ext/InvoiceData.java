@@ -118,8 +118,6 @@ public class InvoiceData {
 		}
 	}
 
-	}
-
 	public static void addCustomer(String customerCode, String customerType, String primaryContactPersonCode,
 			String name, String street, String city, String state, String zip, String country) {
 	}
