@@ -192,20 +192,92 @@ public class DatabaseReader {
 		this.readPersons();
 		this.readCustomer();
 
-		String query = "SELECT"
+		String query = "SELECT i.invoice_code, ";
 
+		ArrayList<Product> totalProducts = new ArrayList<Product>();
 
-		while () {
-
-			DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd");
-
-			//TODO: Read in information for invoices. 
-			LinkedList totalProducts = new LinkedList();
-
-
-
-			invoiceList.addToEnd(invoice);
+		for (int i = 0; i < productArray.length; i++) {
+			String tempArray[] = productArray[i].split(":");
+			if (tempArray.length == 2){
+				for (int j = 0; j < this.readProducts().size(); j++) {
+					if (tempArray[0].compareToIgnoreCase(this.readProducts().get(j).getProductCode()) == 0) {
+						if (this.readProducts().get(j) instanceof MovieTicket){
+							MovieTicket tempProduct = new MovieTicket((MovieTicket)this.readProducts().get(j));
+							tempProduct.setAmount(Integer.parseInt(tempArray[1]));
+							tempProduct.isOverStartDate(date);
+							totalProducts.add(tempProduct);
+						}else if (this.readProducts().get(j) instanceof SeasonPass){
+							SeasonPass tempProduct = new SeasonPass((SeasonPass)this.readProducts().get(j));
+							tempProduct.setAmount(Integer.parseInt(tempArray[1]));
+							tempProduct.isOverStartDate(date);
+							totalProducts.add(tempProduct);
+						}else if (this.readProducts().get(j) instanceof Refreshment){
+							Refreshment tempProduct = new Refreshment((Refreshment)this.readProducts().get(j));
+							tempProduct.setAmount(Integer.parseInt(tempArray[1]));
+							tempProduct.isOverStartDate(date);
+							totalProducts.add(tempProduct);
+						}else if(this.readProducts().get(j) instanceof ParkingPass){
+							ParkingPass tempProduct = new ParkingPass((ParkingPass)this.readProducts().get(j));
+							tempProduct.setAmount(Integer.parseInt(tempArray[1])); 
+							totalProducts.add(tempProduct);
+						}
+						break;
+					}
+				}
+			}else if (tempArray.length == 3){ //Reads ParkingPasses
+				for (int j = 0; j < this.readProducts().size(); j++) {
+					if (tempArray[0].compareToIgnoreCase(this.readProducts().get(j).getProductCode()) == 0) {
+						if(this.readProducts().get(j) instanceof ParkingPass){
+							ParkingPass tempProduct = new ParkingPass((ParkingPass)this.readProducts().get(j));
+							tempProduct.setAmount(Integer.parseInt(tempArray[1])); 
+							tempProduct.setTicket(tempArray[2]); //Sets corresponding Product Code
+							totalProducts.add(tempProduct);
+						}
+						
+						break;
+					}
+				}
+			}
+			
 		}
+		
+		for (int i = 0; i < totalProducts.size() ; i ++){
+			if (totalProducts.get(i) instanceof ParkingPass){
+				
+				for (int j = 0; j < totalProducts.size(); j++){
+					if (totalProducts.get(j) != null){
+						if (((totalProducts.get(j) instanceof MovieTicket && (((ParkingPass) totalProducts.get(i)).getTicket()).compareTo(((MovieTicket) totalProducts.get(j)).getProductCode()) == 0)
+								|| (totalProducts.get(j) instanceof SeasonPass && (((ParkingPass) totalProducts.get(i)).getTicket()).compareTo(((SeasonPass) totalProducts.get(j)).getProductCode()) == 0))){
+								((ParkingPass) totalProducts.get(i)).setTicketAmount(totalProducts.get(j).getAmount());
+							}
+					}
+					
+				}
+			}
+		}
+		
+
+		Invoice invoice = new Invoice (code, date, totalProducts);
+
+		
+		//checkCustomer 
+		for (int i = 0; i < this.readCustomer().size(); i++) {
+			if(((this.readCustomer().get(i).getCustomerCode()).compareToIgnoreCase(data[1])) == 0) {
+				invoice.setCustomer(this.readCustomer().get(i));
+				break;
+			}
+		}
+		
+
+		//check the sale person
+		for (int i = 0; i < personList.size(); i++) {
+			if(((this.readPersons().get(i).getPersonCode()).compareToIgnoreCase(data[2])) == 0) {
+				invoice.setSalePerson(this.readPersons().get(i));
+				break;
+			}
+		}
+
+		invoiceList.add(invoice);
 
 		return invoiceList;
 	}
