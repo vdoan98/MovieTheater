@@ -183,14 +183,16 @@ public class DatabaseReader {
 	}
 
 	public LinkedList readInvoices() {
-
+		
+		
+		Connection conn = DatabaseInfo.getConnection();
 
 		//Invoke readPersons() and readCustomer() before invoice run 
 		//Prevent personList and customerList size from being 0
 		this.readPersons();
 		this.readCustomer();
 
-
+		String query = "SELECT"
 
 
 		while () {
