@@ -32,33 +32,34 @@ public class DatabaseReader {
 
 		String query = "SELECT p.person_id, p.person_code, p.last_name, p.first_name, a.street, a.city, a.state, a.zip, a.country FROM ((Person AS p JOIN PersonAddress AS pa ON p.person_id = pa.person_id) JOIN Address AS a ON pa.address_id = a.address_id)";
 
-		try{
+		try {
 			PreparedStatement ps = conn.prepareStatement(query);
 			ResultSet rs = ps.executeQuery();
 
-			while(rs.next()){
-				address = new Address(rs.getString("a.street"), rs.getString("a.city"), rs.getString("a.state"), rs.getString("a.zip"), rs.getString("a.country"));
-				person = new Person(rs.getString("p.person_code"), rs.getString("p.last_name"), rs.getString("p.first_name"), address);
+			while (rs.next()) {
+				address = new Address(rs.getString("a.street"), rs.getString("a.city"), rs.getString("a.state"),
+						rs.getString("a.zip"), rs.getString("a.country"));
+				person = new Person(rs.getString("p.person_code"), rs.getString("p.last_name"),
+						rs.getString("p.first_name"), address);
 				String id = rs.getString("p.person_code");
 				String query2 = "SELECT email_address FROM (Person AS p JOIN Emails AS e ON p.person_id = e.person_id) WHERE p.person_code = ?";
 				ps = conn.prepareStatement(query2);
 				ps.setString(1, id);
 				rs = ps.executeQuery();
-				while(rs.next()){
+				while (rs.next()) {
 					person.addEmail(rs.getString("email_address"));
 				}
 				personList.addToEnd(person);
 			}
 			rs.close();
 
-		}catch (SQLException e){
+		} catch (SQLException e) {
 			System.out.println("SQLException: ");
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
 
 		return personList;
-
 
 	}
 
@@ -68,94 +69,119 @@ public class DatabaseReader {
 
 		Customer customer;
 
-		//public Customer(String customerCode, char type, Person contact, String name, Address address) 
+		// public Customer(String customerCode, char type, Person contact, String name,
+		// Address address)
 		String query = "SELECT p.person_code, c.customer_code, c.customer_type FROM (Person AS p JOIN Customers AS c ON p.person_id = c.person_id)";
 
-		try{
+		try {
 			PreparedStatement ps = conn.prepareStatement(query);
 			ResultSet rs = ps.executeQuery();
-			while(rs.next()){
-				for (int i = 0; i < this.readPersons().getSize(); i++){
-					if(((Person)this.readPersons().getObject(i)).getPersonCode().compareToIgnoreCase(rs.getString("p.person_code")) == 0){
-						if (rs.getString("c.customer_type").charAt(0) == 'S'){
-							customer = new Student(rs.getString("c.customer_code"), rs.getString("c.customer_type").charAt(0),
-									((Person)this.readPersons().getObject(i)), ((Person)this.readPersons().getObject(i)).getFirstName() + ((Person)this.readPersons().getObject(i)).getLastName(),
-									((Person)this.readPersons().getObject(i)).getAddress());
+			while (rs.next()) {
+				for (int i = 0; i < this.readPersons().getSize(); i++) {
+					if (((Person) this.readPersons().getObject(i)).getPersonCode()
+							.compareToIgnoreCase(rs.getString("p.person_code")) == 0) {
+						if (rs.getString("c.customer_type").charAt(0) == 'S') {
+							customer = new Student(rs.getString("c.customer_code"),
+									rs.getString("c.customer_type").charAt(0),
+									((Person) this.readPersons().getObject(i)),
+									((Person) this.readPersons().getObject(i)).getFirstName()
+											+ ((Person) this.readPersons().getObject(i)).getLastName(),
+									((Person) this.readPersons().getObject(i)).getAddress());
 							customerList.addToEnd(customer);
-						}else if (rs.getString("c.customer_type").charAt(0) == 'G'){
-							customer = new General(rs.getString("c.customer_code"), rs.getString("c.customer_type").charAt(0),
-									((Person)this.readPersons().getObject(i)), ((Person)this.readPersons().getObject(i)).getFirstName() + ((Person)this.readPersons().getObject(i)).getLastName(),
-									((Person)this.readPersons().getObject(i)).getAddress());
+						} else if (rs.getString("c.customer_type").charAt(0) == 'G') {
+							customer = new General(rs.getString("c.customer_code"),
+									rs.getString("c.customer_type").charAt(0),
+									((Person) this.readPersons().getObject(i)),
+									((Person) this.readPersons().getObject(i)).getFirstName()
+											+ ((Person) this.readPersons().getObject(i)).getLastName(),
+									((Person) this.readPersons().getObject(i)).getAddress());
 							customerList.addToEnd(customer);
 						}
-
-
 
 					}
 				}
 			}
 			rs.close();
 
-		}catch (SQLException e){
+		} catch (SQLException e) {
 			System.out.println("SQLException: ");
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
 
-
 		return customerList;
 	}
-
-
-
-
 
 	public LinkedList readProducts() {
 
 
 		//TODO: Replace with QUERY to get all information from database. 
-		while () {
+			Connection conn = DatabaseInfo.getConnection();
 
 			SeasonPass season;
 			MovieTicket ticket;
 			ParkingPass parking;
 			Refreshment refresh;
+			Product product;
+
+			String query = "SELECT p.product_code, p.product_type, p.product_name, p.price, p.product_amount,s.start_date,s.end_date FROM Product AS p JOIN SeasonPass AS s ON p.product_id=s.product_id";
+
+			try{
+				PreparedStatement ps = conn.prepareStatement(query);
+				ResultSet rs = ps.executeQuery();
 
 			DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd");
 			DateTimeFormatter formatTime = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm");
-
-			switch (data[1].charAt(0)) {
-			case 'S':
-				//TODO: Construction of new SeasonPass based on database 
-				season = new SeasonPass();
-
-				productList.addToEnd(season);
-				break;
-			case 'M':
-				//TODO: Construction of new Address based on database.
-				Address address = new Address();
-				//TODO: Construction of new MovieTicket based on database. 
-				ticket = new MovieTicket();
-
-				productList.addToEnd(ticket);
-				break;
-			case 'P':
-				//TODO: Construction of new ParkingPass based on database
-				parking = new ParkingPass();
-
-				productList.addToEnd(parking);
-				break;
-			case 'R':
-				//TODO: Construction of new Refreshment based on database 
-				refresh = new Refreshment();
-
-				productList.addToEnd(refresh);;
-				break;
-
+			while(rs.next()) {
+				for (int i = 0; i < this.readProducts().getSize(); i++) {
+					if (((Product) this.readProducts().getObject(i)).getProductCode()
+							.compareToIgnoreCase(rs.getString("p.product_code")) == 0) {
+						if (rs.getString("p.product_type").charAt(0) == 'S') {
+							product = new SeasonPass(rs.getString("p.product_code"),
+									rs.getString("p.product_type").charAt(0), rs.getString("p.product_name"), rs.getDate("s.start_date"),rs.getString("s.end_date"), rs.getDouble("p.price"));
+							productList.addToEnd(product);
+//							Refreshment(String productCode, char type, String name, double price, int amount)
+						} else if (rs.getString("p.product_type").charAt(0) == 'R') {
+							product = new Refreshment(rs.getString("p.product_code"),
+									rs.getString("p.product_type").charAt(0), rs.getString("p.product_name"), rs.getDouble("p.product_price"), rs.getInt("p.product_amount"));
+							customerList.addToEnd(product);
+//							String productCode, char type, DateTime time, String movieName, Address address, String screenNo,
+//							double pricePerUnit
+						} else if (rs.getString("p.product_type").charAt(0) == 'M') {
+							product = new MovieTicket(rs.getString("p.product_code"), rs.getString("p.product_type").charAt(0), rs.getString("m.movie_time"));
+						}
 			}
+//			switch (data[1].charAt(0)) {
+//			case 'S':
+//				//TODO: Construction of new SeasonPass based on database 
+//				season = new SeasonPass();
+//
+//				productList.addToEnd(season);
+//				break;
+//			case 'M':
+//				//TODO: Construction of new Address based on database.
+//				Address address = new Address();
+//				//TODO: Construction of new MovieTicket based on database. 
+//				ticket = new MovieTicket();
+//
+//				productList.addToEnd(ticket);
+//				break;
+//			case 'P':
+//				//TODO: Construction of new ParkingPass based on database
+//				parking = new ParkingPass();
+//
+//				productList.addToEnd(parking);
+//				break;
+//			case 'R':
+//				//TODO: Construction of new Refreshment based on database 
+//				refresh = new Refreshment();
+//
+//				productList.addToEnd(refresh);;
+//				break;
+//
+//			}
 
-		}
-
+		
 
 		return productList;
 
