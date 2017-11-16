@@ -114,77 +114,71 @@ public class DatabaseReader {
 
 	public LinkedList readProducts() {
 
+		// TODO: Replace with QUERY to get all information from database.
+		Connection conn = DatabaseInfo.getConnection();
 
-		//TODO: Replace with QUERY to get all information from database. 
-			Connection conn = DatabaseInfo.getConnection();
+		SeasonPass season;
+		MovieTicket ticket;
+		ParkingPass parking;
+		Refreshment refresh;
+		Product product;
 
-			SeasonPass season;
-			MovieTicket ticket;
-			ParkingPass parking;
-			Refreshment refresh;
-			Product product;
+		String query = "SELECT p.product_code, p.product_type, p.product_name, p.price, p.product_amount,s.start_date,s.end_date FROM (Product AS p JOIN SeasonPass AS s ON p.product_id=s.product_id)";
 
-			String query = "SELECT p.product_code, p.product_type, p.product_name, p.price, p.product_amount,s.start_date,s.end_date FROM Product AS p JOIN SeasonPass AS s ON p.product_id=s.product_id";
-
-			try{
-				PreparedStatement ps = conn.prepareStatement(query);
-				ResultSet rs = ps.executeQuery();
+		try {
+			PreparedStatement ps = conn.prepareStatement(query);
+			ResultSet rs = ps.executeQuery();
 
 			DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd");
 			DateTimeFormatter formatTime = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm");
-			while(rs.next()) {
+			while (rs.next()) {
 				for (int i = 0; i < this.readProducts().getSize(); i++) {
 					if (((Product) this.readProducts().getObject(i)).getProductCode()
 							.compareToIgnoreCase(rs.getString("p.product_code")) == 0) {
 						if (rs.getString("p.product_type").charAt(0) == 'S') {
+							String seasonStartDate = rs.getString("s.start_date");
+							String seasonEndDate = rs.getString("s.end_date");
+							DateTime start_date = formatTime.parseDateTime(seasonStartDate);
+							DateTime end_date = formatTime.parseDateTime(seasonEndDate);
 							product = new SeasonPass(rs.getString("p.product_code"),
-									rs.getString("p.product_type").charAt(0), rs.getString("p.product_name"), rs.getDate("s.start_date"),rs.getString("s.end_date"), rs.getDouble("p.price"));
+									rs.getString("p.product_type").charAt(0), rs.getString("p.product_name"),
+									start_date, end_date, rs.getDouble("p.price"));
 							productList.addToEnd(product);
-//							Refreshment(String productCode, char type, String name, double price, int amount)
+							// Refreshment(String productCode, char type, String name, double price, int
+							// amount)
 						} else if (rs.getString("p.product_type").charAt(0) == 'R') {
 							product = new Refreshment(rs.getString("p.product_code"),
-									rs.getString("p.product_type").charAt(0), rs.getString("p.product_name"), rs.getDouble("p.product_price"), rs.getInt("p.product_amount"));
+									rs.getString("p.product_type").charAt(0), rs.getString("p.product_name"),
+									rs.getDouble("p.product_price"), rs.getInt("p.product_amount"));
 							customerList.addToEnd(product);
-//							String productCode, char type, DateTime time, String movieName, Address address, String screenNo,
-//							double pricePerUnit
+							// String productCode, char type, DateTime time, String movieName, Address
+							// address, String screenNo,
+							// double pricePerUnit
 						} else if (rs.getString("p.product_type").charAt(0) == 'M') {
-							product = new MovieTicket(rs.getString("p.product_code"), rs.getString("p.product_type").charAt(0), rs.getString("m.movie_time"));
+							String movieTime = rs.getString("m.movie_time");
+							DateTime movie_time = formatTime.parseDateTime(movieTime);
+							product = new MovieTicket(rs.getString("p.product_code"),
+									rs.getString("p.product_type").charAt(0), movie_time,
+									rs.getString("p.product_name"),
+									((MovieTicket) this.readProducts().getObject(i)).getAddress(),
+									rs.getString("m.screen_no"), rs.getDouble("p.product_amount"));
+							customerList.addToEnd(product);
+						} else if (rs.getString("p.product_type").charAt(0) == 'P') {
+							product = new ParkingPass(rs.getString("p.product_code"),
+									rs.getString("p.product_type").charAt(0), rs.getDouble("p.price"));
+							customerList.addToEnd(product);
 						}
+					}
+				}
 			}
-//			switch (data[1].charAt(0)) {
-//			case 'S':
-//				//TODO: Construction of new SeasonPass based on database 
-//				season = new SeasonPass();
-//
-//				productList.addToEnd(season);
-//				break;
-//			case 'M':
-//				//TODO: Construction of new Address based on database.
-//				Address address = new Address();
-//				//TODO: Construction of new MovieTicket based on database. 
-//				ticket = new MovieTicket();
-//
-//				productList.addToEnd(ticket);
-//				break;
-//			case 'P':
-//				//TODO: Construction of new ParkingPass based on database
-//				parking = new ParkingPass();
-//
-//				productList.addToEnd(parking);
-//				break;
-//			case 'R':
-//				//TODO: Construction of new Refreshment based on database 
-//				refresh = new Refreshment();
-//
-//				productList.addToEnd(refresh);;
-//				break;
-//
-//			}
-
-		
+			rs.close();
+		} catch (SQLException e) {
+			System.out.println("SQLException: ");
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
 
 		return productList;
-
 
 	}
 
