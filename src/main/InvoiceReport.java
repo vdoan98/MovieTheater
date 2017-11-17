@@ -16,7 +16,9 @@ public class InvoiceReport {
 		DateTimeFormatter dtfOut = DateTimeFormat.forPattern("MMM dd,yyyy hh:mm");
 		DecimalFormat df = new DecimalFormat("0.00");
 		LinkedList invoiceArray = dataReader.readInvoices();
-		
+		LinkedList customerArray = dataReader.readCustomer();
+		LinkedList personArray = dataReader.readPersons();
+		LinkedList productArray = dataReader.readProducts();
 		
 		Product tempProduct;
 		Boolean hasTicket = false;
@@ -40,7 +42,8 @@ public class InvoiceReport {
 			hasTicket = false;
 			
 		}
-
+		
+	
 		System.out.println("Executive Summary Report");
 		System.out.println("=========================");
 		System.out.printf("%-8.8s %-35.35s %-20.20s %-10.10s %-10.10s %-10.10s %-10.10s %-10.10s\n", "Invoice", "Customer"

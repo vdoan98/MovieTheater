@@ -31,6 +31,10 @@ public class Invoice {
 		this.customer = customer;
 	}
 	
+	public Invoice(String code) {
+		this.code = code;
+	}
+	
 	
 	/**
 	 * @param discount the discount to set
