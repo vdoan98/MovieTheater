@@ -48,30 +48,7 @@ public class InvoiceData {
 	public static void addPerson(String personCode, String firstName, String lastName, String street, String city,
 			String state, String zip, String country) throws SQLException {
 
-		Connection conn = DatabaseInfo.getConnection();
-
-		Address a = new Address(street, city, state, zip, country);
-		Person p = new Person(personCode, firstName, lastName, a);
-		String personQuery = "INSERT INTO Person(personCode,firstName,lastName)" + "VALUES(?,?,?)"; // Insert into
-																									// Address table
-		String addressQuery = "INSERT INTO Address(street,city,state,zip,country)" + "VALUES(?,?,?,?,?)"; // Insert into
-																											// Person
-																											// table
-
-		PreparedStatement ps = conn.prepareStatement(personQuery);
-		ps.setString(1, personCode);
-		ps.setString(2, firstName);
-		ps.setString(3, lastName);
-		ResultSet rs = ps.executeQuery();
-		ps = conn.prepareStatement(addressQuery);
-		ps.setString(1, street);
-		ps.setString(2, city);
-		ps.setString(3, state);
-		ps.setString(4, country);
-		rs = ps.executeQuery();
-
-		rs.next();
-		conn.close();
+		
 	}
 
 	/**
@@ -153,26 +130,8 @@ public class InvoiceData {
 		Connection conn = DatabaseInfo.getConnection();
 
 		// TODO: Create query
-		String ticketQuery = "INSERT INTO MovieTicket(product_id,movie_time,address_id,screen_no, product_code,movie_name,price)"
-				+ "VALUES (?,?,?,?)";
-		String addressQuery = "INSERT INTO Address(street,city,state,zip,country)" + "VALUES(?,?,?,?,?)";
-		PreparedStatement ps = conn.prepareStatement(ticketQuery);
-		ps.setInt(1, 16);
-		ps.setString(2, dateTime);
-		ps.setInt(3, 9);
-		ps.setString(4, screenNo);
-		ps.setString(5, productCode);
-		ps.setString(6, movieName);
-		ps.setDouble(7, pricePerUnit);
-		ps.execute();
-
-		ps = conn.prepareStatement(addressQuery);
-		ps.setString(1, street);
-		ps.setString(2, city);
-		ps.setString(3, zip);
-		ps.setString(4, country);
-		ps.execute();
-		conn.close();
+	
+		
 
 	}
 
